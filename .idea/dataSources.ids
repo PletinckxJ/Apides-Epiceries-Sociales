@@ -3,4 +3,188 @@
   <data-source name="MySQL - mysql55-54.bdb@ftp.cluster003.ovh.net" uuid="38433168-ec15-4735-a945-8860b72c17c4">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source name="MySQL - apides@localhost" uuid="f9fc2ce2-98d7-4b4c-813c-223c4f24932c">
+    <database-info product="MySQL" version="5.6.17" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="apides"/>
+    <table name="activation" schema="" catalog="apides" type="TABLE">
+      <column name="id_utilisateur" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="code" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="libelle" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <primary-key name="PRIMARY" columns="id_utilisateur,libelle"/>
+    </table>
+    <table name="beneficiaire_achat" schema="" catalog="apides" type="TABLE">
+      <column name="id_beneficiaire" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_produit" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="quantite" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_beneficiaire,id_produit,date"/>
+      <index name="id_produit" unique="false" columns="id_produit"/>
+    </table>
+    <table name="beneficiaire_budget" schema="" catalog="apides" type="TABLE">
+      <column name="id_budget" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_beneficiaire" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_budget,id_beneficiaire"/>
+      <index name="unique_id_beneficiaire" unique="true" columns="id_beneficiaire"/>
+    </table>
+    <table name="beneficiaires" schema="" catalog="apides" type="TABLE">
+      <column name="adresse" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="code_postal" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5" def="MA=="/>
+      <column name="date_inscription" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="gsm" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="limite_acces" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="mail" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nom" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="note" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="numero_registre" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="prenom" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="referent_social" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ville" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="numero_registre" unique="true" columns="numero_registre"/>
+      <index name="code_postal" unique="false" columns="code_postal"/>
+    </table>
+    <table name="budget_mensuel" schema="" catalog="apides" type="TABLE">
+      <column name="budget_mens" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8" def="MA=="/>
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="situation_fam" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="unique_id" unique="true" columns="id"/>
+    </table>
+    <table name="devis" schema="" catalog="apides" type="TABLE">
+      <column name="cloture" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
+      <column name="date_emission" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="num_devis" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="num_devis" unique="true" columns="num_devis"/>
+    </table>
+    <table name="droit" schema="" catalog="apides" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="libelle" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="unique_id" unique="true" columns="id"/>
+    </table>
+    <table name="fournisseur" schema="" catalog="apides" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="libelle" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="unique_id" unique="true" columns="id"/>
+    </table>
+    <table name="marque" schema="" catalog="apides" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="libelle" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="unique_id" unique="true" columns="id"/>
+      <index name="unique_libelle" unique="true" columns="libelle"/>
+    </table>
+    <table name="produit_devis" schema="" catalog="apides" type="TABLE">
+      <column name="id_produit" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_devis" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="quantite" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_produit,id_devis"/>
+      <index name="id_devis" unique="false" columns="id_devis"/>
+    </table>
+    <table name="produit_fournisseur" schema="" catalog="apides" type="TABLE">
+      <column name="id_produit" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_fournisseur" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_produit,id_fournisseur"/>
+      <index name="unique_id_produit" unique="true" columns="id_produit"/>
+      <index name="id_fournisseur" unique="false" columns="id_fournisseur"/>
+    </table>
+    <table name="produit_marque" schema="" catalog="apides" type="TABLE">
+      <column name="id_produit" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_marque" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_produit,id_marque"/>
+      <index name="unique_id_produit" unique="true" columns="id_produit"/>
+      <index name="id_marque" unique="false" columns="id_marque"/>
+    </table>
+    <table name="produit_section" schema="" catalog="apides" type="TABLE">
+      <column name="id_produit" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_section" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_produit,id_section"/>
+      <index name="unique_id_produit" unique="true" columns="id_produit"/>
+      <index name="id_section" unique="false" columns="id_section"/>
+    </table>
+    <table name="produit_tva" schema="" catalog="apides" type="TABLE">
+      <column name="id_produit" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_tva" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_produit,id_tva"/>
+      <index name="unique_id_produit" unique="true" columns="id_produit"/>
+      <index name="id_tva" unique="false" columns="id_tva"/>
+    </table>
+    <table name="produits" schema="" catalog="apides" type="TABLE">
+      <column name="promo" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="code_produit" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="DLV" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <column name="EAN" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="groupement" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="poids" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="prix_htva" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="produit" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="produit_actif" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MQ=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="code_produit" unique="true" columns="code_produit"/>
+    </table>
+    <table name="remarque" schema="" catalog="apides" type="TABLE">
+      <column name="Date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="remarque" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="remarque_utilisateur" schema="" catalog="apides" type="TABLE">
+      <column name="id_remarque" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_utilisateur" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_remarque,id_utilisateur"/>
+      <index name="unique_id_remarque" unique="true" columns="id_remarque"/>
+      <index name="id_utilisateur" unique="false" columns="id_utilisateur"/>
+    </table>
+    <table name="sections" schema="" catalog="apides" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="numero" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5" def="MA=="/>
+      <column name="section" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="libelle" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="numero" unique="false" columns="numero"/>
+      <index name="Sectionssection" unique="false" columns="section"/>
+    </table>
+    <table name="taux_tva" schema="" catalog="apides" type="TABLE">
+      <column name="coef" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8" def="MA=="/>
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="texte_tva" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="utilisateur" schema="" catalog="apides" type="TABLE">
+      <column name="nom_societe" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="contact" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="mdp" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="mail" sqlType="VARCHAR" precision="120" scale="0" nullable="false" jdbcType="12"/>
+      <column name="date_inscription" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="date_connexion" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="salt" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="telephone" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="nom_societe" unique="false" columns="nom_societe"/>
+    </table>
+    <table name="utilisateur_devis" schema="" catalog="apides" type="TABLE">
+      <column name="id_utilisateur" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_devis" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_utilisateur,id_devis"/>
+      <index name="unique_id_devis" unique="true" columns="id_devis"/>
+    </table>
+    <table name="utilisateur_droit" schema="" catalog="apides" type="TABLE">
+      <column name="id_utilisateur" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_droit" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_utilisateur,id_droit"/>
+      <index name="unique_id_utilisateur" unique="true" columns="id_utilisateur"/>
+      <index name="id_droit" unique="false" columns="id_droit"/>
+    </table>
+  </data-source>
 </component>

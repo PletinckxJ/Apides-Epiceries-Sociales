@@ -6,5 +6,11 @@
       <first-sync>true</first-sync>
       <user-name>centraleulroot</user-name>
     </data-source>
+    <data-source name="MySQL - apides@localhost" uuid="f9fc2ce2-98d7-4b4c-813c-223c4f24932c">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>apides.*</schema-pattern>
+      <default-schemas>apides.*</default-schemas>
+    </data-source>
   </component>
 </project>
