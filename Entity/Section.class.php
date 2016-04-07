@@ -9,8 +9,6 @@
 class Section {
 
     private $id;
-    private $numero;
-    private $section;
     private $libelle;
 
     /**
@@ -36,19 +34,10 @@ class Section {
         return $this->id;
     }
 
-    public function getNumero()
-    {
-        return $this->numero;
-    }
-
-    public function getSection()
-    {
-        return $this->section;
-    }
 
     public function getLibelle()
     {
-        return $this->section;
+        return $this->libelle;
     }
 
     /** SETTER */
@@ -58,15 +47,6 @@ class Section {
         $this->id = $id;
     }
 
-    public function setNumero($numero)
-    {
-        $this->numero = $numero;
-    }
-
-    public function setSection($section)
-    {
-        $this->section = $section;
-    }
 
     public function setLibelle($libelle)
     {

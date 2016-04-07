@@ -17,6 +17,11 @@ class BeneficiaireManager {
         $this->db = $database;
     }
 
+    public function benefBudget(Beneficiaire $benef) {
+        $budget = $this->getBenefBudget($benef);
+        $benef->setBudget($budget);
+        return $benef;
+    }
 
     public function getAllBeneficiaire() {
         $resultats = $this->db->query("SELECT * FROM beneficiaires");
@@ -29,8 +34,7 @@ class BeneficiaireManager {
         foreach($tabBenef as $elem)
         {
             $benef = new Beneficiaire($elem);
-            $tabBudget = $this->getBenefBudget($benef);
-            $benef->setBudget($tabBudget);
+            $benef = $this->benefBudget($benef);
             $tab[] = $benef;
 
         }
@@ -67,8 +71,7 @@ class BeneficiaireManager {
         if($tabBenef = $query->fetch(PDO::FETCH_ASSOC))
         {
             $benef = new Beneficiaire($tabBenef);
-            $tabBudget = $this->getBenefBudget($benef);
-            $benef->setBudget($tabBudget);
+            $benef = $this->benefBudget($benef);
         }
         else
         {
@@ -86,15 +89,15 @@ class BeneficiaireManager {
         ));
 
         $tabBudget = $query->fetchAll(PDO::FETCH_ASSOC);
+        $budgetBenef = new Budget(array());
 
-        $tab = array();
         foreach($tabBudget as $elem)
         {
             $budgetBenef = $bm->getBudgetById($elem['id_budget']);
-            $tab[] = $budgetBenef;
+
 
         }
-        return $tab;
+        return $budgetBenef;
     }
 
     public function setBenefBudget(Beneficiaire $benef, Budget $budget)

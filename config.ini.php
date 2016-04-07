@@ -5,7 +5,7 @@ size_user_name = 5
 size_user_mdp = 5
 [DATABASE]
 type = mysql
-host = localhost
+host = mysql55-54.bdb
 username = centraleulroot
 password = Apides2016
 dbname = centraleulroot

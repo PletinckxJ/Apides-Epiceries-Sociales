@@ -35,6 +35,23 @@ class MarqueManager {
         return $tab;
     }
 
+    public function getMarqueById($id) {
+        $query = $this->db->prepare("SELECT * FROM marque WHERE id = :id");
+        $query->execute(array(
+            ":id" => $id
+        ));
+
+        if ($tabMarque = $query->fetch(PDO::FETCH_ASSOC)) {
+            $marque = new Marque($tabMarque);
+        } else {
+            $marque = new Marque(array());
+        }
+
+
+
+        return $marque;
+    }
+
     public function updateMarque(Marque $marque) {
 
         $query = $this

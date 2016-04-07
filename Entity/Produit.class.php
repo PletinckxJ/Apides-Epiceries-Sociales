@@ -18,10 +18,10 @@ class Produit {
     private $prix_htva;
     private $produit;
     private $produit_actif;
-    private $fournisseur = array();
-    private $marque = array();
-    private $section = array();
-    private $tva = array();
+    private $fournisseur;
+    private $marque;
+    private $section;
+    private $tva;
 
     /**
      * Fonction permettant l'hydratation de la classe.
@@ -163,21 +163,21 @@ class Produit {
         $this->produit_actif = $produit_actif;
     }
 
-    public function setFournisseur(array $fournisseur)
+    public function setFournisseur(Fournisseur $fournisseur)
     {
         $this->fournisseur = $fournisseur;
     }
 
-    public function setMarque(array $marque)
+    public function setMarque(Marque $marque)
     {
         $this->marque = $marque;
     }
 
-    public function setSection(array $section)
+    public function setSection(Section $section)
     {
         $this->section = $section;
     }
-    public function setTVA(array $tva)
+    public function setTVA(TVA $tva)
     {
         $this->tva = $tva;
     }

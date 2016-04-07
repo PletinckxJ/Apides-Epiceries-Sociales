@@ -1,0 +1,51 @@
+#outPopUp {
+    position: absolute;
+    z-index: 15;
+    top: 50%;
+    left: 50%;
+    margin: -255px 0 0 -150px;
+}
+
+#boxConnexion {
+    border : 1px solid black;
+    border-radius : 3px;
+    margin : 2em 0 0 -50px;
+    padding : 5em;
+    width : 486px;
+    height : 185px;
+}
+
+#boxConnexion a {
+    text-decoration : none;
+}
+
+.danger {
+    color : red;
+    margin : 1em;
+}
+#connexion {
+    text-align : center;
+    font-size : 16px;
+    font-family : Verdana, sans-serif;
+}
+
+#connexion label {
+    margin-right : 1em;
+}
+
+#connexion input {
+    height : 25px;
+    padding-left : 1em;
+    width : 250px;
+}
+
+#connexion button {
+    height : 42px;
+    font-size : 17px;
+    width : 150px;
+}
+
+#mdp {
+    margin-left : 3em;
+}
+

@@ -31,14 +31,18 @@ class DroitManager
             ":id" => $id,
         ));
 
-        $tabDroit = $query->fetch(PDO::FETCH_ASSOC);
+        if ($tabDroit = $query->fetch(PDO::FETCH_ASSOC)) {
+            $droit = new Droit($tabDroit);
+        } else {
+            $droit = new Droit(array());
+        }
 
-        return new Droit($tabDroit);
+        return $droit;
     }
 
     /**
      * Fonction permettant d'ajouter un nouveau droit en base de données.
-     * @param $newLabel : le nouveau libellé du droit.
+     * @param $libelle : le nouveau libellé du droit.
      */
     public function addDroit($libelle)
     {

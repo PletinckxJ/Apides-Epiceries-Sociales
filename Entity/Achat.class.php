@@ -10,7 +10,7 @@ class Achat {
 
     private $date;
     private $quantite;
-    private $produit = array();
+    private $produit;
 
     /**
      * Fonction permettant l'hydratation de la classe.
@@ -52,7 +52,7 @@ class Achat {
         $this->quantite = $quantite;
     }
 
-    public function setProduit(array $produit)
+    public function setProduit(Produit $produit)
     {
         $this->produit = $produit;
     }

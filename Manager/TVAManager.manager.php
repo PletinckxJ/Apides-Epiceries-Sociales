@@ -50,6 +50,24 @@ class TVAManager {
 
     }
 
+    public function getTVAById($id) {
+        $query = $this->db->prepare("SELECT * FROM taux_tva WHERE id = :id");
+        $query->execute(array(
+            ":id" => $id
+        ));
+
+        if ($tabTVA = $query->fetch(PDO::FETCH_ASSOC)) {
+            $tva = new TVA($tabTVA);
+        } else {
+            $tva = new TVA(array());
+        }
+
+
+
+        return $tva;
+    }
+
+
     public function addTVA(TVA $tva) {
         $query = $this
             ->db

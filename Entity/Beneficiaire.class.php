@@ -21,7 +21,7 @@ class Beneficiaire {
     private $numero_registre;
     private $referent_social;
     private $ville;
-    private $budget = array();
+    private $budget;
 
     /**
      * Fonction permettant l'hydratation de la classe.
@@ -144,7 +144,7 @@ class Beneficiaire {
         $this->gsm = $gsm;
     }
 
-    public function setBudget(array $budget)
+    public function setBudget(Budget $budget)
     {
         $this->budget = $budget;
     }

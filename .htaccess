@@ -1,0 +1,4 @@
+RewriteEngine On
+AddDefaultCharset UTF-8
+
+#TODO apprendre la réécriture d'url

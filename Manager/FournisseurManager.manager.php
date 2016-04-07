@@ -52,6 +52,24 @@ class FournisseurManager
 
     }
 
+    public function getFournisseurById($id) {
+        $query = $this->db->prepare("SELECT * FROM fournisseur WHERE id = :id");
+        $query->execute(array(
+            ":id" => $id
+        ));
+
+        if ($tabFournisseur = $query->fetch(PDO::FETCH_ASSOC)) {
+            $fournisseur = new Fournisseur($tabFournisseur);
+        } else {
+            $fournisseur = new Fournisseur(array());
+        }
+
+
+
+        return $fournisseur;
+    }
+
+
     public function addFournisseur($libelle)
     {
         $query = $this

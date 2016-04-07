@@ -16,7 +16,7 @@ class Utilisateur
     private $date_inscription;
     private $date_connexion;
     private $contact;
-    private $droit = array();
+    private $droit;
     private $salt;
 
     /**
@@ -122,7 +122,7 @@ class Utilisateur
         $this->date_connexion = $date_connexion;
     }
 
-    public function setDroit(array $droit)
+    public function setDroit(Droit $droit)
     {
         $this->droit = $droit;
     }

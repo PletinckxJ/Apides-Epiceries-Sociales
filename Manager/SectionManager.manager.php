@@ -52,6 +52,24 @@ class SectionManager
 
     }
 
+    public function getSectionById($id) {
+        $query = $this->db->prepare("SELECT * FROM sections WHERE id = :id");
+        $query->execute(array(
+            ":id" => $id
+        ));
+
+        if ($tabSection = $query->fetch(PDO::FETCH_ASSOC)) {
+            $section = new Section($tabSection);
+        } else {
+            $section = new Section(array());
+        }
+
+
+
+        return $section;
+    }
+
+
     public function addSection($libelle)
     {
         $query = $this

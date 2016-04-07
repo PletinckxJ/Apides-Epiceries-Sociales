@@ -17,6 +17,12 @@ class UserManager {
         $this->db = $database;
     }
 
+    public function userDroit(Utilisateur $user) {
+        $droit = $this->getUserDroit($user);
+        $user->setDroit($droit);
+        return $user;
+    }
+
     public function getAllUser() {
         $resultats = $this->db->query("SELECT * FROM utilisateur");
         $resultats->execute();
@@ -28,8 +34,7 @@ class UserManager {
         foreach($tabUser as $elem)
         {
             $user = new Utilisateur($elem);
-            $tabDroit = $this->getUserDroit($user);
-            $user->setDroit($tabDroit);
+            $user = $this->userDroit($user);
             $tab[] = $user;
 
         }
@@ -59,31 +64,33 @@ class UserManager {
     /**
      * Fonction permettant d'aller retrouver les droits d'un membre.
      * @param Utilisateur $user : le membre concerné.
-     * @return array : le tableau des droits de l'utilisateur.
+     * @return Droit : le tableau des droits de l'utilisateur.
      */
     public function getUserDroit(Utilisateur $user)
     {
         $dm = new DroitManager(connexionDb());
-        $query = $this->db->prepare("SELECT * FROM user_droit WHERE id_utilisateur = :id");
+        $query = $this->db->prepare("SELECT * FROM utilisateur_droit WHERE id_utilisateur = :id");
         $query->execute(array(
             ":id" => $user->getId()
         ));
 
         $tabDroit = $query->fetchAll(PDO::FETCH_ASSOC);
 
-        $tab = array();
+        $droitUser = new Droit(array());
         foreach($tabDroit as $elem)
         {
             $droitUser = $dm->getDroitById($elem['id_droit']);
-            $tab[] = $droitUser;
+
 
         }
-        return $tab;
+        return $droitUser;
     }
 
     public function setUserDroit(Utilisateur $user, $droits)
     {
-        $query = $this->db->prepare("INSERT INTO user_droit(id_droit, id_utilisateur) values (:idDroit, :idUser)");
+        var_dump($user);
+        var_dump($droits);
+        $query = $this->db->prepare("INSERT INTO utilisateur_droit(id_droit, id_utilisateur) values (:idDroit, :idUser)");
         $query->execute(array(
             ":idUser" => $user->getId(),
             ":idDroit" => $droits
@@ -99,8 +106,7 @@ class UserManager {
 
         if ($tabUser = $query->fetch(PDO::FETCH_ASSOC)) {
             $user = new Utilisateur($tabUser);
-            $tabDroit = $this->getUserDroit($user);
-            $user->setDroit($tabDroit);
+            $user = $this->userDroit($user);
         } else {
             $user = new Utilisateur(array());
         }
@@ -125,8 +131,7 @@ class UserManager {
         if($tabUser = $query->fetch(PDO::FETCH_ASSOC))
         {
             $user = new Utilisateur($tabUser);
-            $tabDroit = $this->getUserDroit($user);
-            $user->setDroit($tabDroit);
+            $user = $this->userDroit($user);
         }
         else
         {
@@ -137,7 +142,7 @@ class UserManager {
 
     /**
      * Fonction permettant de retrouver un user en fonction de son email.
-     * @param $email : l'email de l'utilisateur.
+     * @param mail : l'email de l'utilisateur.
      * @return Utilisateur : la classe user trouvée.
      */
     public function getUserByEmail($mail)
@@ -152,8 +157,7 @@ class UserManager {
         if($tabUser = $query->fetch(PDO::FETCH_ASSOC))
         {
             $user = new Utilisateur($tabUser);
-            $tabDroit = $this->getUserDroit($user);
-            $user->setDroit($tabDroit);
+            $user = $this->userDroit($user);
         }
         else
         {

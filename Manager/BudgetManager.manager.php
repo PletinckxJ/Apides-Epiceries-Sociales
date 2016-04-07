@@ -55,7 +55,7 @@ class BudgetManager {
     public function updateBudget(Budget $budget) {
         $query = $this
             ->db
-            ->prepare("UPDATE budget_mensuel SET budget_mens = :budget , situation_faml = :situation WHERE id = :id");
+            ->prepare("UPDATE budget_mensuel SET budget_mens = :budget , situation_fam = :situation WHERE id = :id");
 
         $query
             ->execute(array(
