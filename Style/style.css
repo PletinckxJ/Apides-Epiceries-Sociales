@@ -291,8 +291,21 @@ width:166px;height:25px;display:block;background:url(images/checked.png) no-repe
 text-decoration:none;color:#504b4b;padding:0 0 0 30px; line-height:25px;
 }
 ul.left_menu li.even a{
-width:166px;height:25px;display:block;background:url(images/checked.png) no-repeat left #eee6e6;background-position:5px 5px;border-bottom:1px #FFFFFF solid;
-text-decoration:none;color:#504b4b;padding:0 0 0 30px; line-height:25px;
+    width:166px;height:25px;display:block;background:url(images/checked.png) no-repeat left #eee6e6;background-position:5px 5px;border-bottom:1px #FFFFFF solid;
+    text-decoration:none;color:#504b4b;padding:0 0 0 30px; line-height:25px;
+}
+
+ul.left_menu li.odd2 a{
+    width:166px;height:25px;display:block;background:url(images/play-green-button-arrow-clip-art.png) no-repeat left #dad0d0; background-position:5px 5px;border-bottom:1px #FFFFFF solid;
+    text-decoration:none;color:#504b4b;padding:0 0 0 30px; line-height:25px;
+}
+ul.left_menu li.even2 a{
+    width:166px;height:25px;display:block;background:url(images/play-green-button-arrow-clip-art.png) no-repeat left #eee6e6;background-position:5px 5px;border-bottom:1px #FFFFFF solid;
+    text-decoration:none;color:#504b4b;padding:0 0 0 30px; line-height:25px;
+}
+
+ul.left_menu li.even2 a:hover, ul.left_menu li.odd2 a:hover{
+    background:url(images/play-green-button-arrow-clip-art.png) no-repeat left #7bbcc7; color:#FFFFFF;background-position:5px 5px;
 }
 ul.left_menu li.even a:hover, ul.left_menu li.odd a:hover{
 background:url(images/checked.png) no-repeat left #7bbcc7; color:#FFFFFF;background-position:5px 5px;
@@ -376,6 +389,7 @@ color:#847676;
 font-weight:bold;
 background:url(images/bar_bg.gif) no-repeat center;
 }
+
 
 /*----------------------right content--------------*/
 .right_content{
@@ -548,7 +562,7 @@ _padding:5px 0 5px 0;
 color:#a53d17;
 }
 label.contact{
-width:75px;
+width:200px;
 float:left;
 font-size:12px;
 text-align:right;

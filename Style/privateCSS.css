@@ -46,6 +46,13 @@
 }
 
 #mdp {
-    margin-left : 3em;
+    margin-left : 2.5em;
 }
 
+.formCreation input, label {
+    margin : 1em;
+}
+
+.formCreation button {
+    margin-left : 15em;
+}

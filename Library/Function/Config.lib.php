@@ -12,6 +12,6 @@
  */
 function getConfigFile()
 {
-    return parse_ini_file("config.ini.php", true);
+    return parse_ini_file("../config.ini.php", true);
 
 }
