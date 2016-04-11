@@ -88,12 +88,20 @@ class UserManager {
 
     public function setUserDroit(Utilisateur $user, $droits)
     {
-        var_dump($user);
-        var_dump($droits);
+
         $query = $this->db->prepare("INSERT INTO utilisateur_droit(id_droit, id_utilisateur) values (:idDroit, :idUser)");
         $query->execute(array(
             ":idUser" => $user->getId(),
             ":idDroit" => $droits
+        ));
+    }
+
+    public function updateUserDroit($idUser, $idDroit)
+    {
+        $query = $this->db->prepare("UPDATE utilisateur_droit set id_droit = :idDroit WHERE id_utilisateur = :idUser");
+        $query->execute(array(
+            ":idUser" => $idUser,
+            ":idDroit" => $idDroit
         ));
     }
 
@@ -196,7 +204,6 @@ class UserManager {
      */
     public function updateUserProfil(Utilisateur $user)
     {
-
         $query = $this
             ->db
             ->prepare("UPDATE utilisateur SET nom_societe = :username , mdp = :mdp , contact = :contact, mail = :mail, telephone = :tel WHERE id = :id");
@@ -206,10 +213,11 @@ class UserManager {
                 ":id" => $user->getId(),
                 ":username" => $user->getNomSociete(),
                 ":contact" => $user->getContact(),
-                ":email" => $user->getMail(),
+                ":mail" => $user->getMail(),
                 ":mdp" => $user->getMdp(),
                 ":tel" => $user->getTelephone(),
             ));
+        $this->updateUserDroit($user->getId(), $user->getDroit()->getId());
 
 
     }

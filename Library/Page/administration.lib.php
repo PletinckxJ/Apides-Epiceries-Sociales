@@ -7,10 +7,14 @@
  */
 
 function getTitle() {
-    if (!isset($_GET['page'])) {
+    if (isset($_GET['page']) && $_GET['page'] == "modifyUser") {
+        return "Profil de l'utilisateur";
+    } else if (isset($_GET['page']) && $_GET['page'] == "showUser") {
+        return "Devis de l'utilisateur";
+    } else if (!isset($_GET['option'])) {
+        return "Liste des membres";
+    } else if ($_GET['option'] == "createAccount") {
         return "Création de compte";
-    } else {
-        return "Nothing";
     }
 }
 
@@ -117,6 +121,16 @@ function addDB()
     $am->addActivation($activation);
 
 
+}
+
+function modifyUser(Utilisateur $user) {
+    $user->setNomSociete($_POST['name']);
+    $user->setContact($_POST['toContact']);
+    $user->setTelephone($_POST['gsm']);
+    $user->setMail($_POST['mail']);
+    $user->getDroit()->setId($_POST['grade']);
+    $um = new UserManager(connexionDb());
+    $um->updateUserProfil($user);
 }
 
 ?>

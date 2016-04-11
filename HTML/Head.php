@@ -22,6 +22,11 @@
     <script src="../js/jquery-1.12.3.js"></script>
     <script type="text/javascript" src="../js/boxOver.js"></script>
     <script type="text/javascript" src="../js/verifPassword.js"></script>
-
-</head>
+    <script type="text/javascript" src="../js/jquery.simplePagination.js"></script>
+    <script>
+        $(function() {
+            $("#example").simplePagination({});
+        });
+    </script>
+   </head>
 <body>

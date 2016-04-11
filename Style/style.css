@@ -569,14 +569,15 @@ text-align:right;
 padding:4px 5px 0 0;
 color: #333333;
 }
-input.contact_input{
+input.contact_input, select.contact_input{
 width:253px;
 height:18px;
 background-color:#fff;
-color:#999999;
+color:black;
 border:1px #DFDFDF solid;
 float:left;
 }
+
 textarea.contact_textarea{
 width:253px;
 height:50px;

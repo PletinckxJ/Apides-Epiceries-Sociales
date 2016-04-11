@@ -21,8 +21,8 @@ if (isset($_POST['formulaire']) && isValid()['Retour']) {
 
 <?php
 
-    if (isConnect()) {
-        include("../HTML/AdministrationContent.php");
+    if (isConnect() && $_SESSION['Utilisateur']->getDroit()->getId() == 1) {
+        include("../HTML/Administration/AdministrationContent.php");
     } else {
         header("Location :../Deconnexion");
     }

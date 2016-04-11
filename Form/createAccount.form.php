@@ -7,7 +7,7 @@
  */
 
 ?>
-<form action="index.php" method="post" class="formCreation">
+<form action="index.php?page=users&option=createAccount" method="post" class="formCreation">
     <label class="contact" for="name"><strong>Nom de société :</strong></label>
     <input type="text" class="contact_input" id="name" name="name" required>
     <label class="contact" for="toContact"><strong>Personne de contact :</strong></label>
@@ -17,9 +17,10 @@
     <label class="contact" for="mail"><strong>Mail :</strong></label>
     <input type="email" class="contact_input" id="mail" name="mail" required>
     <label class="contact" for="mdp"><strong>Mot de passe :</strong></label>
-    <input type="password" class="contact_input" id="txtNewPassword" name="mdp" required>
+    <input type="password" class="contact_input" id="txtNewPassword" name="mdp" onchange="checkPasswordMatch();"required>
     <label class="contact" for="mdpverif"><strong>Vérification du mot de passe :</strong></label>
     <input type="password" class="contact_input" id="txtConfirmPassword" name="mdpverif" onchange="checkPasswordMatch();" required>
+    <label for="error" class="contact" style="color:Red; display:none;width:350px;">Les mots de passe ne correspondent pas</label>
     <div class="form_row">
         <button type="submit"  name="formulaire" id="btnCompte">Créer le compte</button>
     </div>

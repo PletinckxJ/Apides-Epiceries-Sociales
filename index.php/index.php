@@ -25,7 +25,7 @@ include("../HTML/Head.php");
         echo "</div>";
         echo "</span>";
     } else {
-        header("Location :../Administration/");
+        header("Location :../Administration/index.php?page=users");
     }
 ?>
 </body>

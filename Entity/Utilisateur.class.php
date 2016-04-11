@@ -127,8 +127,11 @@ class Utilisateur
         $this->droit = $droit;
     }
 
-    public function setTelelephone($tel)
+    public function setTelephone($tel)
     {
+        if ($tel == NULL) {
+            $tel = "Inconnu";
+        }
         $this->telephone = $tel;
     }
 

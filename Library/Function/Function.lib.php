@@ -23,4 +23,15 @@ function genererCode() {
     return $code_aleatoire;
 }
 
+function membreExistant() {
+    $id = $_GET['id'];
+    $um = new UserManager(connexionDb());
+    $user = $um->getUserById($id);
+    if ($user->getNomSociete() == NULL) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 ?>
