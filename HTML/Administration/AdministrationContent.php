@@ -33,6 +33,13 @@ $title = getTitle();
                 }
             } else if ($_GET['page'] == "modifyUser" && isset($_GET['id']) && membreExistant()) {
                 include("../HTML/Administration/AdministrationUserProfil.php");
+            } else if ($_GET['page'] == "benef" && !isset($_GET['option'])) {
+                include("../HTML/Administration/AdministrationBenefList");
+            } else if ($_GET['page'] == "benef" && $_GET['option'] == "create") {
+                include("../Form/createBeneficiaire.form.php");
+                if (isset($_POST['createBenef'])) {
+                    addBenef();
+                }
             } else {
                 header("Location :../Deconnexion");
             }

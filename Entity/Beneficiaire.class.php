@@ -164,7 +164,7 @@ class Beneficiaire {
         $this->prenom = $prenom;
     }
 
-    public function setReferent($referent)
+    public function setReferent(Referent $referent)
     {
         $this->referent_social = $referent;
     }

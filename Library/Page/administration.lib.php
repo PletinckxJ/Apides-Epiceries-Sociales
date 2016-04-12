@@ -7,14 +7,28 @@
  */
 
 function getTitle() {
-    if (isset($_GET['page']) && $_GET['page'] == "modifyUser") {
-        return "Profil de l'utilisateur";
-    } else if (isset($_GET['page']) && $_GET['page'] == "showUser") {
-        return "Devis de l'utilisateur";
-    } else if (!isset($_GET['option'])) {
-        return "Liste des membres";
-    } else if ($_GET['option'] == "createAccount") {
-        return "Création de compte";
+    if (!isset($_GET['page']) || $_GET['page'] == "users") {
+        if (!isset($_GET['option'])) {
+            return "Liste des membres";
+        } else if ($_GET['option'] == "createAccount") {
+            return "Création de compte";
+        }
+    } else if (isset($_GET['page'])) {
+        if ($_GET['page'] == "modifyUser") {
+            return "Profil de l'utilisateur";
+        } else if ($_GET['page'] == "showUser") {
+            return "Devis de l'utilisateur";
+        } else if ($_GET['page'] == "benef") {
+            if (!isset($_GET['option'])) {
+                return "Liste des bénéficiaires";
+            } else {
+                if ($_GET['option'] == 'create') {
+                    return "Création d'un bénéficiaire";
+                }
+            }
+        }
+    } else {
+        return "Error";
     }
 }
 
@@ -131,6 +145,39 @@ function modifyUser(Utilisateur $user) {
     $user->getDroit()->setId($_POST['grade']);
     $um = new UserManager(connexionDb());
     $um->updateUserProfil($user);
+}
+
+function addBenef() {
+    $benef = new Beneficiaire(array());
+    $bm = new BeneficiaireManager(connexionDb());
+    $benef->setAdresse($_POST['address']);
+    $benef->setCodePostal($_POST['code']);
+    $benef->setNom($_POST['name']);
+    $benef->setMail($_POST['mail']);
+    $benef->setPrenom($_POST['prenom']);
+    $benef->setVille($_POST['ville']);
+    $benef->setNumeroRegistre($_POST['numReg']);
+    if (isset($_POST['note']) && $_POST['note'] != NULL)
+        $benef->setNote($_POST['Note']);
+    else
+        $benef->setNote('');
+    $budget = new Budget(array());
+    $budget->setId($_POST['budget']);
+    $ref = new Referent(array());
+    $ref->setId($_POST['referent']);
+    $benef->setBudget($budget);
+    $benef->setReferent($ref);
+
+    $refTest = $bm->getBeneficiaireByRegistre($benef->getNumeroRegistre());
+    if ($refTest->getId() != NULL) {
+        return "<label class='contact' style='color:Red; display:none;width:350px;'>Le numéro de registre existe déjà</label>";
+    } else {
+        $bm->addBenef($benef);
+        $bm->setBenefBudget($benef, $benef->getBudget());
+        $bm->setBenefReferent($benef, $benef->getReferent());
+    }
+
+
 }
 
 ?>

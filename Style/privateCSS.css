@@ -93,10 +93,14 @@ tr:nth-child(even) {background-color: #f2f2f2}
     margin-left : 2.5em;
 }
 
-.formCreation input, label, select {
+.formCreation input, label, select{
     margin : 1em;
 }
 
 .formCreation button {
     margin-left : 15em;
+    margin-top : 2em;
+    width : 300px;
 }
+
+

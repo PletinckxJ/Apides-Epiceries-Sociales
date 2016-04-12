@@ -17,9 +17,12 @@ class BeneficiaireManager {
         $this->db = $database;
     }
 
-    public function benefBudget(Beneficiaire $benef) {
+    public function benefBudgetAndReferent(Beneficiaire $benef) {
         $budget = $this->getBenefBudget($benef);
         $benef->setBudget($budget);
+        $ref = $this->getBenefReferent($benef);
+        $benef->setReferent($ref);
+
         return $benef;
     }
 
@@ -34,7 +37,7 @@ class BeneficiaireManager {
         foreach($tabBenef as $elem)
         {
             $benef = new Beneficiaire($elem);
-            $benef = $this->benefBudget($benef);
+            $benef = $this->benefBudgetAndReferent($benef);
             $tab[] = $benef;
 
         }
@@ -60,6 +63,23 @@ class BeneficiaireManager {
 
         return $tab;
     }
+    public function getBeneficiaireByRegistre($reg) {
+        $query = $this->db->prepare("SELECT * FROM beneficiaires WHERE numero_registre = :reg");
+        $query->execute(array(
+            ":reg" => $reg
+        ));
+
+        if($tabBenef = $query->fetch(PDO::FETCH_ASSOC))
+        {
+            $benef = new Beneficiaire($tabBenef);
+            $benef = $this->benefBudgetAndReferent($benef);
+        }
+        else
+        {
+            $benef = new Beneficiaire(array());
+        }
+        return $benef;
+    }
 
     public function getBeneficiaireByName($name) {
 
@@ -71,7 +91,7 @@ class BeneficiaireManager {
         if($tabBenef = $query->fetch(PDO::FETCH_ASSOC))
         {
             $benef = new Beneficiaire($tabBenef);
-            $benef = $this->benefBudget($benef);
+            $benef = $this->benefBudgetAndReferent($benef);
         }
         else
         {
@@ -100,9 +120,38 @@ class BeneficiaireManager {
         return $budgetBenef;
     }
 
+    public function getBenefReferent(Beneficiaire $benef)
+    {
+        $rm = new ReferentManager(connexionDb());
+        $query = $this->db->prepare("SELECT * FROM beneficiaire_referent WHERE id_beneficiaire = :id");
+        $query->execute(array(
+            ":id" => $benef->getId()
+        ));
+
+        $tabRef = $query->fetchAll(PDO::FETCH_ASSOC);
+        $ref = new Referent(array());
+
+        foreach($tabRef as $elem)
+        {
+            $ref = $rm->getReferentById($elem['id_referent']);
+
+
+        }
+        return $ref;
+    }
+
+    public function setBenefReferent(Beneficiaire $benef, Referent $ref)
+    {
+        $query = $this->db->prepare("INSERT INTO beneficiaire_referent (id_beneficiaire, id_referent) values (:id_benef, :id_ref)");
+        $query->execute(array(
+            ":id_benef" => $benef->getId(),
+            ":id_ref" => $ref->getId()
+        ));
+    }
+
     public function setBenefBudget(Beneficiaire $benef, Budget $budget)
     {
-        $query = $this->db->prepare("INSERT INTO beneficiaire_budget(id_beneficiaire, id_budget) values (:id_budget, :id_benef)");
+        $query = $this->db->prepare("INSERT INTO beneficiaire_budget(id_beneficiaire, id_budget) values (:id_benef, :id_budget)");
         $query->execute(array(
             ":id_benef" => $benef->getId(),
             ":id_budget" => $budget->getId()
@@ -118,7 +167,7 @@ class BeneficiaireManager {
         $query = $this
             ->db
             ->prepare("INSERT INTO beneficiaires(adresse, code_postal, date_inscription, gsm, limite_acces, mail, nom, note,
-            numero_registre, prenom, referent_social, ville) VALUES (:adresse , :code_postal , NOW(), :gsm, :limite, :mail, :nom, :note, :numero, :prenom, :referent, :ville)");
+            numero_registre, prenom, ville) VALUES (:adresse , :code_postal , NOW(), :gsm, :limite, :mail, :nom, :note, :numero, :prenom,  :ville)");
 
         $query->execute(array(
             ":adresse" => $benef->getAdresse(),
@@ -130,7 +179,6 @@ class BeneficiaireManager {
             ":note" => $benef->getNote(),
             ":numero" => $benef->getNumeroRegistre(),
             ":prenom" => $benef->getPrenom(),
-            ":referent" =>$benef->getReferent(),
             ":ville" => $benef->getVille()
             ));
 
@@ -148,7 +196,7 @@ class BeneficiaireManager {
         $query = $this
             ->db
             ->prepare("UPDATE beneficiaires SET adresse = :adresse , code_postal = :code , gsm = :gsm, mail = :mail, limite_acces = :limite, nom = :nom, note = :note, numero_registre = :numero,
-                    prenom = :prenom, referent_social = :referent, ville = :ville WHERE id = :id");
+                    prenom = :prenom, ville = :ville WHERE id = :id");
 
         $query
             ->execute(array(
