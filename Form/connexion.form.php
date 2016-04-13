@@ -8,7 +8,7 @@
 
 ?>
 
-<form action="index.php" method="post">
+<form action="" method="post">
         <label for="userName">Nom d'utilisateur :  </label>
             <input type="text" class="form-control" id="userName" name="userName" placeholder="Votre nom d'utilisateur" required>
         <br><br>

@@ -5,7 +5,7 @@
  * Date: 08-04-16
  * Time: 11:40
  */
-
+ob_start();
 $title = getTitle();
 ?>
 
@@ -34,12 +34,27 @@ $title = getTitle();
             } else if ($_GET['page'] == "modifyUser" && isset($_GET['id']) && membreExistant()) {
                 include("../HTML/Administration/AdministrationUserProfil.php");
             } else if ($_GET['page'] == "benef" && !isset($_GET['option'])) {
-                include("../HTML/Administration/AdministrationBenefList");
+                include("../HTML/Administration/AdministrationBenefList.php");
             } else if ($_GET['page'] == "benef" && $_GET['option'] == "create") {
                 include("../Form/createBeneficiaire.form.php");
                 if (isset($_POST['createBenef'])) {
-                    addBenef();
+                    echo addBenef();
                 }
+            } else if ($_GET['page'] == "benef" && $_GET['option'] == "budget") {
+                include("../HTML/Administration/AdministrationBenefBudget.php");
+            } else if ($_GET['page'] == "modifyBenef" && isset($_GET['id']) && benefExistant()) {
+                include("../HTML/Administration/AdministrationBenefProfil.php");
+            } else if ($_GET['page'] == "createBudget") {
+                include("../Form/createBudget.form.php");
+                if (isset($_POST['creerBudget'])) {
+                    if (addBudget()) {
+                        header("Location: ../Administration/index.php?page=benef&option=budget");
+                    } else {
+                        echo "<label class='contact' style='color:Red; width:350px;'>Le budget existe déjà</label>";
+                    }
+                }
+            } else if ($_GET['page'] == "modifyBudget" && isset($_GET['id']) && budgetExistant()) {
+                include("../HTML/Administration/AdministrationModifyBudget.php");
             } else {
                 header("Location :../Deconnexion");
             }

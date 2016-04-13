@@ -37,8 +37,7 @@ class BudgetManager {
     }
 
     public function getBudgetById($id) {
-
-        $resultats = $this->db->query("SELECT * FROM budget_mensuel WHERE id = :id");
+        $resultats = $this->db->prepare("SELECT * FROM budget_mensuel WHERE id = :id");
         $resultats->execute(array(
             ":id" => $id
         ));
@@ -50,6 +49,21 @@ class BudgetManager {
         }
 
             return $budget;
+    }
+
+    public function getBudgetBySituation(Budget $budget) {
+        $resultats = $this->db->prepare("SELECT * FROM budget_mensuel WHERE situation_fam = :sit");
+        $resultats->execute(array(
+            ":sit" => $budget->getSituationFam()
+        ));
+
+        if ($tabBudget = $resultats->fetch(PDO::FETCH_ASSOC)) {
+            $budget = new Budget($tabBudget);
+        } else {
+            $budget = new Budget(array());
+        }
+
+        return $budget;
     }
 
     public function updateBudget(Budget $budget) {

@@ -34,4 +34,27 @@ function membreExistant() {
     }
 }
 
+function benefExistant() {
+    $id = $_GET['id'];
+    $bm = new BeneficiaireManager(connexionDb());
+    $benef = $bm->getBeneficiaireById($id);
+    if ($benef->getNumeroRegistre() == NULL) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function budgetExistant() {
+    $id = $_GET['id'];
+    $bm = new BudgetManager(connexionDb());
+    $budget = $bm->getBudgetById($id);
+    if ($budget->getSituationFam() == NULL) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+
 ?>

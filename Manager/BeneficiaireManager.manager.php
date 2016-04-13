@@ -81,6 +81,23 @@ class BeneficiaireManager {
         return $benef;
     }
 
+    public function getBeneficiaireById($id) {
+        $query = $this->db->prepare("SELECT * FROM beneficiaires WHERE id = :id");
+        $query->execute(array(
+            ":id" => $id
+        ));
+
+        if($tabBenef = $query->fetch(PDO::FETCH_ASSOC))
+        {
+            $benef = new Beneficiaire($tabBenef);
+            $benef = $this->benefBudgetAndReferent($benef);
+        }
+        else
+        {
+            $benef = new Beneficiaire(array());
+        }
+        return $benef;
+    }
     public function getBeneficiaireByName($name) {
 
         $query = $this->db->prepare("SELECT * FROM beneficiaires WHERE nom = :name");
@@ -158,6 +175,22 @@ class BeneficiaireManager {
         ));
     }
 
+    public function updateBenefReferent(Beneficiaire $benef, Referent $ref) {
+        $query = $this->db->prepare("UPDATE beneficiaire_referent SET id_referent = :idRef WHERE id_beneficiaire = :idBen");
+        $query->execute(array(
+            ":idBen" => $benef->getId(),
+            ":idRef" => $ref->getId()
+        ));
+    }
+
+    public function updateBenefBudget(Beneficiaire $benef, Budget $budget) {
+        $query = $this->db->prepare("UPDATE beneficiaire_budget SET idBud = :idBud WHERE id_beneficiaire = :idBen");
+        $query->execute(array(
+            ":idBen" => $benef->getId(),
+            ":idBud" => $budget->getId()
+        ));
+    }
+
     /**
      * Fonction permettant d'ajouter un utilisateur à la BDD.
      * @param Beneficiaire $benef : l'utilisateur à ajouter.
@@ -175,7 +208,7 @@ class BeneficiaireManager {
             ":gsm" => $benef->getGsm(),
             ":limite" => $benef->getLimiteAccces(),
             ":mail" => $benef->getMail(),
-            ":nom" => $benef->getNote(),
+            ":nom" => $benef->getNom(),
             ":note" => $benef->getNote(),
             ":numero" => $benef->getNumeroRegistre(),
             ":prenom" => $benef->getPrenom(),
@@ -190,9 +223,8 @@ class BeneficiaireManager {
      * Fonction permettant de mettre à jour les données d'un utilisateur.
      * @param Beneficiaire $benef : la classe modifiée de l'utilisateur.
      */
-    public function updateUserProfil(Beneficiaire $benef)
+    public function updateBeneficiaire(Beneficiaire $benef)
     {
-
         $query = $this
             ->db
             ->prepare("UPDATE beneficiaires SET adresse = :adresse , code_postal = :code , gsm = :gsm, mail = :mail, limite_acces = :limite, nom = :nom, note = :note, numero_registre = :numero,
@@ -202,15 +234,14 @@ class BeneficiaireManager {
             ->execute(array(
                 ":id" => $benef->getId(),
                 ":adresse" => $benef->getAdresse(),
-                ":code_postal" => $benef->getCodePostal(),
+                ":code" => $benef->getCodePostal(),
                 ":gsm" => $benef->getGsm(),
-                ":limite" => $benef->getLimiteAccces(),
+                ":limite" => "NULL",
                 ":mail" => $benef->getMail(),
-                ":nom" => $benef->getNote(),
+                ":nom" => $benef->getNom(),
                 ":note" => $benef->getNote(),
                 ":numero" => $benef->getNumeroRegistre(),
                 ":prenom" => $benef->getPrenom(),
-                ":referent" =>$benef->getReferent(),
                 ":ville" => $benef->getVille()
             ));
 

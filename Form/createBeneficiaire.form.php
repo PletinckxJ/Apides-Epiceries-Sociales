@@ -12,7 +12,7 @@ $tabBudget = $bm->getAllBudget();
 ?>
 
 <form action="index.php?page=benef&option=create" method="post" class="formCreation">
-    <label class="contact" for="referent"><strong>Grade :</strong></label>
+    <label class="contact" for="referent"><strong>Référent :</strong></label>
 
     <select name='referent' id='referent' class="contact_input">
         <?php
@@ -29,7 +29,7 @@ $tabBudget = $bm->getAllBudget();
     <label class="contact" for="address"><strong>Adresse :</strong></label>
     <input type="text" class="contact_input" id="address" name="address">
     <label class="contact" for="code"><strong>Code postal :</strong></label>
-    <input type="text" class="contact_input" id="code" name="code"  required>
+    <input type="number" class="contact_input" id="code" name="code"  required>
     <label class="contact" for="ville"><strong>Ville :</strong></label>
     <input type="text" class="contact_input" id="ville" name="ville"  required>
     <label class="contact" for="mail"><strong>Mail :</strong></label>
