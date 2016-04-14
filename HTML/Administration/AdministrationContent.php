@@ -55,6 +55,52 @@ $title = getTitle();
                 }
             } else if ($_GET['page'] == "modifyBudget" && isset($_GET['id']) && budgetExistant()) {
                 include("../HTML/Administration/AdministrationModifyBudget.php");
+            } else if ($_GET['page'] == "produit" && !isset($_GET['option'])) {
+                include("../HTML/Administration/AdministrationProduitList.php");
+            } else if ($_GET['page'] == "produit" && $_GET['option'] == "create") {
+                include("../Form/createProduit.form.php");
+                if (isset($_POST['createProduit'])) {
+                    echo addProduit();
+                }
+            } else if ($_GET['page'] == "modifyProduit" && isset($_GET['id']) && produitExistant()) {
+                include("../HTML/Administration/AdministrationModifyProduit.php");
+            } else if ($_GET['page'] == "produit" && $_GET['option'] == "fournisseur") {
+                include("../HTML/Administration/AdministrationProduitFournisseur.php");
+            } else if ($_GET['page'] == "createFournisseur") {
+                include("../Form/createFournisseur.form.php");
+                if (isset($_POST['creerFourni'])) {
+                    echo addFournisseur();
+                }
+            } else if ($_GET['page'] == "modifyFournisseur" && isset($_GET['id']) && fournisseurExistant()) {
+                include("../HTML/Administration/AdministrationModifyFournisseur.php");
+
+            } else if ($_GET['page'] == "produit" && $_GET['option'] == "section") {
+                include("../HTML/Administration/AdministrationProduitSection.php");
+            } else if ($_GET['page'] == "createSection") {
+                include("../Form/createSection.form.php");
+                if (isset($_POST['creerSection'])) {
+                    echo addSection();
+                }
+            } else if ($_GET['page'] == "modifySection" && isset($_GET['id']) && SectionExistant()) {
+                include("../HTML/Administration/AdministrationModifySection.php");
+            } else if ($_GET['page'] == "produit" && $_GET['option'] == "marque") {
+                include("../HTML/Administration/AdministrationProduitMarque.php");
+            } else if ($_GET['page'] == "createMarque") {
+                include("../Form/createMarque.form.php");
+                if (isset($_POST['creerMarque'])) {
+                    echo addMarque();
+                }
+            } else if ($_GET['page'] == "modifyMarque" && isset($_GET['id']) && marqueExistant()) {
+                include("../HTML/Administration/AdministrationModifyMarque.php");
+            } else if ($_GET['page'] == "produit" && $_GET['option'] == "tva") {
+                include("../HTML/Administration/AdministrationProduitTVA.php");
+            } else if ($_GET['page'] == "createTVA") {
+                include("../Form/createTVA.form.php");
+                if (isset($_POST['creerTVA'])) {
+                    echo addTVA();
+                }
+            } else if ($_GET['page'] == "modifyTVA" && isset($_GET['id']) && TVAExistant()) {
+                include("../HTML/Administration/AdministrationModifyTVA.php");
             } else {
                 header("Location :../Deconnexion");
             }

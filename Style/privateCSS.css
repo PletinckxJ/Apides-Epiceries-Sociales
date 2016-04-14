@@ -82,10 +82,7 @@ th button:active {
 tr:nth-child(even) {background-color: #f2f2f2}
 
 
-#actions {
-    padding-left : 2em;
 
-}
 #outPopUp {
     position: absolute;
     z-index: 15;

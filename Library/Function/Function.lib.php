@@ -56,5 +56,61 @@ function budgetExistant() {
     }
 }
 
+function produitExistant() {
+    $id = $_GET['id'];
+    $pm = new ProduitManager(connexionDb());
+    $produit = $pm->getProduitById($id);
+    if ($produit->getCodeProduit() == NULL) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function fournisseurExistant() {
+    $id = $_GET['id'];
+    $fm = new FournisseurManager(connexionDb());
+    $fournisseur = $fm->getFournisseurById($id);
+    if ($fournisseur->getLibelle() == NULL) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function marqueExistant() {
+    $id = $_GET['id'];
+    $mm = new MarqueManager(connexionDb());
+    $marque = $mm->getMarqueById($id);
+    if ($marque->getLibelle() == NULL) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function sectionExistant() {
+    $id = $_GET['id'];
+    $sm = new SectionManager(connexionDb());
+    $section = $sm->getSectionById($id);
+    if ($section->getLibelle() == NULL) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function TVAExistant() {
+    $id = $_GET['id'];
+    $tm = new TVAManager(connexionDb());
+    $tva = $tm->getTVAById($id);
+    if ($tva->getTexteTVA() == NULL) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+
 
 ?>

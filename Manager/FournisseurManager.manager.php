@@ -69,6 +69,22 @@ class FournisseurManager
         return $fournisseur;
     }
 
+    public function getFournisseurByLibelle($libelle) {
+        $query = $this->db->prepare("SELECT * FROM fournisseur WHERE libelle = :lib");
+        $query->execute(array(
+            ":lib" => $libelle
+        ));
+
+        if ($tabFournisseur = $query->fetch(PDO::FETCH_ASSOC)) {
+            $fournisseur = new Fournisseur($tabFournisseur);
+        } else {
+            $fournisseur = new Fournisseur(array());
+        }
+
+
+
+        return $fournisseur;
+    }
 
     public function addFournisseur($libelle)
     {

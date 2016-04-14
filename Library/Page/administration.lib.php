@@ -38,6 +38,40 @@ function getTitle() {
             return "Créer le budget";
         } else if ($_GET['page'] == "modifyBudget") {
             return "Modifier le budget";
+        } else if ($_GET['page'] == "produit") {
+            if (!isset($_GET['option'])) {
+                return "Liste des produits";
+            } else if ($_GET['option'] == "create") {
+                return "Création d'un produit";
+            } else if ($_GET['option'] == "fournisseur") {
+                return "Liste des fournisseurs";
+            } else if ($_GET['option'] == "section") {
+                return "Liste des sections";
+            } else if ($_GET['option'] == "marque") {
+                return "Liste des marques";
+            } else if ($_GET['option'] == "tva") {
+                return "Liste des TVA";
+            } else {
+                return "Error";
+            }
+        } else if($_GET['page'] == "modifyProduit") {
+            return "Modifier le produit";
+        } else if ($_GET['page'] == "createMarque") {
+            return "Créer une marque";
+        } else if ($_GET['page'] == "createFournisseur") {
+            return "Créer un fournisseur";
+        } else if ($_GET['page'] == "createSection") {
+            return "Créer une section";
+        } else if ($_GET['page'] == "createTVA") {
+            return "Créer une TVA";
+        } else if ($_GET['page'] == "modifySection") {
+            return "Modifier la section";
+        } else if ($_GET['page'] == "modifyMarque") {
+            return "Modifier la marque";
+        } else if ($_GET['page'] == "modifyFournisseur") {
+            return "Modifier le fournisseur";
+        } else if ($_GET['page'] == "modifyTVA") {
+            return "Modifier la TVA";
         } else {
             return "Error";
         }
@@ -46,6 +80,14 @@ function getTitle() {
     }
 }
 
+function showPoids($poids) {
+    if ($poids >= 1000){
+        $poids = ($poids/1000)."kg";
+    } else {
+        $poids = $poids."g";
+    }
+    return $poids;
+}
 function isValid()
 {
     $tabReturn = array("Retour" => false, "Error" => array());
@@ -259,4 +301,179 @@ function addBudget() {
     }
 }
 
+function addProduit() {
+    $produit = new Produit(array());
+    $pm = new ProduitManager(connexionDb());
+    $produit = fillProduit($produit);
+    $produitCodeTest = $pm->getProduitByCode($produit->getCodeProduit());
+    $produitEANTest = $pm->getProduitByEAN($produit->getEAN());
+    if ($produitCodeTest->getId() != NULL) {
+        return "<label class='contact' style='color:Red; width:350px;'>Le code produit existe déjà</label>";
+    } else if ($produitEANTest->getId() != NULL) {
+        return "<label class='contact' style='color:Red; width:350px;'>L'EAN existe déjà</label>";
+    } else {
+        $pm->addProduit($produit);
+        $pid = $pm->getProduitByCode($produit->getCodeProduit());
+        $pm->setProduitFournisseur($pid, $produit->getFournisseur()->getId());
+        $pm->setProduitMarque($pid, $produit->getMarque()->getId());
+        $pm->setProduitSection($pid, $produit->getSection()->getId());
+        $pm->setProduitTVA($pid, $produit->getTVA()->getId());
+        header("Location :index.php?page=produit");
+    }
+}
+
+function modifyProduit($produit) {
+    $pm = new ProduitManager(connexionDb());
+    $produit = fillProduit($produit);
+    $produitCodeTest = $pm->getProduitByCode($produit->getCodeProduit());
+    $produitEANTest = $pm->getProduitByEAN($produit->getEAN());
+    if ($produitCodeTest->getId() != NULL && $produitCodeTest->getId() != $produit->getId()) {
+        return false;
+    } else if ($produitEANTest->getId() != NULL && $produitEANTest->getId() != $produit->getId()) {
+        return false;
+    } else {
+        $pm->updateProduit($produit);
+        $pm->updateProduitMarque($produit, $produit->getMarque()->getId());
+        $pm->updateProduitFournisseur($produit, $produit->getFournisseur()->getId());
+        $pm->updateProduitSection($produit, $produit->getSection()->getId());
+        $pm->updateProduitTVA($produit, $produit->getTVA()->getId());
+        return true;
+    }
+}
+
+function fillProduit(Produit $produit) {
+    $produit->setCodeProduit($_POST['code']);
+    $produit->setDLV($_POST['dlv']);
+    $produit->setEAN($_POST['ean']);
+    $produit->setProduit($_POST['name']);
+    $fournisseur = new Fournisseur(array());
+    $fournisseur->setId($_POST['fournisseur']);
+    $produit->setFournisseur($fournisseur);
+    $marque = new Marque(array());
+    $marque->setId($_POST['marque']);
+    $produit->setMarque($marque);
+    $section = new Section(array());
+    $section->setId($_POST['section']);
+    $produit->setSection($section);
+    $tva = new TVA(array());
+    $tva->setId($_POST['tva']);
+    $produit->setTVA($tva);
+    $produit->setGroupement($_POST['groupement']);
+    $produit->setPoids($_POST['poids']);
+    $produit->setPrixHTVA($_POST['prix']);
+    $produit->setProduitActif($_POST['actif']);
+    $produit->setPromo($_POST['promo']);
+    return $produit;
+}
+
+function addFournisseur() {
+    $libelle = $_POST['name'];
+    $fm = new FournisseurManager(connexionDb());
+    if ($fm->getFournisseurByLibelle($libelle)->getId() != NULL ) {
+        return "<label class='contact' style='color:Red; width:350px;'>Le fournisseur existe déjà</label>";
+
+    } else {
+        $fm->addFournisseur($libelle);
+        header("Location :index.php?page=produit&option=fournisseur");
+
+    }
+}
+
+function modifyFournisseur(Fournisseur $fournisseur) {
+    $fournisseur->setLibelle($_POST['name']);
+    $fm = new FournisseurManager(connexionDb());
+    $fourniTest = $fm->getFournisseurByLibelle($fournisseur->getLibelle());
+    if ($fourniTest->getId() != NULL && $fourniTest->getId() != $fournisseur->getId() ) {
+       return false;
+
+    } else {
+        $fm->updateFournisseur($fournisseur);
+        return true;
+
+    }
+}
+
+function addSection() {
+    $libelle = $_POST['name'];
+    $sm = new SectionManager(connexionDb());
+    if ($sm->getSectionByLibelle($libelle)->getId() != NULL ) {
+        return "<label class='contact' style='color:Red; width:350px;'>La section existe déjà</label>";
+
+    } else {
+        $sm->addSection($libelle);
+        header("Location :index.php?page=produit&option=section");
+
+    }
+}
+
+function modifySection(Section $section) {
+    $section->setLibelle($_POST['name']);
+    $sm = new SectionManager(connexionDb());
+    $sectionTest = $sm->getSectionByLibelle($section->getLibelle());
+    if ($sectionTest->getId() != NULL && $sectionTest->getId() != $section->getId()) {
+        return false;
+
+    } else {
+        $sm->updateSection($section);
+        return true;
+
+    }
+}
+
+function addMarque() {
+    $libelle = $_POST['name'];
+    $mm = new MarqueManager(connexionDb());
+    if ($mm->getMarqueByLibelle($libelle)->getId() != NULL ) {
+        return "<label class='contact' style='color:Red; width:350px;'>La marque existe déjà</label>";
+
+    } else {
+        $mm->addMarque($libelle);
+        header("Location :index.php?page=produit&option=marque");
+
+    }
+}
+
+function modifyMarque(Marque $marque) {
+    $marque->setLibelle($_POST['name']);
+    $mm = new MarqueManager(connexionDb());
+    $marqueTest = $mm->getMarqueByLibelle($marque->getLibelle());
+    if ($marqueTest->getId() != NULL && $marqueTest->getId() != $marque->getId()) {
+        return false;
+
+    } else {
+        $mm->updateMarque($marque);
+        return true;
+
+    }
+}
+
+function addTVA() {
+    $libelle = $_POST['name'];
+    $tva = new TVA(array());
+    $tva->setCoef($libelle/100);
+    $tva->setTexteTVA($libelle."%");
+    $tm = new TVAManager(connexionDb());
+    if ($tm->getTVAByTexte($tva->getTexteTVA())->getId() != NULL ) {
+        return "<label class='contact' style='color:Red; width:350px;'>La TVA existe déjà</label>";
+
+    } else {
+        $tm->addTVA($tva);
+        header("Location :index.php?page=produit&option=tva");
+
+    }
+}
+
+function modifyTVA(section $section) {
+    $section->setLibelle($_POST['name']);
+    $sm = new SectionManager(connexionDb());
+    $sectionTest = $sm->getSectionByLibelle($section->getLibelle());
+    if ($sectionTest->getId() != NULL && $sectionTest->getId() != $section->getId()) {
+        return false;
+
+    } else {
+        $sm->updateSection($section);
+        return true;
+
+    }
+}
 ?>

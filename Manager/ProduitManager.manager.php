@@ -66,6 +66,58 @@ class ProduitManager {
         return $produit;
     }
 
+    public function getProduitByCode($code) {
+        $query = $this->db->prepare("SELECT * FROM produits WHERE code_produit= :code");
+        $query->execute(array(
+            ":code" => $code
+        ));
+
+        if ($tabProduit = $query->fetch(PDO::FETCH_ASSOC)) {
+            $produit = new Produit($tabProduit);
+            $produit = $this->getProduitArray($produit);
+        } else {
+            $produit = new Produit(array());
+        }
+
+
+
+        return $produit;
+    }
+
+    public function getProduitByEAN($ean) {
+        $query = $this->db->prepare("SELECT * FROM produits WHERE EAN = :ean");
+        $query->execute(array(
+            ":ean" => $ean
+        ));
+
+        if ($tabProduit = $query->fetch(PDO::FETCH_ASSOC)) {
+            $produit = new Produit($tabProduit);
+            $produit = $this->getProduitArray($produit);
+        } else {
+            $produit = new Produit(array());
+        }
+
+
+
+        return $produit;
+    }
+
+    public function addProduit(Produit $produit) {
+        $query = $this->db->prepare("INSERT INTO produits(code_produit, EAN, DLV, groupement, poids, prix_htva, produit, produit_actif, promo)
+                                      VALUES(:code, :ean, :dlv, :groupement, :poids, :prix, :name, :actif, :promo)");
+        $query->execute(array(
+            ":code" => $produit->getCodeProduit(),
+            ":ean" => $produit->getEAN(),
+            ":dlv" => $produit->getDLV(),
+            ":groupement" => $produit->getGroupement(),
+            ":poids" => $produit->getPoids(),
+            ":prix" => $produit->getPrixHTVA(),
+            ":name" => $produit->getProduit(),
+            ":actif" => $produit->getProduitActif(),
+            ":promo" => $produit->getPromo()
+        ));
+    }
+
     public function getProduitMarque(Produit $produit) {
         $mm = new MarqueManager(connexionDb());
         $query = $this->db->prepare("SELECT * FROM produit_marque WHERE id_produit = :id");

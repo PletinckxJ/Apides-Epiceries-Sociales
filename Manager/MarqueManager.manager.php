@@ -52,6 +52,22 @@ class MarqueManager {
         return $marque;
     }
 
+    public function getMarqueByLibelle($libelle) {
+        $query = $this->db->prepare("SELECT * FROM marque WHERE libelle = :lib");
+        $query->execute(array(
+            ":lib" => $libelle
+        ));
+
+        if ($tabMarque = $query->fetch(PDO::FETCH_ASSOC)) {
+            $marque = new Marque($tabMarque);
+        } else {
+            $marque = new Marque(array());
+        }
+
+
+
+        return $marque;
+    }
     public function updateMarque(Marque $marque) {
 
         $query = $this

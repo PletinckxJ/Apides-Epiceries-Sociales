@@ -51,9 +51,25 @@ class TVAManager {
     }
 
     public function getTVAById($id) {
-        $query = $this->db->prepare("SELECT * FROM taux_tva WHERE id = :id");
+    $query = $this->db->prepare("SELECT * FROM taux_tva WHERE id = :id");
+    $query->execute(array(
+        ":id" => $id
+    ));
+
+    if ($tabTVA = $query->fetch(PDO::FETCH_ASSOC)) {
+        $tva = new TVA($tabTVA);
+    } else {
+        $tva = new TVA(array());
+    }
+
+
+
+    return $tva;
+}
+    public function getTVAByTexte($texte) {
+        $query = $this->db->prepare("SELECT * FROM taux_tva WHERE texte_tva = :texte");
         $query->execute(array(
-            ":id" => $id
+            ":texte" => $texte
         ));
 
         if ($tabTVA = $query->fetch(PDO::FETCH_ASSOC)) {

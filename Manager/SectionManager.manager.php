@@ -69,6 +69,23 @@ class SectionManager
         return $section;
     }
 
+    public function getSectionByLibelle($lib) {
+        $query = $this->db->prepare("SELECT * FROM sections WHERE libelle=:lib");
+        $query->execute(array(
+            ":lib" => $lib
+        ));
+
+        if ($tabSection = $query->fetch(PDO::FETCH_ASSOC)) {
+            $section = new Section($tabSection);
+        } else {
+            $section = new Section(array());
+        }
+
+
+
+        return $section;
+    }
+
 
     public function addSection($libelle)
     {
