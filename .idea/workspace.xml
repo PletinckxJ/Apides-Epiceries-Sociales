@@ -2,40 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e060873d-9773-46ac-9c0c-3ab0f4f70612" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/HTML/Administration/AdministrationModifyFournisseur.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/HTML/Administration/AdministrationModifyMarque.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/HTML/Administration/AdministrationModifyProduit.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/HTML/Administration/AdministrationModifySection.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/HTML/Administration/AdministrationModifyTVA.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/HTML/Administration/AdministrationProduitFournisseur.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/HTML/Administration/AdministrationProduitList.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/HTML/Administration/AdministrationProduitMarque.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/HTML/Administration/AdministrationProduitSection.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/HTML/Administration/AdministrationProduitTVA.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Form/createFournisseur.form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Form/createMarque.form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Form/createProduit.form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Form/createSection.form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Form/createTVA.form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Form/modifyFournisseur.form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Form/modifyMarque.form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Form/modifyProduit.form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Form/modifySection.form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Form/modifyTVA.form.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HTML/Administration/AdministrationBenefList.php" afterPath="$PROJECT_DIR$/HTML/Administration/AdministrationBenefList.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HTML/Administration/AdministrationContent.php" afterPath="$PROJECT_DIR$/HTML/Administration/AdministrationContent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HTML/Administration/AdministrationRightList.php" afterPath="$PROJECT_DIR$/HTML/Administration/AdministrationRightList.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/FournisseurManager.manager.php" afterPath="$PROJECT_DIR$/Manager/FournisseurManager.manager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Library/Function/Function.lib.php" afterPath="$PROJECT_DIR$/Library/Function/Function.lib.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/MarqueManager.manager.php" afterPath="$PROJECT_DIR$/Manager/MarqueManager.manager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HTML/Administration/NavigationAdministration.php" afterPath="$PROJECT_DIR$/HTML/Administration/NavigationAdministration.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/ProduitManager.manager.php" afterPath="$PROJECT_DIR$/Manager/ProduitManager.manager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Library/Function/Require.lib.php" afterPath="$PROJECT_DIR$/Library/Function/Require.lib.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/SectionManager.manager.php" afterPath="$PROJECT_DIR$/Manager/SectionManager.manager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/TVAManager.manager.php" afterPath="$PROJECT_DIR$/Manager/TVAManager.manager.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Library/Page/administration.lib.php" afterPath="$PROJECT_DIR$/Library/Page/administration.lib.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Style/privateCSS.css" afterPath="$PROJECT_DIR$/Style/privateCSS.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Apides-Epiceries-Sociales.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -123,22 +90,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="administration.lib.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="administration.lib.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Library/Page/administration.lib.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4516129">
-              <caret line="454" column="40" selection-start-line="454" selection-start-column="40" selection-end-line="454" selection-end-column="40" />
+            <state vertical-scroll-proportion="-28.884615">
+              <caret line="478" column="4" selection-start-line="478" selection-start-column="4" selection-end-line="478" selection-end-column="4" />
               <folding>
                 <element signature="e#6#86#0#PHP" expanded="true" />
-                <marker date="1460645344716" expanded="true" signature="9829:9852" placeholder="..." />
-                <marker date="1460645344716" expanded="true" signature="10230:10255" placeholder="..." />
-                <marker date="1460645344716" expanded="true" signature="11077:11100" placeholder="..." />
-                <marker date="1460645344716" expanded="true" signature="11237:11260" placeholder="..." />
-                <marker date="1460645344716" expanded="true" signature="13752:13775" placeholder="..." />
-                <marker date="1460645344716" expanded="true" signature="14586:14609" placeholder="..." />
-                <marker date="1460645344716" expanded="true" signature="15368:15391" placeholder="..." />
-                <marker date="1460645344716" expanded="true" signature="16233:16256" placeholder="..." />
+                <marker date="1460701578571" expanded="true" signature="9829:9852" placeholder="..." />
+                <marker date="1460701578571" expanded="true" signature="10230:10255" placeholder="..." />
+                <marker date="1460701578571" expanded="true" signature="11077:11100" placeholder="..." />
+                <marker date="1460701578571" expanded="true" signature="11237:11260" placeholder="..." />
+                <marker date="1460701578571" expanded="true" signature="13752:13775" placeholder="..." />
+                <marker date="1460701578571" expanded="true" signature="14586:14609" placeholder="..." />
+                <marker date="1460701578571" expanded="true" signature="15368:15391" placeholder="..." />
+                <marker date="1460701578571" expanded="true" signature="16233:16256" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa0.052/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -205,22 +182,6 @@
               <folding>
                 <element signature="e#6#86#0#PHP" expanded="true" />
                 <marker date="1460643114493" expanded="true" signature="439:462" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdministrationProduitTVA.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HTML/Administration/AdministrationProduitTVA.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.923077">
-              <caret line="32" column="77" selection-start-line="32" selection-start-column="77" selection-end-line="32" selection-end-column="77" />
-              <folding>
-                <element signature="e#6#86#0#PHP" expanded="true" />
-                <marker date="1460644552257" expanded="true" signature="189:205" placeholder="..." />
-                <marker date="1460644552257" expanded="true" signature="415:681" placeholder="..." />
-                <marker date="1460644552257" expanded="true" signature="478:676" placeholder="..." />
-                <marker date="1460644552257" expanded="true" signature="563:671" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -645,7 +606,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -708,17 +669,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/HTML/Administration/AdministrationBenefProfil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52807647">
-          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-          <folding>
-            <element signature="e#6#86#0#PHP" expanded="true" />
-            <marker date="1460549540502" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Entity/Budget.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.609319">
@@ -1145,10 +1095,10 @@
           <caret line="32" column="77" selection-start-line="32" selection-start-column="77" selection-end-line="32" selection-end-column="77" />
           <folding>
             <element signature="e#6#86#0#PHP" expanded="true" />
-            <marker date="1460644552257" expanded="true" signature="189:205" placeholder="..." />
-            <marker date="1460644552257" expanded="true" signature="415:681" placeholder="..." />
-            <marker date="1460644552257" expanded="true" signature="478:676" placeholder="..." />
-            <marker date="1460644552257" expanded="true" signature="563:671" placeholder="..." />
+            <marker date="1460644552257" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1460644552257" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1460644552257" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1460644552257" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1260,19 +1210,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Library/Page/administration.lib.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4516129">
-          <caret line="454" column="40" selection-start-line="454" selection-start-column="40" selection-end-line="454" selection-end-column="40" />
+        <state vertical-scroll-proportion="-28.884615">
+          <caret line="478" column="4" selection-start-line="478" selection-start-column="4" selection-end-line="478" selection-end-column="4" />
           <folding>
             <element signature="e#6#86#0#PHP" expanded="true" />
-            <marker date="1460645344716" expanded="true" signature="9829:9852" placeholder="..." />
-            <marker date="1460645344716" expanded="true" signature="10230:10255" placeholder="..." />
-            <marker date="1460645344716" expanded="true" signature="11077:11100" placeholder="..." />
-            <marker date="1460645344716" expanded="true" signature="11237:11260" placeholder="..." />
-            <marker date="1460645344716" expanded="true" signature="13752:13775" placeholder="..." />
-            <marker date="1460645344716" expanded="true" signature="14586:14609" placeholder="..." />
-            <marker date="1460645344716" expanded="true" signature="15368:15391" placeholder="..." />
-            <marker date="1460645344716" expanded="true" signature="16233:16256" placeholder="..." />
+            <marker date="1460701578571" expanded="true" signature="9829:9852" placeholder="..." />
+            <marker date="1460701578571" expanded="true" signature="10230:10255" placeholder="..." />
+            <marker date="1460701578571" expanded="true" signature="11077:11100" placeholder="..." />
+            <marker date="1460701578571" expanded="true" signature="11237:11260" placeholder="..." />
+            <marker date="1460701578571" expanded="true" signature="13752:13775" placeholder="..." />
+            <marker date="1460701578571" expanded="true" signature="14586:14609" placeholder="..." />
+            <marker date="1460701578571" expanded="true" signature="15368:15391" placeholder="..." />
+            <marker date="1460701578571" expanded="true" signature="16233:16256" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa0.052/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

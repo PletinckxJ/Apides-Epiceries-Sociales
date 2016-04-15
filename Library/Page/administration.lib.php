@@ -463,15 +463,17 @@ function addTVA() {
     }
 }
 
-function modifyTVA(section $section) {
-    $section->setLibelle($_POST['name']);
-    $sm = new SectionManager(connexionDb());
-    $sectionTest = $sm->getSectionByLibelle($section->getLibelle());
-    if ($sectionTest->getId() != NULL && $sectionTest->getId() != $section->getId()) {
+function modifyTVA(TVA $tva) {
+    $libelle = $_POST['name'];
+    $tva->setCoef($libelle/100);
+    $tva->setTexteTVA($libelle."%");
+    $tm = new TVAManager(connexionDb());
+    $tvaTest = $tm->getTVAByTexte($tva->getTexteTVA());
+    if ($tvaTest->getId() != NULL && $tvaTest->getId() != $tva->getId()) {
         return false;
 
     } else {
-        $sm->updateSection($section);
+        $tm->updateTVA($tva);
         return true;
 
     }
