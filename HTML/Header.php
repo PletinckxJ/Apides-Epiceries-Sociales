@@ -19,9 +19,9 @@
             <ul class="menu">
                 <li><a href="index.php" class="nav1"> Accueil</a></li>
                 <li class="divider"></li>
-                <li><a href="#" class="nav2">Products</a></li>
+                <li><a href="../Produits" class="nav2">Produits</a></li>
                 <li class="divider"></li>
-                <li><a href="#" class="nav3">Specials</a></li>
+                <li><a href="../Administration" class="nav2">Administration</a></li>
                 <li class="divider"></li>
                 <li><a href="#" class="nav4">My account</a></li>
                 <li class="divider"></li>

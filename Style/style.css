@@ -430,7 +430,7 @@ border-top:1px #999999 dashed;
 /*---------prod_box----------*/
 .prod_box{
 width:173px;
-height:auto;
+height:202px;
 float:left;
 padding:10px 10px 10px 11px;
 }
@@ -441,7 +441,7 @@ width:173px;height:12px;background:url(images/product_box_top.gif) no-repeat cen
 width:173px;height:10px;background:url(images/product_box_bottom.gif) no-repeat center top;float:left;padding:0px; margin:0px;
 }
 .center_prod_box{
-width:173px;height: auto;background:url(images/product_box_center.gif) repeat-y;float:left; text-align:center;padding:0px; margin:0px;
+width:173px;height: 146px;background:url(images/product_box_center.gif) repeat-y;float:left; text-align:center;padding:0px; margin:0px;
 }
 .prod_details_tab{
 width:173px;
