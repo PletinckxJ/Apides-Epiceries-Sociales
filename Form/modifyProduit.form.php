@@ -8,9 +8,12 @@
 
 ?>
 
-<form action="index.php?page=modifyProduit&id=<?php echo $id; ?>" method="post" class="formCreation">
+<form enctype='multipart/form-data' action="index.php?page=modifyProduit&id=<?php echo $id; ?>" method="post" class="formCreation">
     <label class="contact" for="name"><strong>Nom :</strong></label>
     <input type="text" class="contact_input" id="name" name="name" value="<?php echo $produit->getProduit();?>"required>
+    <label class="contact" for="image" ><strong>Image: </strong></label>
+    <input name="image" size="30" type="file" onchange="readURL(this);" accept="image/x-png, image/gif, image/jpeg" /><br>
+    <img id="show" style="padding-left : 10em; max-height: 200px; max-width: 150px" src="../Style/images/produits/<?php echo $id.".png" ?>" alt="your image" /> <br>
     <label class="contact" for="fournisseur"><strong>Fournisseur :</strong></label>
 
     <select name='fournisseur' id='fournisseur' class="contact_input">
@@ -79,8 +82,8 @@
     <input type="text" class="contact_input" id="dlv" name="dlv"  value="<?php echo $produit->getDLV(); ?>">
     <label class="contact" for="prix"><strong>Prix HTVA (€):</strong></label>
     <input type="number" class="contact_input" id="prix" name="prix"  value="<?php echo $produit->getPrixHTVA(); ?>" required>
-    <label class="contact" for="poids"><strong>Poids (g) :</strong></label>
-    <input type="number" class="contact_input" id="poids" name="poids" value="<?php echo $produit->getPoids(); ?>" >
+    <label class="contact" for="poids"><strong>Poids (kg/l) :</strong></label>
+    <input type="text" class="contact_input" id="poids" name="poids" value="<?php echo $produit->getPoids(); ?>" >
     <label class="contact" for="groupement"><strong>Groupement :</strong></label>
     <input type="text" class="contact_input" id="groupement" name="groupement" value="<?php echo $produit->getGroupement(); ?>">
     <div style="display:inline-block;margin-left:-18em;">

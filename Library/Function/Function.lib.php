@@ -111,6 +111,52 @@ function TVAExistant() {
     }
 }
 
+/**
+ * Fonction servant à charger une image et la mettre dans un dossier du serveur.
+ * @param $repertoire : le répertoire d'arrivée de l'image.
+ * @param $nom : le nom de l'image.
+ */
+function uploadImage($repertoire, $nom) {
+    $repertoire = $repertoire.'/'; // dossier où sera déplacé le fichier
+    $type = "";
+    $nomPhoto = "";
+    $photo = $_FILES['image']['tmp_name'];
+    if( !is_uploaded_file($photo) ) {
+        exit("Le fichier est introuvable <br>");
+    }
+    // on vérifie maintenant l'extension
+    $typePhoto = $_FILES['image']['type'];
+    if( strstr($typePhoto, 'jpg') or strstr($typePhoto, 'jpeg')) {
+
+        $type = "jpg";
+    } else if ( strstr($typePhoto, 'png')) {
+
+        $type = "png";
+    } else if ( strstr($typePhoto, 'gif')) {
+
+        $type = "gif";
+    }
+    // on copie le fichier dans le dossier de destination
+
+    $nomPhoto = $nom.'.png';
+
+
+    $donnees=getimagesize($photo);
+    $nouvelleLargeur = 250;
+    $reduction = ( ($nouvelleLargeur * 100) / $donnees[0]);
+    $nouvelleHauteur = ( ($donnees[1] * $reduction) / 100);
+    if ($type == "jpg") {
+        $image = imagecreatefromjpeg($photo);
+    } else if ($type == "png") {
+        $image = imagecreatefrompng($photo);
+    } else if ($type == "gif") {
+        $image = imagecreatefromgif($photo);
+    }
+    $image_mini = imagecreatetruecolor($nouvelleLargeur, $nouvelleHauteur); //création image finale
+    imagecopyresampled($image_mini, $image, 0, 0, 0, 0, $nouvelleLargeur, $nouvelleHauteur, $donnees[0], $donnees[1]);//copie avec redimensionnement
+    imagepng($image_mini, $repertoire.$nomPhoto);
+
+}
 
 
 ?>

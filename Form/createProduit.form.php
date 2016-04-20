@@ -16,9 +16,12 @@ $sm = new SectionManager(connexionDb());
 $tabSection = $sm->getAllSection();
 ?>
 
-<form action="index.php?page=produit&option=create" method="post" class="formCreation">
+<form enctype='multipart/form-data' action="index.php?page=produit&option=create" method="post" class="formCreation">
     <label class="contact" for="name"><strong>Nom :</strong></label>
     <input type="text" class="contact_input" id="name" name="name" required>
+    <label class="contact" for="image" ><strong>Image: </strong></label>
+    <input name="image" size="30" type="file" onchange="readURL(this);" accept="image/x-png, image/gif, image/jpeg" />
+    <img id="show" style="display:none;padding-left : 10em;" src="#" alt="your image" /> <br>
     <label class="contact" for="fournisseur"><strong>Fournisseur :</strong></label>
 
     <select name='fournisseur' id='fournisseur' class="contact_input">
@@ -64,11 +67,11 @@ $tabSection = $sm->getAllSection();
     <label class="contact" for="ean"><strong>EAN :</strong></label>
     <input type="number" class="contact_input" id="ean" name="ean">
     <label class="contact" for="dlv"><strong>DLV :</strong></label>
-    <input type="text" class="contact_input" id="dlv" name="dlv"  required>
+    <input type="text" class="contact_input" id="dlv" name="dlv" >
     <label class="contact" for="prix"><strong>Prix HTVA (€):</strong></label>
-    <input type="number" class="contact_input" id="prix" name="prix"  required>
-    <label class="contact" for="poids"><strong>Poids (g) :</strong></label>
-    <input type="number" class="contact_input" id="poids" name="poids" required>
+    <input type="number" step="any" class="contact_input" id="prix" name="prix"  required>
+    <label class="contact" for="poids"><strong>Quantité (kg/l) :</strong></label>
+    <input type="text" step="any" class="contact_input" id="poids" name="poids" >
     <label class="contact" for="groupement"><strong>Groupement :</strong></label>
     <input type="text" class="contact_input" id="groupement" name="groupement" required>
     <div style="display:inline-block;margin-left:-18em;">

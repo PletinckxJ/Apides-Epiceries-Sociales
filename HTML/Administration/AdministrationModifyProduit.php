@@ -21,9 +21,8 @@ $tabTVA = $tm->getAllTVA();
 require("../Form/modifyProduit.form.php");
 if (isset($_POST['modifProduit'])) {
     if (modifyProduit($produit)) {
-        echo "ok";
         ob_clean();
-       header("Location :index.php?page=modifyProduit&id=$id");
+       header("Location :index.php?page=produit");
     } else  {
         echo "<label class='contact' style='color:Red; width:350px;'>Le produit existe déjà</label>";
     }

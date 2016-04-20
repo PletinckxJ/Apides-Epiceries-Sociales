@@ -314,6 +314,15 @@ function addProduit() {
     } else {
         $pm->addProduit($produit);
         $pid = $pm->getProduitByCode($produit->getCodeProduit());
+        if (isset($_FILES['image']['tmp_name']) && $_FILES['image']['tmp_name'] != NULL) {
+            if ($_FILES['ImageNews']['size'] >= 2097152) {
+                echo "<div class='alert' role='alert'>Votre image est trop lourde !</div>";
+            } else {
+                uploadImage('../Style/images/produits', $pid->getId());
+            }
+        } else {
+            copy("../Style/images/produits/produit.png", "../Style/images/produits/".$pid->getId().".png");
+        }
         $pm->setProduitFournisseur($pid, $produit->getFournisseur()->getId());
         $pm->setProduitMarque($pid, $produit->getMarque()->getId());
         $pm->setProduitSection($pid, $produit->getSection()->getId());
@@ -333,6 +342,14 @@ function modifyProduit($produit) {
         return false;
     } else {
         $pm->updateProduit($produit);
+        var_dump($_POST);
+        if (isset($_FILES['image']['tmp_name']) && $_FILES['image']['tmp_name'] != NULL) {
+            if ($_FILES['image']['size'] >= 2097152) {
+                echo "<div class='alert' role='alert'>Votre image est trop lourde !</div>";
+            } else {
+                uploadImage('../Style/images/produits', $produit->getId());
+            }
+        } else
         $pm->updateProduitMarque($produit, $produit->getMarque()->getId());
         $pm->updateProduitFournisseur($produit, $produit->getFournisseur()->getId());
         $pm->updateProduitSection($produit, $produit->getSection()->getId());

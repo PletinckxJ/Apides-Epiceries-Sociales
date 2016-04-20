@@ -9,8 +9,8 @@
 <form action="index.php?page=modifyBudget&id=<?php echo $id; ?>" method="post" class="formCreation">
     <label class="contact" for="name"><strong>Situation familiale :</strong></label>
     <input type="text" class="contact_input" id="name" name="name" value="<?php echo $budget->getSituationFam(); ?>" required>
-    <label class="contact" for="montant"><strong>Montant :</strong></label>
-    <input type="number" class="contact_input" id="montant" name="montant" value="<?php echo $budget->getBudgetMens(); ?>" required>
+    <label class="contact" for="montant"><strong>Montant (€) :</strong></label>
+    <input type="number" step="any" class="contact_input" id="montant" name="montant" value="<?php echo $budget->getBudgetMens(); ?>" required>
     <div class="form_row">
         <button type="submit"  name="modifBudget" id="btnCompte">Modifier le budget</button>
     </div>

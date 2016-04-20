@@ -24,9 +24,9 @@ echo "<table align='center' id='example'>";
 <tbody>
 <?php
 foreach ($tabProduit as $elem) {
-    $prix = $elem->getPrixHTVA() + ($elem->getPrixHTVA()* $elem->getTVA()->getCoef());
-    $vente = $prix/2;
-    echo "<tr><td>" . $elem->getProduit()." | ".showPoids($elem->getPoids())."</td><td>".$elem->getFournisseur()->getLibelle()."</td><td>" . $prix . "</td>
+    $prix = round(($elem->getPrixHTVA() + ($elem->getPrixHTVA()* $elem->getTVA()->getCoef())), 2);
+    $vente = round($prix/2,1);
+    echo "<tr><td>" . $elem->getProduit()." | ".$elem->getPoids()."</td><td>".$elem->getFournisseur()->getLibelle()."</td><td>" . $prix . "</td>
               <td>".$vente."</td>
             <td id='actions'><a href='index.php?page=showProduit&id=" . $elem->getId() . "' title='Voir les informations de cet produit'>
             <img src='../../Style/images/eye-24-512.png' height='32' width='32' alt='Voir les informations' /></a>
