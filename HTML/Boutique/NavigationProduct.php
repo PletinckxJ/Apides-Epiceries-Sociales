@@ -7,14 +7,16 @@
  */
 $sm = new SectionManager(connexionDb());
 $listSection = $sm->getAllSection();
-$i = 0;
+$i = 1;
 ?>
 
 <div class="crumb_navigation"> Navigation: <span class="current">Home</span> </div>
 <div class="left_content">
     <div class="title_box">Catégories</div>
     <ul class="left_menu">
+        <li class="odd2"><a href="index.php"> Liste complète</a></li>
         <?php
+
         foreach($listSection as $elem) {
             if ($i%2 == 0) {
                 echo "<li class='odd2'><a href='index.php?section=".$elem->getId()."'>".$elem->getLibelle()."</a></li>";
@@ -23,9 +25,8 @@ $i = 0;
             }
             $i++;
         }
+
         ?>
-
-
     </ul>
     <br>
     <br>

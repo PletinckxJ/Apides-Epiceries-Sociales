@@ -90,7 +90,13 @@ function marqueExistant() {
 }
 
 function sectionExistant() {
-    $id = $_GET['id'];
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+
+    } else if (isset($_GET['section'])) {
+        $id = $_GET['section'];
+    }
+
     $sm = new SectionManager(connexionDb());
     $section = $sm->getSectionById($id);
     if ($section->getLibelle() == NULL) {

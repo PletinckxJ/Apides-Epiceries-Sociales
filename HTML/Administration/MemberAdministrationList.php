@@ -21,8 +21,8 @@
 
 <tbody>
 <?php
-    $i = 1;
-while ($i != 26) {
+
+
     foreach ($tabUser as $elem) {
         //if ($elem->getId() != 1 && $elem->getId() != $_SESSION['Utilisateur']->getId()) {
             echo "<tr><td>" . $elem->getNomSociete() . "</td><td><a href='mailto:" . $elem->getMail() . "'>" . $elem->getMail() . "</a></td>
@@ -32,8 +32,8 @@ while ($i != 26) {
             <img src='../../Style/images/Edit_user.png' height='32' width='32' alt='Modifier le profil' /></a></td></tr>";
         //}
     }
-    $i++;
-}
+
+
     echo "</tbody>";
     echo "</table>";
     echo "</div>";
