@@ -16,6 +16,7 @@ require "../Manager/BudgetManager.manager.php";
 require "../Manager/ReferentManager.manager.php";
 require "../Manager/ProduitManager.manager.php";
 require "../Manager/SectionManager.manager.php";
+require "../Manager/AchatManager.manager.php";
 require "../Manager/FournisseurManager.manager.php";
 require "../Manager/MarqueManager.manager.php";
 require "../Manager/TVAManager.manager.php";
@@ -30,8 +31,10 @@ require "../Entity/Section.class.php";
 require "../Entity/Marque.class.php";
 require "../Entity/TVA.class.php";
 require "../Entity/Budget.class.php";
+require "../Entity/Achat.class.php";
 require "../Library/Page/connexion.lib.php";
 require "../Library/Page/administration.lib.php";
+require "../Library/Page/produits.lib.php";
 require "../Entity/Droit.class.php";
 require "../Library/Function/Function.lib.php";
 

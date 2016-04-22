@@ -17,6 +17,7 @@ class Utilisateur
     private $date_connexion;
     private $contact;
     private $droit;
+    private $achat = array();
     private $salt;
 
     /**
@@ -75,6 +76,11 @@ class Utilisateur
         return $this->droit;
     }
 
+    public function getAchat()
+    {
+        return $this->achat;
+    }
+
     public function getTelephone()
     {
         return $this->telephone;
@@ -125,6 +131,11 @@ class Utilisateur
     public function setDroit(Droit $droit)
     {
         $this->droit = $droit;
+    }
+
+    public function setAchat($achat)
+    {
+        $this->achat = $achat;
     }
 
     public function setTelephone($tel)

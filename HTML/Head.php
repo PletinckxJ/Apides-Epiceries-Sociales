@@ -5,15 +5,8 @@
  * Date: 08-04-16
  * Time: 11:25
  */
-/**
-<script type="text/javascript" src="../js/jquery.simplePagination.js"></script>
-    <script>
-$(function() {
-    $("#example").simplePagination({});
-        });
-    </script>
-    <script type="text/javascript" src="../js/dynamicSearch.js"></script>
- * */
+
+ob_start();
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -26,19 +19,23 @@ $(function() {
     <link rel="stylesheet" type="text/css" href="../Style/privateCSS.css" />
     <!--[if IE 6]>
     <link rel="stylesheet" type="text/css" href="../Style/iecss.css" />
+
     <![endif]-->
+    <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css" />
-    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-    <script src="../js/readURL.js"></script>
-    <script src="../js/jquery-1.12.3.js"></script>
+    <script type=text/javascript" class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/readURL.js"></script>
+    <script type="text/javascript" src="../js/jquery-1.12.3.js"></script>
+    <script type="text/javascript" src="../js/jquery-2.2.3.min.js"></script>
     <script type="text/javascript" src="../js/boxOver.js"></script>
     <script type="text/javascript" src="../js/verifPassword.js"></script>
     <script type="text/javascript" src="../js/verifyRegistre.php"></script>
     <script type="text/javascript" src="../js/pagination.js";></script>
     <script type="text/javascript" src="../js/dynamicSearch.js"></script>
-    <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
-    <script>
+    <script type="text/javascript" class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
         $(document).ready(function() {
             $('#example').DataTable( {
                 "pagingType": "full_numbers",
@@ -67,6 +64,8 @@ $(function() {
 
             } );
     </script>
-    <script src="../js/verifyRegistre.php"></script>
+
+    <script type="text/javascript" src="../js/verifyRegistre.php"></script>
    </head>
 <body>
+

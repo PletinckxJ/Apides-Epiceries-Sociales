@@ -23,6 +23,8 @@ class UserManager {
         return $user;
     }
 
+
+
     public function getAllUser() {
         $resultats = $this->db->query("SELECT * FROM utilisateur");
         $resultats->execute();

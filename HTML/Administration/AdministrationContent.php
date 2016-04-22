@@ -5,7 +5,6 @@
  * Date: 08-04-16
  * Time: 11:40
  */
-ob_start();
 $title = getTitle();
 ?>
 

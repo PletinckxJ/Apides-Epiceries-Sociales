@@ -57,7 +57,11 @@ function budgetExistant() {
 }
 
 function produitExistant() {
-    $id = $_GET['id'];
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+    } else if (isset($_GET['addtocart'])) {
+        $id = $_GET['addtocart'];
+    }
     $pm = new ProduitManager(connexionDb());
     $produit = $pm->getProduitById($id);
     if ($produit->getCodeProduit() == NULL) {

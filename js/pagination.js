@@ -22,6 +22,13 @@ function pagintest() {
      - links to specific pages
      - link to next page
      */
+    if (number_of_pages == 0) {
+        number_of_pages = 1;
+    }
+    if (number_of_items == 0) {
+        $("#nothing").show();
+    }
+
     var current_link = 1;
     var navigation_html = '<a class="previous_link" href="javascript:first('+number_of_pages+');">Début</a>';
     navigation_html += '<a class="previous_link" href="javascript:previous('+number_of_pages+');">Précédent</a>';
