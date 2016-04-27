@@ -37,6 +37,7 @@ require "../Library/Page/administration.lib.php";
 require "../Library/Page/produits.lib.php";
 require "../Entity/Droit.class.php";
 require "../Library/Function/Function.lib.php";
+require "../kint-master/Kint.class.php";
 
 startSession();
 ?>

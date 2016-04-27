@@ -9,6 +9,7 @@
 ?>
 
 </div>
+<link rel="stylesheet" href="../Style/footer.css";
 <!-- end of main content -->
 <div class="footer">
     <div class="left_footer"> <img src="../Style/images/logo_apides_site1.png" alt="" width="170" height="49"/> </div>

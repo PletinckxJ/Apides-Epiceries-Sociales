@@ -25,3 +25,22 @@ $(".confirmLink").click(function(e) {
 
     $("#dialog").dialog("open");
 });
+
+$("#confirmLink").click(function(e) {
+    e.preventDefault();
+    var targetUrl = $(this).attr("href");
+
+    $("#dialog").dialog({
+        buttons : {
+            "Oui" : function() {
+                lancerFacture();
+                $(this).dialog("close");
+            },
+            "Non" : function() {
+                $(this).dialog("close");
+            }
+        }
+    });
+
+    $("#dialog").dialog("open");
+});

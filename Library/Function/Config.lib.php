@@ -12,6 +12,10 @@
  */
 function getConfigFile()
 {
-    return parse_ini_file("../config.ini.php", true);
+    if (file_exists("../config.ini.php")) {
+        return parse_ini_file("../config.ini.php", true);
+    } else {
+        return parse_ini_file("../../config.ini.php", true);
+    }
 
 }

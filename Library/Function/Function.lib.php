@@ -61,6 +61,8 @@ function produitExistant() {
         $id = $_GET['id'];
     } else if (isset($_GET['addtocart'])) {
         $id = $_GET['addtocart'];
+    } else if (isset($_GET['produit'])) {
+        $id = $_GET['produit'];
     }
     $pm = new ProduitManager(connexionDb());
     $produit = $pm->getProduitById($id);

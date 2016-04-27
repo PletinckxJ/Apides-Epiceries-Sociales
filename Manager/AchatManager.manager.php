@@ -111,6 +111,14 @@ class AchatManager {
 
     }
 
+    public function deleteUtilisateurAchat($id_user, $id_produit) {
+        $query = $this->db->prepare("DELETE FROM utilisateur_achat WHERE id_produit = :idProd and id_user = :idUser");
+        $query->execute(array(
+            ":idUser" => $id_user,
+            ":idProd" => $id_produit
+        ));
+    }
+
     public function setUtilisateurAchat($id_user, $id_produit) {
         $query = $this->db->prepare("INSERT INTO utilisateur_achat(id_user, id_produit) values (:iduser, :idprod)");
         $query->execute(array(

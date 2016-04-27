@@ -26,12 +26,12 @@ foreach($produitList as $elem) {
         echo "<div class='prod_box' >";
         echo "<div class='top_prod_box'></div >";
         echo "<div class='center_prod_box' >";
-        echo "<div class='product_title' ><a href = 'details.php?produit=".$elem->getId()."' > " . $elem->getProduit() . " | " . $elem->getPoids() . " </a ></div >";
-        echo "<div class='product_img' ><a href = 'details.php?produit=".$elem->getId()."' ><img src = '../Style/images/produits/" . $elem->getId() . ".png' alt = '' style='max-height:90px;max-width:100px;' border = '0' /></a ></div >";
+        echo "<div class='product_title' ><a href = 'index.php?page=details&produit=".$elem->getId()."' > " . $elem->getProduit() . " | " . $elem->getPoids() . " </a ></div >";
+        echo "<div class='product_img' ><a href = 'index.php?page=details&produit=".$elem->getId()."' ><img src = '../Style/images/produits/" . $elem->getId() . ".png' alt = '' style='max-height:90px;max-width:100px;' border = '0' /></a ></div >";
         echo "<div class='prod_price' ><span class='price' > " . $prix . "€</span ></div >";
         echo "</div >";
         echo "<div class='bottom_prod_box' ></div >";
-        echo "<div class='prod_details_tab' > <a id='prod_cart' href='index.php?addtocart=".$elem->getId()."' class='confirmLink' > Commander </a > <a href = 'details.php?produit=".$elem->getId()."' class='prod_details' > details</a > </div >";
+        echo "<div class='prod_details_tab' > <a id='prod_cart' href='index.php?addtocart=".$elem->getId()."' class='confirmLink' > Commander </a > <a href = 'index.php?page=details&produit=".$elem->getId()."' class='prod_details' > details</a > </div >";
         echo "</div >";
     }
 
