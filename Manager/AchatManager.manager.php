@@ -119,11 +119,27 @@ class AchatManager {
         ));
     }
 
+    public function deleteAllUtilisateurAchat($id_user) {
+        $query = $this->db->prepare("DELETE FROM utilisateur_achat WHERE id_user = :idUser");
+        $query->execute(array(
+        ":idUser" => $id_user,
+        ));
+}
+
     public function setUtilisateurAchat($id_user, $id_produit) {
         $query = $this->db->prepare("INSERT INTO utilisateur_achat(id_user, id_produit) values (:iduser, :idprod)");
         $query->execute(array(
             ":iduser" => $id_user,
             ":idprod" => $id_produit
+        ));
+    }
+
+    public function setProduitDevis(Achat $achat, $devis) {
+        $query = $this->db->prepare("INSERT INTO produit_devis(id_produit, id_devis, date, quantite) values (:idprod, :iddev, NOW(), :quant)");
+        $query->execute(array(
+            ":idprod" => $achat->getProduit()->getId(),
+            ":iddev" => $devis->getId(),
+            ":quant" => $achat->getQuantite()
         ));
     }
 }

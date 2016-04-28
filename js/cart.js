@@ -26,9 +26,9 @@ function deleteAchat(id, user) {
         data : {produit : id,
                 action : 'delete',
                 user : user
-        },
+        }
 
-    })
+    });
     location.reload();
 
 }
@@ -39,6 +39,27 @@ function lancerFacture() {
         achat[$(this).attr("name")] = $(this).val();
     })
     achat['total'] = $('#total').html();
+    $.post("../Library/Page/Panier.lib.php", {"session" : achat});
     console.log(achat);
+
+    $(".container").remove();
+    $(".facture").append("<iframe src='../Library/Page/Facture.lib.php' width='100%' style='height:1000px'></iframe>");
+    $(".facture").append("<div class='facture' style='padding-bottom:2em;'><a href='../Achat' class='btn btn-warning col-sm-6'><i class='fa fa-angle-left'></i> Retourner au panier</a><a class='btn btn-success col-sm-6' onclick='startCommande();'>Passer commande <i class='fa fa-angle-right'></i></a></div>");
+
+}
+
+function startCommande() {
+    $.ajax({
+        url: '../Library/Page/Panier.lib.php',
+        type: "POST",
+        data : {
+            action : 'devis'
+        },
+        success:function (data) {
+            console.log(data);
+        }
+
+    });
+    window.location.href = "../Produits";
 
 }

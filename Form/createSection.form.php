@@ -9,7 +9,7 @@
 ?>
 
 <form action="index.php?page=createSection" method="post" class="formCreation">
-    <label class="contact" for="name"><strong>Section :</strong></label>
+    <label class="contact" for="name"><strong>Section* :</strong></label>
     <input type="text" class="contact_input" id="name" name="name" required>
     <div class="form_row">
         <button type="submit"  name="creerSection" id="btnCompte">Créer la section</button>

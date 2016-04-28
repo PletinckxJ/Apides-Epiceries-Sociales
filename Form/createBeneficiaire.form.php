@@ -12,7 +12,7 @@ $tabBudget = $bm->getAllBudget();
 ?>
 
 <form action="index.php?page=benef&option=create" method="post" class="formCreation">
-    <label class="contact" for="referent"><strong>Référent :</strong></label>
+    <label class="contact" for="referent"><strong>Référent* :</strong></label>
 
     <select name='referent' id='referent' class="contact_input">
         <?php
@@ -22,23 +22,23 @@ $tabBudget = $bm->getAllBudget();
         }
         ?>
     </select>
-    <label class="contact" for="name"><strong>Nom :</strong></label>
+    <label class="contact" for="name"><strong>Nom* :</strong></label>
     <input type="text" class="contact_input" id="name" name="name" required>
-    <label class="contact" for="prenom"><strong>Prénom :</strong></label>
+    <label class="contact" for="prenom"><strong>Prénom* :</strong></label>
     <input type="text" class="contact_input" id="prenom" name="prenom" required>
-    <label class="contact" for="address"><strong>Adresse :</strong></label>
+    <label class="contact" for="address"><strong>Adresse* :</strong></label>
     <input type="text" class="contact_input" id="address" name="address">
-    <label class="contact" for="code"><strong>Code postal :</strong></label>
+    <label class="contact" for="code"><strong>Code postal* :</strong></label>
     <input type="number" class="contact_input" id="code" name="code"  required>
-    <label class="contact" for="ville"><strong>Ville :</strong></label>
+    <label class="contact" for="ville"><strong>Ville* :</strong></label>
     <input type="text" class="contact_input" id="ville" name="ville"  required>
-    <label class="contact" for="mail"><strong>Mail :</strong></label>
+    <label class="contact" for="mail"><strong>Mail* :</strong></label>
     <input type="email" class="contact_input" id="mail" name="mail" required>
-    <label class="contact" for="gsm"><strong>Gsm :</strong></label>
+    <label class="contact" for="gsm"><strong>Gsm* :</strong></label>
     <input type="text" class="contact_input" id="gsm" name="gsm" required>
-    <label class="contact" for="numReg"><strong>Numéro de registre national :</strong></label>
+    <label class="contact" for="numReg"><strong>Numéro de registre national* :</strong></label>
     <input type="text" class="contact_input" id="numReg" name="numReg" onchange="verifyReg();"  required>
-    <label class="contact" for="budget"><strong>Budget :</strong></label>
+    <label class="contact" for="budget"><strong>Budget* :</strong></label>
 
     <select name='budget' id='budget' class="contact_input">
         <?php

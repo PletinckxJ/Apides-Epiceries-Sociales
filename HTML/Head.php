@@ -69,7 +69,6 @@ ob_start();
 
     <script type="text/javascript" src="../js/verifyRegistre.php"></script>
    </head>
-<?php
-d($_SESSION); ?>
+
 <body>
 

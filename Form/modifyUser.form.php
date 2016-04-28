@@ -35,7 +35,12 @@ echo "<form action='index.php?page=modifyUser&id=$id' method='post' class='formC
             }
         ?>
     </select>
-
+    <label class="contact" for="adresse"><strong>Adresse :</strong></label>
+    <input type="text" class="contact_input" id="adresse" name="adresse" value="<?php echo $user->getAdresse(); ?>"required>
+    <label class="contact" for="ville"><strong> Ville  :</strong></label>
+    <input type="text" class="contact_input" id="ville" name="ville" value="<?php echo $user->getVille(); ?>"required>
+    <label class="contact" for="code"><strong>Code postal :</strong></label>
+    <input type="number" class="contact_input" id="code" name="code" value="<?php echo $user->getCode(); ?>"required>
     <div class="form_row">
         <button type="submit"  name="modifyAccount" id="btnCompte">Modifier le compte</button>
     </div>

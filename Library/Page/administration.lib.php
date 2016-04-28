@@ -149,6 +149,9 @@ function addDB()
         "mdp" => $_POST['mdp'],
         "telephone" => $_POST['gsm'],
         "contact" => $_POST['toContact'],
+        "adresse" => $_POST['adresse'],
+        "ville" => $_POST['ville'],
+        "code" => $_POST['code']
 
     ));
 
@@ -200,6 +203,9 @@ function modifyUser(Utilisateur $user) {
     $user->setTelephone($_POST['gsm']);
     $user->setMail($_POST['mail']);
     $user->getDroit()->setId($_POST['grade']);
+    $user->setVille($_POST['ville']);
+    $user->setAdresse($_POST['adresse']);
+    $user->setCode($_POST['code']);
     $um = new UserManager(connexionDb());
     $userTestName = $um->getUserByUserName($user->getNomSociete());
     $userTestMail = $um->getUserByEmail($user->getMail());

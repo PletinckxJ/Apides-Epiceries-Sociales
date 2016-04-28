@@ -7,7 +7,7 @@
  */
 ?>
 <form action="index.php?page=createTVA" method="post" class="formCreation">
-    <label class="contact" for="name"><strong>Taux (%) :</strong></label>
+    <label class="contact" for="name"><strong>Taux (%)* :</strong></label>
     <input type="text" class="contact_input" id="name" name="name" required>
     <div class="form_row">
         <button type="submit"  name="creerTVA" id="btnCompte">Créer la TVA</button>

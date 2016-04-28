@@ -18,6 +18,6 @@
             }*/
             echo "<div class='cart_details'> ".count($tabAchat)." produits <br />";
         ?>
-<span class="border_cart"></span><a href="../Achat" style="color:red"> Passer commande </a></div>
-<div class="cart_icon"><a href="../Achat" title="header=[Voir le panier] body=[&nbsp;] fade=[on]"><img src="../Style/images/shoppingcart.png" alt="" width="48" height="48" border="0" /></a></div>
+<span class="border_cart"></span><a <?php if (count($tabAchat) > 0) echo "href='../Achat'"; ?> style="color:red"> Passer commande </a></div>
+<div class="cart_icon"><a <?php if (count($tabAchat) > 0) echo "href='../Achat'"; ?> title="header=[Voir le panier] body=[&nbsp;] fade=[on]"><img src="../Style/images/shoppingcart.png" alt="" width="48" height="48" border="0" /></a></div>
 </div>

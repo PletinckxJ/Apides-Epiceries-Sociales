@@ -403,7 +403,7 @@ class PDF_Invoice extends FPDF
             $longCell  = $pos -2;
             $texte     = $tab[ $lib ];
             $length    = $this->GetStringWidth( $texte );
-            $tailleTexte = $this->sizeOfText( $texte, $length );
+            //$tailleTexte = $this->sizeOfText( $texte, $length );
             $formText  = $format[ $lib ];
             $this->SetXY( $ordonnee, $ligne-1);
             $this->MultiCell( $longCell, 4 , $texte, 0, $formText);
@@ -462,21 +462,19 @@ class PDF_Invoice extends FPDF
 
     function addCadreEurosFrancs()
     {
-        $r1  = $this->w - 70;
-        $r2  = $r1 + 60;
+        $r1  = $this->w - 50;
+        $r2  = $r1 + 40;
         $y1  = $this->h - 40;
         $y2  = $y1+20;
         $this->RoundedRect($r1, $y1, ($r2 - $r1), ($y2-$y1), 2.5, 'D');
         $this->Line( $r1+20,  $y1, $r1+20, $y2); // avant EUROS
         $this->Line( $r1+20, $y1+4, $r2, $y1+4); // Sous Euros & Francs
-        $this->Line( $r1+38,  $y1, $r1+38, $y2); // Entre Euros & Francs
+        //$this->Line( $r1+38,  $y1, $r1+38, $y2); // Entre Euros & Francs
         $this->SetFont( "Arial", "B", 8);
         $this->SetXY( $r1+22, $y1 );
         $this->Cell(15,4, "EUROS", 0, 0, "C");
         $this->SetFont( "Arial", "", 8);
         $this->SetXY( $r1+42, $y1 );
-        $this->Cell(15,4, "FRANCS", 0, 0, "C");
-        $this->SetFont( "Arial", "B", 6);
         $this->SetXY( $r1, $y1+5 );
         $this->Cell(20,4, "TOTAL TTC", 0, 0, "C");
         $this->SetXY( $r1, $y1+10 );
@@ -661,7 +659,7 @@ class PDF_Invoice extends FPDF
             if ( strlen ($params["Remarque"]) > 0 )
                 $this->addRemarque( $params["Remarque"] );
         }
-        $re  = $this->w - 50;
+        $re  = $this->w - 30;
         $rf  = $this->w - 29;
         $y1  = $this->h - 40;
         $this->SetFont( "Arial", "", 8);
@@ -671,12 +669,7 @@ class PDF_Invoice extends FPDF
         $this->Cell( 17,4, sprintf("%0.2F", $accompteTTC), '', '', 'R');
         $this->SetXY( $re, $y1+14.8 );
         $this->Cell( 17,4, sprintf("%0.2F", $totalTTC - $accompteTTC), '', '', 'R');
-        $this->SetXY( $rf, $y1+5 );
-        $this->Cell( 17,4, sprintf("%0.2F", $totalTTC * EURO_VAL), '', '', 'R');
-        $this->SetXY( $rf, $y1+10 );
-        $this->Cell( 17,4, sprintf("%0.2F", $accompteTTC * EURO_VAL), '', '', 'R');
-        $this->SetXY( $rf, $y1+14.8 );
-        $this->Cell( 17,4, sprintf("%0.2F", ($totalTTC - $accompteTTC) * EURO_VAL), '', '', 'R');
+
     }
 
 // add a watermark (temporary estimate, DUPLICATA...)

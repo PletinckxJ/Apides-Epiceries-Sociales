@@ -187,7 +187,7 @@ class UserManager {
         $user->setSalt(uniqid(mt_rand(), true));
         $query = $this
             ->db
-            ->prepare("INSERT INTO utilisateur(nom_societe, mdp, contact, date_inscription, date_connexion, mail, salt, telephone) VALUES (:username , :mdp , :contact, NOW(),NOW(), :mail, :salt, :tel)");
+            ->prepare("INSERT INTO utilisateur(nom_societe, mdp, contact, date_inscription, date_connexion, mail, salt, telephone, adresse, ville, code_postal) VALUES (:username , :mdp , :contact, NOW(),NOW(), :mail, :salt, :tel, :adresse, :ville, :code)");
 
         $user->setHashMdp();
         $query->execute(array(
@@ -196,7 +196,10 @@ class UserManager {
             ":contact" => $user->getContact(),
             ":mail" => $user->getMail(),
             ":salt" => $user->getSalt(),
-            ":tel" => $user->getTelephone()
+            ":tel" => $user->getTelephone(),
+            ":adresse" => $user->getAdresse(),
+            ":ville" => $user->getVille(),
+            ":code" => $user->getCode()
         ));
     }
 
@@ -208,7 +211,7 @@ class UserManager {
     {
         $query = $this
             ->db
-            ->prepare("UPDATE utilisateur SET nom_societe = :username , mdp = :mdp , contact = :contact, mail = :mail, telephone = :tel WHERE id = :id");
+            ->prepare("UPDATE utilisateur SET nom_societe = :username , mdp = :mdp , contact = :contact, mail = :mail, telephone = :tel, adresse = :adresse, ville = :ville, code_postal = :code WHERE id = :id");
 
         $query
             ->execute(array(
@@ -218,6 +221,9 @@ class UserManager {
                 ":mail" => $user->getMail(),
                 ":mdp" => $user->getMdp(),
                 ":tel" => $user->getTelephone(),
+                ":adresse" => $user->getAdresse(),
+                ":ville" => $user->getVille(),
+                ":code" => $user->getCode()
             ));
         $this->updateUserDroit($user->getId(), $user->getDroit()->getId());
 

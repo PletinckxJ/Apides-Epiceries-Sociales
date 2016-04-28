@@ -20,7 +20,6 @@ $(function() {
             } else {
                 $("#nothing").hide();
             }
-            pagintest();
         }
     });
 });

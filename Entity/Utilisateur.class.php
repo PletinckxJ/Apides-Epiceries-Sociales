@@ -19,6 +19,9 @@ class Utilisateur
     private $droit;
     private $achat = array();
     private $salt;
+    private $ville;
+    private $code_postal;
+    private $adresse;
 
     /**
      * Fonction permettant l'hydratation de la classe.
@@ -91,6 +94,19 @@ class Utilisateur
         return $this->salt;
     }
 
+    public function getCode()
+    {
+        return $this->code_postal;
+    }
+
+    public function getVille()
+    {
+        return $this->ville;
+    }
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
     /**SETTER**/
     public function setId($id)
     {
@@ -151,6 +167,17 @@ class Utilisateur
         $this->salt = $salt;
     }
 
+    public function setCode($code) {
+        $this->code_postal = $code;
+    }
+
+    public function setVille($ville) {
+        $this->ville = $ville;
+    }
+
+    public function setAdresse($adresse) {
+        $this->adresse = $adresse;
+    }
     /**
      * Fonction permettant le hashage du mots de passe.
      * @use inscription
