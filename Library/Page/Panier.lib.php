@@ -48,8 +48,10 @@ require('../Function/Database.lib.php');
         foreach ($_SESSION['Achat'] as $elem) {
             $am->setProduitDevis($elem, $devis);
         }
-        $_SESSION['pdf']->Output("../../Devis/".$devis->getId().".pdf", "F");
+        $_SESSION['pdf']->Output("../../Devis/pdf/".$devis->getId().".pdf", "F");
+        $dm->addUtilisateurDevis($_SESSION['Utilisateur']->getId(), $devis->getId());
         $am->deleteAllUtilisateurAchat($_SESSION['Utilisateur']->getId());
         unset($_SESSION['pdf']);
+        unset($_SESSION['Devis']);
     }
 

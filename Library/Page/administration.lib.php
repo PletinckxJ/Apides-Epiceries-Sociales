@@ -72,6 +72,10 @@ function getTitle() {
             return "Modifier le fournisseur";
         } else if ($_GET['page'] == "modifyTVA") {
             return "Modifier la TVA";
+        } else if ($_GET['page'] == 'devis') {
+            return "Liste des devis";
+        } else if ($_GET['page'] == "modifyDevis") {
+            return "Informations et opérations sur le devis";
         } else {
             return "Error";
         }

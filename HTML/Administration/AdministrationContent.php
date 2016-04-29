@@ -9,7 +9,7 @@ $title = getTitle();
 ?>
 
 <?php include("../HTML/Administration/NavigationAdministration.php"); ?>
-<div class="center_content">
+<div class="center_content" >
     <?php
      echo "<div class='center_title_bar'>".$title."</div>";
     ?>
@@ -100,6 +100,8 @@ $title = getTitle();
                 }
             } else if ($_GET['page'] == "modifyTVA" && isset($_GET['id']) && TVAExistant()) {
                 include("../HTML/Administration/AdministrationModifyTVA.php");
+            } else if ($_GET['page'] == 'devis') {
+                include("../HTML/Administration/AdministrationDevis.php");
             } else {
                 header("Location :../Deconnexion");
             }
@@ -109,8 +111,10 @@ $title = getTitle();
     </div>
 </div>
 <div class="right_content">
+    <?php if (isset($_GET['page']) && ($_GET['page'] != 'devis') && $_GET['page'] != 'modifyDevis') { ?>
     <div class="title_box">Options</div>
     <ul class="left_menu">
         <?php include("../HTML/Administration/AdministrationRightList.php"); ?>
     </ul>
+    <?php } ?>
 </div>

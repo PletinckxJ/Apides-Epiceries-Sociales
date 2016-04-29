@@ -6,14 +6,24 @@
 function recalculate(id) {
     var value = $('#'+id).val();
     var price = $('#price_'+id).html();
+    var ancientsub = $('#subtotal_'+id).html();
+    var splitSub = ancientsub.split('€');
     var split = price.split('€');
     var subtotal = value*split[0];
-    subtotal = subtotal.toFixed(2);
-    var adding = subtotal - split[0];
     var total = $('#total').html();
     var split2 = total.split('€');
     var split3 = split2[0].split('Total : ');
-    var newtotal = adding + parseInt(split3[1]);
+    var newtotal = 0;
+    var diff = 0;
+    if (subtotal > splitSub[0]) {
+        diff = subtotal - splitSub[0];
+        newtotal = parseFloat(split3[1]) + parseFloat(diff);
+
+    } else if (subtotal < splitSub[0]) {
+        diff = splitSub[0] - subtotal;
+        newtotal = parseFloat(split3[1]) - parseFloat(diff);
+    }
+    subtotal = subtotal.toFixed(2);
     newtotal = newtotal.toFixed(2);
     $('#subtotal_'+id).html(subtotal+"€");
     $('#total').html("Total : "+newtotal+"€");
@@ -37,7 +47,7 @@ function lancerFacture() {
     var achat = {};
     $('input').each(function() {
         achat[$(this).attr("name")] = $(this).val();
-    })
+    });
     achat['total'] = $('#total').html();
     $.post("../Library/Page/Panier.lib.php", {"session" : achat});
     console.log(achat);

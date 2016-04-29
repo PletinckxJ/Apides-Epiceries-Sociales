@@ -44,3 +44,22 @@ $("#confirmLink").click(function(e) {
 
     $("#dialog").dialog("open");
 });
+
+$("#confirmClot").click(function(e) {
+    e.preventDefault();
+    var targetUrl = $(this).attr("href");
+
+    $("#dialog").dialog({
+        buttons : {
+            "Oui" : function() {
+                lancerCloturation(targetUrl);
+                $(this).dialog("close");
+            },
+            "Non" : function() {
+                $(this).dialog("close");
+            }
+        }
+    });
+
+    $("#dialog").dialog("open");
+});

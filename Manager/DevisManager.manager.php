@@ -68,12 +68,37 @@ class DevisManager {
         return $devis;
     }
 
+    public function getDevisUser($devis) {
+        $query = $this->db->prepare("SELECT id_utilisateur FROM utilisateur_devis WHERE id_devis = :id");
+        $query->execute(array(
+            ":id" => $devis
+        ));
+
+        if ($tabDevis = $query->fetch(PDO::FETCH_ASSOC)) {
+            $user = $tabDevis['id_utilisateur'];
+        } else {
+            $user = NULL;
+        }
+
+
+
+        return $user;
+    }
+
+    public function addUtilisateurDevis($user,$devis) {
+        $query = $this->db->prepare("INSERT INTO utilisateur_devis(id_utilisateur, id_devis) values ( :iduser, :iddevis) ");
+        $query->execute(array(
+            ":iduser" => $user,
+            ":iddevis" => $devis
+        ));
+    }
     public function insertDevis(Devis $devis) {
         $query = $this->db->prepare("INSERT INTO devis(date_emission, num_devis) values ( NOW(), :num) ");
         $query->execute(array(
             ":num" => $devis->getNumeroDevis()
         ));
     }
+
 
     public function updateDevis(Devis $devis) {
         $query = $this->db->prepare("update devis set cloture = :cloture, date_emission = :date, num_devis = :numero WHERE id=:id");

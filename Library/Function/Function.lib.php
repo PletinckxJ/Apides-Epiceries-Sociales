@@ -84,6 +84,16 @@ function fournisseurExistant() {
     }
 }
 
+function devisExistant() {
+    $id = $_GET['id'];
+    $dm = new DevisManager(connexionDb());
+    $devis = $dm->getDevisById($id);
+    if ($devis->getNumeroDevis() == NULL) {
+        return false;
+    } else {
+        return true;
+    }
+}
 function marqueExistant() {
     $id = $_GET['id'];
     $mm = new MarqueManager(connexionDb());

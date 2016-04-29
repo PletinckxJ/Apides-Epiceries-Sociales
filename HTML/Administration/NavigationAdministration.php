@@ -14,7 +14,7 @@
     <ul class="left_menu">
         <li class="odd2"><a href="index.php?page=users">Utilisateurs</a></li>
         <li class="even2"><a href="index.php?page=produit">Produits</a></li>
-        <li class="odd2"><a href="#">Devis</a></li>
+        <li class="odd2"><a href="index.php?page=devis">Devis</a></li>
         <li class="even2"><a href="index.php?page=benef">Bénéficiaires</a></li>
     </ul>
     <br>
