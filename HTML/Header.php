@@ -23,7 +23,7 @@
                 <li class="divider"></li>
                 <li><a href="../Administration" class="nav2">Administration</a></li>
                 <li class="divider"></li>
-                <li><a href="#" class="nav4">My account</a></li>
+                <li><a href="../Compte" class="nav4">Mon compte</a></li>
                 <li class="divider"></li>
                 <li><a href="#" class="nav5">Shipping</a></li>
                 <li class="divider"></li>

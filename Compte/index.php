@@ -2,22 +2,19 @@
 /**
  * Created by PhpStorm.
  * User: Julien
- * Date: 20-04-16
- * Time: 14:52
+ * Date: 02/05/2016
+ * Time: 11:35
  */
 
 include("../Library/Function/Require.lib.php");
 include("../HTML/Head.php");
 include("../HTML/Header.php");
-startSession();
-unset($_SESSION['Devis']);
-unset($_SESSION['pdf']);
 ?>
 
 <?php
 
 if (isConnect()) {
-    include("../HTML/Achat/AchatContent.php");
+    include("../HTML/Compte/CompteContent.php");
 } else {
     header("Location :../Deconnexion");
 }

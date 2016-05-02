@@ -18,16 +18,22 @@ $tabAchat = $am->getAllAchatsFromDevis($devis);
     });
 </script>
 <div class="facture">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../Style/bootstrap-3.3.6-dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../Style/cartTable.css" rel="stylesheet">
+    <script src="../js/devis.js"></script>
 <div id="tabs" style="border: none; background-color : #f7f3f3;">
     <ul style="border: none; border-bottom : solid 1px black;  background-color : #f7f3f3; background-image:none;">
         <li><a href="#tabs-1" style="border: none; width:480px;"><?php if($devis->getCloture() == 0) { echo "Cloturer le devis";} else { echo "Visualiser le devis";}?> </a></li>
+        <?php  if ($devis->getCloture() == 1 and file_exists("../Devis/pdf/revision-".$devis->getId().".pdf")) { ?>
+        <li><a href="#tabs-2" style="border: none; width:240px;"> Facture initiale</a></li>
+        <li><a href="#tabs-3" style="border: none; width:240px;"> Facture révisée</a></li>
+        <?php } else { ?>
         <li><a href="#tabs-2" style="border: none; width:480px;">Affichage de la facture actuelle</a></li>
+        <?php } ?>
     </ul>
     <div id="tabs-1" style="border: none; width:1000px; background-color : #f7f3f3;">
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-        <link href="../Style/bootstrap-3.3.6-dist/css/bootstrap.css" rel="stylesheet">
-        <link href="../Style/cartTable.css" rel="stylesheet">
-        <script src="../js/devis.js"></script>
+
         <div class="container">
             <table id="cart" class="table table-hover table-condensed" style="margin-left:-2em;width:85%;">
                 <caption><h3 align="center">Liste des produits du devis</h3></caption>
@@ -35,8 +41,10 @@ $tabAchat = $am->getAllAchatsFromDevis($devis);
                 <tr>
                     <th style="width:50%">Produit</th>
                     <th style="width:10%">Prix</th>
-                    <th style="width:8%">Quantité</th>
+                    <?php if ($devis->getCloture() == 0) { ?>
+                        <th style="width:8%">Quantité</th>
                     <th style="width:15%" class="text-center"> Rectifications </th>
+                    <?php } else { echo "<th style='width:23%'  class='text-center'>Quantité</th><th  class='hidden-xs'></th>";} ?>
                     <th style="width:22%" class="text-center">Sous-total</th>
                 </tr>
                 </thead>
@@ -68,12 +76,14 @@ $tabAchat = $am->getAllAchatsFromDevis($devis);
                         <td data-th="Quantity" class="text-center"
                                    id="quantity_<?php echo $elem->getProduit()->getId(); ?>"><?php echo $elem->getQuantite(); ?>
                         </td>
+                        <?php if ($devis->getCloture() == 0) { ?>
                         <td data-th="Rectification">
-                            <input type="number" min="0" max="<?php echo $elem->getQuantite(); ?>" class="form-control text-center"
+                            <input type="number" min="1" max="<?php echo $elem->getQuantite(); ?>" class="form-control text-center"
                                    id="<?php echo $elem->getProduit()->getId(); ?>"
                                    name="<?php echo $elem->getProduit()->getId(); ?>" value="<?php echo $elem->getQuantite(); ?>"
                                    >
                         </td>
+                        <?php } else echo "<td></td>"; ?>
                         <td data-th="Subtotal" class="text-center"
                             id="subtotal_<?php echo $elem->getProduit()->getId(); ?>"><?php echo $prix*$elem->getQuantite(); ?> €
                         </td>
@@ -87,19 +97,36 @@ $tabAchat = $am->getAllAchatsFromDevis($devis);
                 <tr>
                     <td><a href="../Administration/index.php?page=devis" class="btn btn-warning"><i class="fa fa-angle-left"></i> Retourner dans les devis</a>
                     </td>
-                    <td colspan="2" class="hidden-xs"></td>
-                    <td class="hidden-xs text-center"><strong id="total">Total : <?php echo $somme; ?> €</strong></td>
+
+
+                    <?php if ($devis->getCloture() == 0 ) { ?>
+                        <td colspan="2" class="hidden-xs"></td>
+                        <td class="hidden-xs text-center"><strong id="total">Total : <?php echo $somme; ?> €</strong></td>
                     <td><a class="btn btn-success btn-block" href="<?php echo $_GET['id']; ?>" id="confirmClot">Clôturer <i
                                 class="fa fa-angle-right"></i></a></td>
+                    <?php } else if ($devis->getCloture() == 1) { ?>
+
+                        <td colspan='2' class="hidden-xs text-center"><strong id="total">Total : <?php echo $somme; ?> €</strong></td>
+                        <td class="hidden-xs"></td>
+                    <td><a class="btn btn-danger btn-block  disabled">Devis cloturé</a></td>
+                    <?php } ?>
                 </tr>
                 </tfoot>
             </table>
         </div>
     </div>
-
+    <?php  if ($devis->getCloture() == 1 and file_exists("../Devis/pdf/revision-".$devis->getId().".pdf")) { ?>
+        <div id="tabs-2" style="border: none; background-color : #f7f3f3;">
+            <iframe src='../Devis/pdf/<?php echo $devis->getId(); ?>.pdf#view=FitH&zoom=100' width='100%' style='height:1000px'></iframe>
+        </div>
+        <div id="tabs-3" style="border: none; background-color : #f7f3f3;">
+            <iframe src='../Devis/pdf/revision-<?php echo $devis->getId(); ?>.pdf#view=FitH&zoom=100' width='100%' style='height:1000px'></iframe>
+        </div>
+    <?php } else { ?>
     <div id="tabs-2" style="border: none; background-color : #f7f3f3;">
         <iframe src='../Devis/pdf/<?php echo $devis->getId(); ?>.pdf#view=FitH&zoom=100' width='100%' style='height:1000px'></iframe>
     </div>
+    <?php } ?>
 </div>
 </div>
 <div id="dialog" title="Confirmation requise">

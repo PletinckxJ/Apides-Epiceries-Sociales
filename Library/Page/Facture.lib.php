@@ -94,12 +94,12 @@ if ((isset ($_SESSION['Devis']) && $different) || (!isset($_SESSION['Devis']) &&
     } else {
         $pdf->addClientAdresse($user->getNomSociete() . "\n" . $user->getContact() . "\n" . $user->getAdresse() . "\n" . $user->getCode() . "   " . $user->getVille() . "");
         $pdf->addReglement("Payement à la réception des biens");
-        $time = $_SESSION['Devis']->getDateEmission();
+        $time = strtotime($_SESSION['Devis']->getDateEmission());
         $final = date("d/m/Y", strtotime("+1 month", $time));
         $pdf->addEcheance("Délai max : " . $final);
         $split = explode("\\", $_SESSION['Devis']->getNumeroDevis());
         $num = intval($split[1]);
-        $pdf->addReference("Devis " . $num . " de " . date("Y", strtotime($time)) . "");
+        $pdf->addReference("Devis " . $num . " de " . date("Y", $time) . "");
     }
     $cols = array("REFERENCE" => 23,
         "DESIGNATION" => 70,
@@ -141,6 +141,7 @@ if ((isset ($_SESSION['Devis']) && $different) || (!isset($_SESSION['Devis']) &&
                     $achat->setQuantite($value);
                     $actualProd[] = $achat;
                 }
+
                 unset($_SESSION['Achat'][$key]);
                 if (($count % 14) == 0) break;
 
@@ -164,6 +165,7 @@ if ((isset ($_SESSION['Devis']) && $different) || (!isset($_SESSION['Devis']) &&
                     $achat->setQuantite($value);
                     $actualProd[] = $achat;
                 }
+
                 unset($_SESSION['Cloture'][$key]);
                 if (($count % 14) == 0) break;
 
@@ -275,6 +277,8 @@ if ((isset ($_SESSION['Devis']) && $different) || (!isset($_SESSION['Devis']) &&
     require_once('../Function/fpdf/fpdf.php');
     $pdf = new FPDI();
     $pdf->AddPage();
+    unset($_SESSION['Cloture']);
+    unset($_SESSION['pdf']);
 
     $pdf->setSourceFile("../../Devis/pdf/".$_SESSION['Devis']->getId().".pdf");
 // import page 1

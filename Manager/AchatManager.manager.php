@@ -134,8 +134,17 @@ class AchatManager {
         ));
     }
 
-    public function setProduitDevis(Achat $achat, $devis) {
+    public function setProduitDevis(Achat $achat,Devis $devis) {
         $query = $this->db->prepare("INSERT INTO produit_devis(id_produit, id_devis, date, quantite) values (:idprod, :iddev, NOW(), :quant)");
+        $query->execute(array(
+            ":idprod" => $achat->getProduit()->getId(),
+            ":iddev" => $devis->getId(),
+            ":quant" => $achat->getQuantite()
+        ));
+    }
+
+    public function modifyProduitDevisQuantity(Achat $achat,Devis $devis) {
+        $query = $this->db->prepare("UPDATE produit_devis set quantite = :quant where id_devis = :iddev and id_produit = :idprod");
         $query->execute(array(
             ":idprod" => $achat->getProduit()->getId(),
             ":iddev" => $devis->getId(),

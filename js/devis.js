@@ -9,6 +9,8 @@ $(function() {
         var quantity = parseInt($('#quantity_'+id).html());
         if ($(this).val() > quantity) {
             $(this).val(quantity);
+        } else if ($(this).val() == 0) {
+            $(this).val(1);
         }
         rectification(id);
         });
@@ -54,13 +56,22 @@ function lancerCloturation(id) {
     $.post("../Library/Page/devis.lib.php", {"session" : achat,
                                             "devis" : id});
     $("#tabs").remove();
-    $(".facture").append("<iframe src='../Library/Page/Facture.lib.php' width='100%' style='height:1000px'></iframe>");
-    $(".facture").append("<div class='facture' style='padding-bottom:2em;'><a href='../Administration/index.php?page=devis' class='btn btn-warning col-sm-6'><i class='fa fa-angle-left'></i> Retourner aux devis</a><a class='btn btn-success col-sm-6' onclick='startCloturation();'>Clôturer la commande <i class='fa fa-angle-right'></i></a></div>");
+    $(".facture").append("<object data='../Library/Page/Facture.lib.php' type='application/pdf' height='1000' width='1000' ><embed src='../Library/Page/Facture.lib.php' type='application/pdf' height='1000' width='1000' /> </object>");
+    $(".facture").append("<div class='facture' style='padding-bottom:2em;'><a href='../Devis/index.php?id="+id+"' class='btn btn-warning col-sm-6'><i class='fa fa-angle-left'></i> Retourner au devis</a><a class='btn btn-success col-sm-6' onclick='startCloturation();'>Clôturer la commande <i class='fa fa-angle-right'></i></a></div>");
+}
 
+function startCloturation() {
+    $.ajax({
+        url: '../Library/Page/devis.lib.php',
+        type: "POST",
+        data : {
+            action : 'devis'
+        },
+        success:function (data) {
+            console.log(data);
+        }
 
-
-    //$(".container").remove();
-    //$(".facture").append("<iframe src='../Library/Page/Facture.lib.php' width='100%' style='height:1000px'></iframe>");
-    //$(".facture").append("<div class='facture' style='padding-bottom:2em;'><a href='../Achat' class='btn btn-warning col-sm-6'><i class='fa fa-angle-left'></i> Retourner au panier</a><a class='btn btn-success col-sm-6' onclick='startCommande();'>Passer commande <i class='fa fa-angle-right'></i></a></div>");
+    });
+    window.location.href = "../Administration/index.php?page=devis";
 
 }

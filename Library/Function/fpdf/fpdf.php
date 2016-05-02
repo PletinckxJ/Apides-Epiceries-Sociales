@@ -8,7 +8,7 @@
 *******************************************************************************/
 
 define('FPDF_VERSION','1.81');
-
+ini_set('memory_limit','128M');
 class FPDF
 {
 protected $page;               // current page number

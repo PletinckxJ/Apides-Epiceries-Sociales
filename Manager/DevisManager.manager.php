@@ -68,6 +68,22 @@ class DevisManager {
         return $devis;
     }
 
+    public function getAllDevisFromUser(Utilisateur $user) {
+        $query = $this->db->prepare("SELECT * FROM utilisateur_devis WHERE id_utilisateur = :id");
+        $query->execute(array(
+            ":id" => $user->getId(),
+        ));
+        $tabDevis = $query->fetch(PDO::FETCH_ASSOC);
+        $listDevis = array();
+
+        foreach ($tabDevis as $elem) {
+            $devis = $this
+        }
+
+
+        return $devis;
+    }
+
     public function getDevisUser($devis) {
         $query = $this->db->prepare("SELECT id_utilisateur FROM utilisateur_devis WHERE id_devis = :id");
         $query->execute(array(

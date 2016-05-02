@@ -61,10 +61,10 @@
                     <td data-th="Price" id="price_<?php echo $elem->getProduit()->getId(); ?>"><?php echo $prix; ?>€
                     </td>
                     <td data-th="Quantity">
-                        <input type="number" min="0" max="1000" class="form-control text-center"
+                        <input type="number" min="1" max="999" class="form-control text-center"
                                id="<?php echo $elem->getProduit()->getId(); ?>"
                                name="<?php echo $elem->getProduit()->getId(); ?>" value="1"
-                               onchange="recalculate(<?php echo $elem->getProduit()->getId(); ?>);">
+                               >
                     </td>
                     <td data-th="Subtotal" class="text-center"
                         id="subtotal_<?php echo $elem->getProduit()->getId(); ?>"><?php echo $prix; ?> €

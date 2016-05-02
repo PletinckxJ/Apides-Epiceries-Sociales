@@ -29,9 +29,28 @@ require('../Function/Config.lib.php');
 require('../Function/Database.lib.php');
 
 startSession();
+$dm = new DevisManager(connexionDb());
 if (isset($_POST['session'])) {
-    $dm = new DevisManager(connexionDb());
     $_SESSION['Cloture'] = $_POST['session'];
     $_SESSION['Devis'] = $dm->getDevisById($_POST['devis']);
+} else if (isset($_POST['action']) && $_POST['action'] == 'devis') {
+    $devis = $_SESSION['Devis'];
+    if (isset($_SESSION['Cloture'])) {
+        $tabAchat = $_SESSION['Cloture'];
+        $am = new AchatManager(connexionDb());
+        foreach ($tabAchat as $elem) {
+            $am->modifyProduitDevisQuantity($elem, $devis);
+        }
+
+        if (isset ($_SESSION['pdf'])) {
+            $_SESSION['pdf']->Output("../../Devis/pdf/revision-" . $devis->getId() . ".pdf", "F");
+            unset($_SESSION['pdf']);
+
+        }
+
+         unset($_SESSION['Cloture']);
+    }
+    $dm->cloturerDevis($devis->getId());
+    unset($_SESSION['Devis']);
 }
 
