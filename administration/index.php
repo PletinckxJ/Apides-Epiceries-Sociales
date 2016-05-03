@@ -11,7 +11,7 @@ include("../HTML/Head.php");
 include("../HTML/Header.php");
 if (isset($_POST['formulaire']) && isValid()['Retour']) {
     addDB();
-    $tabRetour['Error'][] = "Le membre a été inscrit et un mail lui a été envoyé pour confirmer son inscription";
+    $tabRetour['Error'][] = "<span class='alert alert-success' style='float:left;margin-left:8em;'>Le membre a été inscrit et un mail lui a été envoyé pour confirmer son inscription</span>";
 } else if (isset($_POST['formulaire']) && !isValid()['Retour']) {
     foreach(isValid()['Error'] as $elem) {
         $tabRetour['Error'][] = $elem;

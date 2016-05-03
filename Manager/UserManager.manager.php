@@ -209,6 +209,7 @@ class UserManager {
      */
     public function updateUserProfil(Utilisateur $user)
     {
+        $_SESSION['lol'] = $user;
         $query = $this
             ->db
             ->prepare("UPDATE utilisateur SET nom_societe = :username , mdp = :mdp , contact = :contact, mail = :mail, telephone = :tel, adresse = :adresse, ville = :ville, code_postal = :code WHERE id = :id");

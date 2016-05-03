@@ -26,7 +26,7 @@
     <input type="password" class="contact_input" id="txtNewPassword" name="mdp" onchange="checkPasswordMatch();"required>
     <label class="contact" for="mdpverif"><strong>Vérification du mot de passe* :</strong></label>
     <input type="password" class="contact_input" id="txtConfirmPassword" name="mdpverif" onchange="checkPasswordMatch();" required>
-    <label for="error" class="contact" style="color:Red; display:none;width:350px;">Les mots de passe ne correspondent pas</label>
+    <label for="error" class="alert alert-danger" id="contact" style="display:none">Les mots de passe ne correspondent pas</label>
     <div class="form_row">
         <button type="submit"  name="formulaire" id="btnCompte">Créer le compte</button>
     </div>

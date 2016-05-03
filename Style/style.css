@@ -587,6 +587,11 @@ text-align:right;
 padding:4px 5px 0 0;
 color: #333333;
 }
+label#contact{
+    float:left;
+    margin-left : 16em;
+
+}
 
 label.contact_detail{
     width:200px;

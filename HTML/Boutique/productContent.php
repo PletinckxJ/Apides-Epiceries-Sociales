@@ -9,6 +9,9 @@
 
 $pm = new ProduitManager(connexionDb());
 $produitList = $pm->getAllProduit();
+$am = new AchatManager(connexionDb());
+$tabBestAchat = $am->getAchatQuantity();
+$bestAchat = $tabBestAchat[0];
 if (isset($_GET['addtocart'])) {
     if (produitExistant()) {
         addToCart();
@@ -40,15 +43,16 @@ if (isset($_GET['addtocart'])) {
     <div class="title_box">Produit le plus récent</div>
     <div class="border_box">
         <div class="product_title_expo"><a href='index.php?page=details&produit=<?php echo $newProduct->getId(); ?>'><?php echo $newProduct->getProduit()." | ".$newProduct->getPoids(); ?></a></div>
-        <div class="product_img"><a href='index.php?page=details&produit=<?php echo $newProduct->getId(); ?>'><img src="../Style/images/produits/<?php echo $newProduct->getId(); ?>.png" alt="" border="0" /></a></div>
+        <div class="product_img"><a href='index.php?page=details&produit=<?php echo $newProduct->getId(); ?>'><img src="../Style/images/produits/<?php echo $newProduct->getId(); ?>.png" alt="" border="0" style='max-height:90px;max-width:100px;' /></a></div>
         <div style="padding-bottom:2em; margin-left:4em;"><a href = 'index.php?addtocart=<?php echo $newProduct->getId(); ?>' class="confirmLink" id='prod_cart'> Commander </a ></div>
         <div class="prod_price"><span class="price"><?php echo $newProduct->getPrixHTVA(); ?>€</span></div>
     </div>
     <div class="title_box">Le plus vendu</div>
     <div class="border_box">
-        <div class="product_title_expo"><a href='index.php?page=details&produit=<?php echo $newProduct->getId(); ?>'>Motorola 156 MX-VL</a></div>
-        <div class="product_img"><a href='index.php?page=details&produit=<?php echo $newProduct->getId(); ?>'><img src="Style/images/laptop.png" alt="" border="0" /></a></div>
-        <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>
+        <div class="product_title_expo"><a href='index.php?page=details&produit=<?php echo $bestAchat->getProduit()->getId(); ?>'><?php echo $bestAchat->getProduit()->getProduit(); ?></a></div>
+        <div class="product_img"><a href='index.php?page=details&produit=<?php echo $bestAchat->getProduit()->getId(); ?>'><img src="../Style/images/produits/<?php echo $bestAchat->getProduit()->getId(); ?>.png" alt="" border="0" style='max-height:90px;max-width:100px;'/></a></div>
+        <div style="padding-bottom:2em; margin-left:4em;"><a href = 'index.php?addtocart=<?php echo $bestAchat->getProduit()->getId(); ?>' class="confirmLink" id='prod_cart'> Commander </a ></div>
+        <div class="prod_price"><span class="price"><?php echo round($bestAchat->getProduit()->getPrixHTVA()+($bestAchat->getProduit()->getPrixHTVA()*$bestAchat->getProduit()->getTVA()->getCoef()),2); ?>€</span></div>
     </div>
 </div>
 <script type="text/javascript" src="../js/dialogBox.js"></script>

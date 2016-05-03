@@ -20,7 +20,7 @@ if (!isset($_GET['page']) || $_GET['page'] == "users" || $_GET['page'] == "modif
     <li class="odd"><a href="index.php?page=benef&option=budget">Gérer les budgets</a></li>
 <?php
 } else if ($_GET['page'] == "produit" || $_GET['page'] == "modifyProduit" || $_GET['page'] == "createProduit"  || $_GET['page'] == "modifySection" || $_GET['page'] == "createSection"
-    || $_GET['page'] == "modifyFournisseur" || $_GET['page'] == "createFournisseur"  || $_GET['page'] == "modifyMarque" || $_GET['page'] == "createMarque") {
+    || $_GET['page'] == "modifyFournisseur" || $_GET['page'] == "createFournisseur"  || $_GET['page'] == "modifyMarque" || $_GET['page'] == "createMarque" || $_GET['page'] == "createTVA") {
     ?>
     <li class="odd"><a href="index.php?page=produit&option=create">Créer un produit</a></li>
     <li class="even"><a href="index.php?page=produit">Gérer les produits</a></li>

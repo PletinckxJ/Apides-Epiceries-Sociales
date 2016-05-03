@@ -43,14 +43,25 @@ if (isset($_POST['session'])) {
         }
 
         if (isset ($_SESSION['pdf'])) {
-            $_SESSION['pdf']->Output("../../Devis/pdf/revision-" . $devis->getId() . ".pdf", "F");
+            if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) {
+                $_SESSION['pdf']->Output("../../Devis/pdf/" . $devis->getId() . ".pdf", "F");
+            } else {
+                $_SESSION['pdf']->Output("../../Devis/pdf/revision-" . $devis->getId() . ".pdf", "F");
+                $dm->cloturerDevis($devis->getId());
+            }
             unset($_SESSION['pdf']);
 
         }
 
          unset($_SESSION['Cloture']);
     }
-    $dm->cloturerDevis($devis->getId());
+
     unset($_SESSION['Devis']);
+    if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) {
+        print "../Compte";
+
+    } else {
+        print "../Administration/index.php?page=devis";
+    }
 }
 

@@ -49,7 +49,7 @@ $title = getTitle();
                     if (addBudget()) {
                         header("Location: ../Administration/index.php?page=benef&option=budget");
                     } else {
-                        echo "<label class='contact' style='color:Red; width:350px;'>Le budget existe déjà</label>";
+                        echo "<label class='alert alert-danger'>Le budget existe déjà</label>";
                     }
                 }
             } else if ($_GET['page'] == "modifyBudget" && isset($_GET['id']) && budgetExistant()) {
@@ -111,7 +111,7 @@ $title = getTitle();
     </div>
 </div>
 <div class="right_content">
-    <?php if (isset($_GET['page']) && ($_GET['page'] != 'devis') && $_GET['page'] != 'modifyDevis') { ?>
+    <?php if ((isset($_GET['page']) && ($_GET['page'] != 'devis') && $_GET['page'] != 'modifyDevis') or !isset($_GET['page'])) { ?>
     <div class="title_box">Options</div>
     <ul class="left_menu">
         <?php include("../HTML/Administration/AdministrationRightList.php"); ?>

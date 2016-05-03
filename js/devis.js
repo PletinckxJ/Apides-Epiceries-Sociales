@@ -6,8 +6,9 @@
 $(function() {
     $('input').change(function() {
         var id = $(this).attr('name');
+        var grade = $(this).attr('grade');
         var quantity = parseInt($('#quantity_'+id).html());
-        if ($(this).val() > quantity) {
+        if ($(this).val() > quantity && grade != 3) {
             $(this).val(quantity);
         } else if ($(this).val() == 0) {
             $(this).val(1);
@@ -57,7 +58,7 @@ function lancerCloturation(id) {
                                             "devis" : id});
     $("#tabs").remove();
     $(".facture").append("<object data='../Library/Page/Facture.lib.php' type='application/pdf' height='1000' width='1000' ><embed src='../Library/Page/Facture.lib.php' type='application/pdf' height='1000' width='1000' /> </object>");
-    $(".facture").append("<div class='facture' style='padding-bottom:2em;'><a href='../Devis/index.php?id="+id+"' class='btn btn-warning col-sm-6'><i class='fa fa-angle-left'></i> Retourner au devis</a><a class='btn btn-success col-sm-6' onclick='startCloturation();'>Clôturer la commande <i class='fa fa-angle-right'></i></a></div>");
+    $(".facture").append("<div class='facture' style='padding-bottom:2em;'><a href='../Devis/index.php?id="+id+"' class='btn btn-warning col-sm-6'><i class='fa fa-angle-left'></i> Retourner au devis</a><a class='btn btn-success col-sm-6' onclick='startCloturation();'>Finir la procédure <i class='fa fa-angle-right'></i></a></div>");
 }
 
 function startCloturation() {
@@ -69,9 +70,10 @@ function startCloturation() {
         },
         success:function (data) {
             console.log(data);
+            window.location.href = data;
         }
 
     });
-    window.location.href = "../Administration/index.php?page=devis";
+
 
 }

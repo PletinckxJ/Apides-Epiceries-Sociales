@@ -42,6 +42,25 @@ class AchatManager {
 
     }
 
+    public function getAchatQuantity() {
+        $resultats = $this->db->prepare("SELECT sum(quantite) as quantite, id_produit FROM produit_devis group by id_produit");
+        $resultats->execute();
+        $tabAchat = $resultats->fetchAll(PDO::FETCH_ASSOC);
+
+        $tab = array();
+
+        foreach($tabAchat as $elem)
+        {
+            $achat = new Achat($elem);
+            $pm = new ProduitManager(connexionDb());
+            $achat->setProduit($pm->getProduitById($elem['id_produit']));
+            $tab[] = $achat;
+
+        }
+
+        return $tab;
+    }
+
     public function getAllAchatFromUser(Utilisateur $user) {
         $resultats = $this->db->prepare("SELECT * FROM utilisateur_achat where id_user = :id");
         $resultats->execute(array(

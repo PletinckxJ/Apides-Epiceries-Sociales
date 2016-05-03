@@ -128,9 +128,9 @@ function isValid()
             $validUserMail = false;
     }
     if (!$validUserMail)
-        $tabReturn['Error'][] = "Cette adresse mail est déjà utilisée, veuillez en choisir une autre ! <br>";
+        $tabReturn['Error'][] = "<span class='alert alert-danger' style='float:left;margin-left:12em;'>Cette adresse mail est déjà utilisée, veuillez en choisir une autre !</span> <br>";
     if (!$validUserName)
-        $tabReturn['Error'][] = "Ce login est déjà pris, veuillez en choisir en autre ! <br>";
+        $tabReturn['Error'][] = "<span class='alert alert-danger' style='float:left;margin-left:15em;'>Ce login est déjà pris, veuillez en choisir en autre !</span> <br>";
     if ($validUserMail and $validUserName and $champValid and $isReglementary)
         $tabReturn['Retour'] = true;
 
@@ -284,14 +284,14 @@ function addBenef() {
     $benef->setNumeroRegistre($_POST['numReg']);
     $refTest = $bm->getBeneficiaireByRegistre($benef->getNumeroRegistre());
     if ($refTest->getId() != NULL) {
-        return "<label class='contact' style='color:Red; width:350px;'>Le numéro de registre existe déjà</label>";
+        return "<label class='alert alert-danger' style='float:left;margin-left:20em;'>Le numéro de registre existe déjà</label>";
     } else {
         $bm->addBenef($benef);
         $benefId = $bm->getBeneficiaireByRegistre($benef->getNumeroRegistre());
         $benef->setId($benefId->getId());
         $bm->setBenefBudget($benef, $benef->getBudget());
         $bm->setBenefReferent($benef, $benef->getReferent());
-        return "<label class='contact' style='color:green; width:350px;'>Le bénéficiaire a bien été créé</label>";
+        return "<label class='alert alert-success' style='float:left;margin-left:20em;'>Le bénéficiaire a bien été créé</label>";
     }
 
 
@@ -318,9 +318,9 @@ function addProduit() {
     $produitCodeTest = $pm->getProduitByCode($produit->getCodeProduit());
     $produitEANTest = $pm->getProduitByEAN($produit->getEAN());
     if ($produitCodeTest->getId() != NULL) {
-        return "<label class='contact' style='color:Red; width:350px;'>Le code produit existe déjà</label>";
+        return "<label class='alert alert-danger' style='float:left;margin-left:20em;'>Le code produit existe déjà</label>";
     } else if ($produitEANTest->getId() != NULL) {
-        return "<label class='contact' style='color:Red; width:350px;'>L'EAN existe déjà</label>";
+        return "<label class='alert alert-danger' style='float:left;margin-left:20em;'>L'EAN existe déjà</label>";
     } else {
         $pm->addProduit($produit);
         $pid = $pm->getProduitByCode($produit->getCodeProduit());
@@ -397,7 +397,7 @@ function addFournisseur() {
     $libelle = $_POST['name'];
     $fm = new FournisseurManager(connexionDb());
     if ($fm->getFournisseurByLibelle($libelle)->getId() != NULL ) {
-        return "<label class='contact' style='color:Red; width:350px;'>Le fournisseur existe déjà</label>";
+        return "<label class='alert alert-danger' style='float:left;margin-left:20em;'>Le fournisseur existe déjà</label>";
 
     } else {
         $fm->addFournisseur($libelle);
@@ -424,7 +424,7 @@ function addSection() {
     $libelle = $_POST['name'];
     $sm = new SectionManager(connexionDb());
     if ($sm->getSectionByLibelle($libelle)->getId() != NULL ) {
-        return "<label class='contact' style='color:Red; width:350px;'>La section existe déjà</label>";
+        return "<label class='alert alert-danger' style='float:left;margin-left:20em;'>La section existe déjà</label>";
 
     } else {
         $sm->addSection($libelle);
@@ -451,7 +451,7 @@ function addMarque() {
     $libelle = $_POST['name'];
     $mm = new MarqueManager(connexionDb());
     if ($mm->getMarqueByLibelle($libelle)->getId() != NULL ) {
-        return "<label class='contact' style='color:Red; width:350px;'>La marque existe déjà</label>";
+        return "<label class='alert alert-danger' style='float:left;margin-left:20em;'>La marque existe déjà</label>";
 
     } else {
         $mm->addMarque($libelle);
@@ -481,7 +481,7 @@ function addTVA() {
     $tva->setTexteTVA($libelle."%");
     $tm = new TVAManager(connexionDb());
     if ($tm->getTVAByTexte($tva->getTexteTVA())->getId() != NULL ) {
-        return "<label class='contact' style='color:Red; width:350px;'>La TVA existe déjà</label>";
+        return "<label class='alert alert-danger' style='float:left;margin-left:20em;'>La TVA existe déjà</label>";
 
     } else {
         $tm->addTVA($tva);

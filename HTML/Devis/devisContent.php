@@ -24,7 +24,7 @@ $tabAchat = $am->getAllAchatsFromDevis($devis);
     <script src="../js/devis.js"></script>
 <div id="tabs" style="border: none; background-color : #f7f3f3;">
     <ul style="border: none; border-bottom : solid 1px black;  background-color : #f7f3f3; background-image:none;">
-        <li><a href="#tabs-1" style="border: none; width:480px;"><?php if($devis->getCloture() == 0) { echo "Cloturer le devis";} else { echo "Visualiser le devis";}?> </a></li>
+        <li><a href="#tabs-1" style="border: none; width:480px;"><?php if($devis->getCloture() == 0) { if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) { echo "Modifier le devis";} else { echo "Cloturer le devis";}} else { echo "Visualiser le devis";}?> </a></li>
         <?php  if ($devis->getCloture() == 1 and file_exists("../Devis/pdf/revision-".$devis->getId().".pdf")) { ?>
         <li><a href="#tabs-2" style="border: none; width:240px;"> Facture initiale</a></li>
         <li><a href="#tabs-3" style="border: none; width:240px;"> Facture révisée</a></li>
@@ -43,7 +43,7 @@ $tabAchat = $am->getAllAchatsFromDevis($devis);
                     <th style="width:10%">Prix</th>
                     <?php if ($devis->getCloture() == 0) { ?>
                         <th style="width:8%">Quantité</th>
-                    <th style="width:15%" class="text-center"> Rectifications </th>
+                    <th style="width:15%" class="text-center"><?php if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) { echo "Modifications"; } else { echo "Rectifications";} ?></th>
                     <?php } else { echo "<th style='width:23%'  class='text-center'>Quantité</th><th  class='hidden-xs'></th>";} ?>
                     <th style="width:22%" class="text-center">Sous-total</th>
                 </tr>
@@ -78,9 +78,9 @@ $tabAchat = $am->getAllAchatsFromDevis($devis);
                         </td>
                         <?php if ($devis->getCloture() == 0) { ?>
                         <td data-th="Rectification">
-                            <input type="number" min="1" max="<?php echo $elem->getQuantite(); ?>" class="form-control text-center"
+                            <input type="number" min="1" <?php if ($_SESSION['Utilisateur']->getDroit()->getId() != 3) { ?>max="<?php echo $elem->getQuantite(); ?>"<?php } ?> class="form-control text-center"
                                    id="<?php echo $elem->getProduit()->getId(); ?>"
-                                   name="<?php echo $elem->getProduit()->getId(); ?>" value="<?php echo $elem->getQuantite(); ?>"
+                                   name="<?php echo $elem->getProduit()->getId(); ?>" grade="<?php echo $_SESSION['Utilisateur']->getDroit()->getId(); ?>" value="<?php echo $elem->getQuantite(); ?>"
                                    >
                         </td>
                         <?php } else echo "<td></td>"; ?>
@@ -95,15 +95,14 @@ $tabAchat = $am->getAllAchatsFromDevis($devis);
                     <td class="text-center"><strong>Total </strong></td>
                 </tr>
                 <tr>
-                    <td><a href="../Administration/index.php?page=devis" class="btn btn-warning"><i class="fa fa-angle-left"></i> Retourner dans les devis</a>
+                    <td><a href=<?php if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) { echo "../Compte"; } else { echo "../Administration/index.php?page=devis";} ?> class="btn btn-warning"><i class="fa fa-angle-left"></i> Retourner dans les devis</a>
                     </td>
 
 
                     <?php if ($devis->getCloture() == 0 ) { ?>
                         <td colspan="2" class="hidden-xs"></td>
                         <td class="hidden-xs text-center"><strong id="total">Total : <?php echo $somme; ?> €</strong></td>
-                    <td><a class="btn btn-success btn-block" href="<?php echo $_GET['id']; ?>" id="confirmClot">Clôturer <i
-                                class="fa fa-angle-right"></i></a></td>
+                    <td><a class="btn btn-success btn-block" href="<?php echo $_GET['id']; ?>" id="confirmClot"><?php if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) {echo "Modifier";} else { echo "Clôturer";} ?> <i class="fa fa-angle-right"></i></a></td>
                     <?php } else if ($devis->getCloture() == 1) { ?>
 
                         <td colspan='2' class="hidden-xs text-center"><strong id="total">Total : <?php echo $somme; ?> €</strong></td>
@@ -130,6 +129,11 @@ $tabAchat = $am->getAllAchatsFromDevis($devis);
 </div>
 </div>
 <div id="dialog" title="Confirmation requise">
-    Clôturer la commande ?
+    <?php if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) {
+        echo "Modifier la commande ?";
+    } else {
+        echo "Clôturer la commande ?";
+    }
+?>
 </div>
 <script type="text/javascript" src="../js/dialogBox.js"></script>
