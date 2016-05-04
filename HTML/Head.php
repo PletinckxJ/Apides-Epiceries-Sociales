@@ -35,6 +35,7 @@ ob_start();
     <script type="text/javascript" src="../js/verifyRegistre.php"></script>
     <script type="text/javascript" src="../js/pagination.js";></script>
     <script type="text/javascript" src="../js/dynamicSearch.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js?hl=fr'></script>
     <script type="text/javascript" class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">

@@ -40,6 +40,7 @@ function modifyProfil() {
 
         if ($tabError[0] == NULL) {
             $um->updateUserProfil($user);
+            $um->updateUserMdp($user);
             $_SESSION['Utilisateur'] = $user;
             //header('Location :index.php');
         }

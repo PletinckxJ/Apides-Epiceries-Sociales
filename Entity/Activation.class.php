@@ -7,7 +7,7 @@
  */
 
 class Activation {
-    private $id_user;
+    private $id_utilisateur;
     private $code;
     private $libelle;
 
@@ -30,11 +30,11 @@ class Activation {
     /**GETTER**/
     public function getIdUser()
     {
-        return $this->id_user;
+        return $this->id_utilisateur;
     }
     public function setIdUser($id_user)
     {
-        $this->id_user = $id_user;
+        $this->id_utilisateur = $id_user;
     }
     public function getLibelle()
     {

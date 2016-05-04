@@ -6,7 +6,8 @@
  * Time: 12:23
  */
 
-function getTitle() {
+function getTitle()
+{
     if (!isset($_GET['page']) || $_GET['page'] == "users") {
         if (!isset($_GET['option'])) {
             return "Liste des membres";
@@ -54,7 +55,7 @@ function getTitle() {
             } else {
                 return "Error";
             }
-        } else if($_GET['page'] == "modifyProduit") {
+        } else if ($_GET['page'] == "modifyProduit") {
             return "Modifier le produit";
         } else if ($_GET['page'] == "createMarque") {
             return "Créer une marque";
@@ -84,37 +85,23 @@ function getTitle() {
     }
 }
 
-function showPoids($poids) {
-    if ($poids >= 1000){
-        $poids = ($poids/1000)."kg";
+function showPoids($poids)
+{
+    if ($poids >= 1000) {
+        $poids = ($poids / 1000) . "kg";
     } else {
-        $poids = $poids."g";
+        $poids = $poids . "g";
     }
     return $poids;
 }
+
 function isValid()
 {
     $tabReturn = array("Retour" => false, "Error" => array());
 
-    $ini = getConfigFile();
     $userName = strtolower($_POST['name']);
-    $mdp = $_POST['mdp'];
     $email = $_POST['mail'];
-    $mdpConfirm = $_POST['mdpverif'];
     $isReglementary = true;
-    if (strlen($userName) < $ini['CONSTANTE']['size_user_name']) {
-        $tabReturn['Error'][] = "Votre nom d'utilisateur est trop court, 6 caractères minimum ! <br>";
-        $isReglementary = false;
-    }
-
-    if (strlen($mdp) < $ini['CONSTANTE']['size_user_mdp']) {
-        $tabReturn['Error'][] = "Votre mot de passe est trop court, 5 caractères minimum ! <br>";
-        $isReglementary = false;
-    }
-    if ($mdp != $mdpConfirm) {
-        $tabReturn['Error'][] = "Les mots de passe ne correspondent pas ! <br>";
-        $isReglementary = false;
-    }
 
     $um = new UserManager(connexionDb());
     $tabUser = $um->getAllUser();
@@ -137,8 +124,6 @@ function isValid()
     return $tabReturn;
 
 
-
-
 }
 
 /**
@@ -150,12 +135,11 @@ function addDB()
     $userToAdd = new Utilisateur(array(
         "nom_societe" => $_POST['name'],
         "mail" => $_POST['mail'],
-        "mdp" => $_POST['mdp'],
         "telephone" => $_POST['gsm'],
         "contact" => $_POST['toContact'],
         "adresse" => $_POST['adresse'],
         "ville" => $_POST['ville'],
-        "code" => $_POST['code']
+        "code_postal" => $_POST['code']
 
     ));
 
@@ -164,16 +148,25 @@ function addDB()
     $to = $userToAdd->getMail();
     $sujet = "Confirmation de l'inscription";
     $entete = "From:" . $adresseAdmin . "\r\n";
-    $entete .= "Content-Type: text/html; charset=utf-8\r\n";
-    $message = "Nous confirmons que vous êtes officiellement inscrit sur le site EveryDayIdea <br>
-									Votre login est : " . $userToAdd->getNomSociete() . " <br>
-									Votre email est : " . $userToAdd->getMail() . " <br>
-									Votre mot de passe temporaire est : " . $userToAdd->getMdp() . " <br>
-									Votre lien d'activation est : <a href='http://www.everydayidea.be/Page/activationInscription.page.php?code=" . $code_aleatoire . "'>Cliquez ici !</a>";
+    $entete .= "MIME-Version: 1.0\r\n";
+    $entete .= "Content-Type: text/html; charset=windows-1252\r\n";
+    $message = '<html><body>';
+    $message .= '<div align="center"><img  src="http://www.centrale-achat-apides.be//Style/images/logo_apides_site1.png" alt="Confirmation inscription" /></div>';
+    $message .= '<table rules="all" style="border-color: #666;" cellpadding="10" align="center">';
+    $message .= "<tr style='background: #eee;'><td><strong>Nom d'utilisateur</strong> </td><td>" . $userToAdd->getNomSociete() . "</td></tr>";
+    $message .= "<tr><td><strong>Email:</strong> </td><td>" . $userToAdd->getMail() . "</td></tr>";
+    $message .= "<tr><td><strong>Personne de contact:</strong> </td><td>" . $userToAdd->getContact() . "</td></tr>";
+    $message .= "<tr><td><strong>Adresse :</strong> </td><td>" . $userToAdd->getAdresse() . "<br>" . $userToAdd->getCode() . " " . $userToAdd->getVille() . "</td></tr>";
+    $message .= "<tr><td><strong>Code à entrer lors de la validation :</strong> </td><td>" . $code_aleatoire . "</td></tr>";
+    $link = "http://www.centrale-achat-apides.be/Activation";
+    $message .= "<tr><td><strong>Cliquez sur ce lien pour confirmer l'inscription :</strong> </td><td><a href=$link target='_blank'>http://www.centrale-achat-apides.be/Activation </a></td></tr>";
+    $message .= "</table>";
+    $message .= "<div align='center'><strong><br> Bienvenue sur la centrale d'achat Apides !</strong>";
+    $message .= "</body></html>";
     mail($to, $sujet, $message, $entete);
 
     /** @var $um : un nouvel user qui va être ajouté à la BDD
-    J'ajoute le nouvel user à la BDD*/
+     * J'ajoute le nouvel user à la BDD*/
     $um = new UserManager(connexionDb());
     $um->addUser($userToAdd);
 
@@ -192,7 +185,7 @@ function addDB()
     $am = new ActivationManager(connexionDb());
     $activation = new Activation(array(
         "code" => $code_aleatoire,
-        "id_user" => $userid,
+        "id_utilisateur" => $userid,
         "libelle" => "Inscription",
     ));
     $am->addActivation($activation);
@@ -200,7 +193,8 @@ function addDB()
 
 }
 
-function modifyUser(Utilisateur $user) {
+function modifyUser(Utilisateur $user)
+{
     $retour = array();
     $user->setNomSociete($_POST['name']);
     $user->setContact($_POST['toContact']);
@@ -213,7 +207,7 @@ function modifyUser(Utilisateur $user) {
     $um = new UserManager(connexionDb());
     $userTestName = $um->getUserByUserName($user->getNomSociete());
     $userTestMail = $um->getUserByEmail($user->getMail());
-    if ($userTestName ->getNomSociete() != NULL && $userTestName->getId() != $_GET['id']) {
+    if ($userTestName->getNomSociete() != NULL && $userTestName->getId() != $_GET['id']) {
         $retour['Name'] = "Name";
         $retour['bool'] = false;
 
@@ -227,7 +221,8 @@ function modifyUser(Utilisateur $user) {
     return $retour;
 }
 
-function modifyBeneficiaire(Beneficiaire $benef) {
+function modifyBeneficiaire(Beneficiaire $benef)
+{
     $retour = array();
     $bm = new BeneficiaireManager(connexionDb());
     $benef = fillBenef($benef);
@@ -244,7 +239,8 @@ function modifyBeneficiaire(Beneficiaire $benef) {
     return $retour;
 }
 
-function modifyBudget(Budget $budget) {
+function modifyBudget(Budget $budget)
+{
     $bm = new BudgetManager(connexionDb());
     $budget->setSituationFam($_POST['name']);
     $budget->setLibelle($_POST['montant']);
@@ -256,7 +252,9 @@ function modifyBudget(Budget $budget) {
         return true;
     }
 }
-function fillBenef(Beneficiaire $benef) {
+
+function fillBenef(Beneficiaire $benef)
+{
     $benef->setAdresse($_POST['address']);
     $benef->setCodePostal($_POST['code']);
     $benef->setNom($_POST['name']);
@@ -277,7 +275,8 @@ function fillBenef(Beneficiaire $benef) {
     return $benef;
 }
 
-function addBenef() {
+function addBenef()
+{
     $benef = new Beneficiaire(array());
     $bm = new BeneficiaireManager(connexionDb());
     $benef = fillBenef($benef);
@@ -297,7 +296,8 @@ function addBenef() {
 
 }
 
-function addBudget() {
+function addBudget()
+{
     $budget = new Budget(array());
     $bm = new BudgetManager(connexionDb());
     $budget->setSituationFam($_POST['name']);
@@ -311,7 +311,8 @@ function addBudget() {
     }
 }
 
-function addProduit() {
+function addProduit()
+{
     $produit = new Produit(array());
     $pm = new ProduitManager(connexionDb());
     $produit = fillProduit($produit);
@@ -331,7 +332,7 @@ function addProduit() {
                 uploadImage('../Style/images/produits', $pid->getId());
             }
         } else {
-            copy("../Style/images/produits/produit.png", "../Style/images/produits/".$pid->getId().".png");
+            copy("../Style/images/produits/produit.png", "../Style/images/produits/" . $pid->getId() . ".png");
         }
         $pm->setProduitFournisseur($pid, $produit->getFournisseur()->getId());
         $pm->setProduitMarque($pid, $produit->getMarque()->getId());
@@ -341,7 +342,8 @@ function addProduit() {
     }
 }
 
-function modifyProduit($produit) {
+function modifyProduit($produit)
+{
     $pm = new ProduitManager(connexionDb());
     $produit = fillProduit($produit);
     $produitCodeTest = $pm->getProduitByCode($produit->getCodeProduit());
@@ -360,7 +362,7 @@ function modifyProduit($produit) {
                 uploadImage('../Style/images/produits', $produit->getId());
             }
         } else
-        $pm->updateProduitMarque($produit, $produit->getMarque()->getId());
+            $pm->updateProduitMarque($produit, $produit->getMarque()->getId());
         $pm->updateProduitFournisseur($produit, $produit->getFournisseur()->getId());
         $pm->updateProduitSection($produit, $produit->getSection()->getId());
         $pm->updateProduitTVA($produit, $produit->getTVA()->getId());
@@ -368,7 +370,8 @@ function modifyProduit($produit) {
     }
 }
 
-function fillProduit(Produit $produit) {
+function fillProduit(Produit $produit)
+{
     $produit->setCodeProduit($_POST['code']);
     $produit->setDLV($_POST['dlv']);
     $produit->setEAN($_POST['ean']);
@@ -393,10 +396,11 @@ function fillProduit(Produit $produit) {
     return $produit;
 }
 
-function addFournisseur() {
+function addFournisseur()
+{
     $libelle = $_POST['name'];
     $fm = new FournisseurManager(connexionDb());
-    if ($fm->getFournisseurByLibelle($libelle)->getId() != NULL ) {
+    if ($fm->getFournisseurByLibelle($libelle)->getId() != NULL) {
         return "<label class='alert alert-danger' style='float:left;margin-left:20em;'>Le fournisseur existe déjà</label>";
 
     } else {
@@ -406,12 +410,13 @@ function addFournisseur() {
     }
 }
 
-function modifyFournisseur(Fournisseur $fournisseur) {
+function modifyFournisseur(Fournisseur $fournisseur)
+{
     $fournisseur->setLibelle($_POST['name']);
     $fm = new FournisseurManager(connexionDb());
     $fourniTest = $fm->getFournisseurByLibelle($fournisseur->getLibelle());
-    if ($fourniTest->getId() != NULL && $fourniTest->getId() != $fournisseur->getId() ) {
-       return false;
+    if ($fourniTest->getId() != NULL && $fourniTest->getId() != $fournisseur->getId()) {
+        return false;
 
     } else {
         $fm->updateFournisseur($fournisseur);
@@ -420,10 +425,11 @@ function modifyFournisseur(Fournisseur $fournisseur) {
     }
 }
 
-function addSection() {
+function addSection()
+{
     $libelle = $_POST['name'];
     $sm = new SectionManager(connexionDb());
-    if ($sm->getSectionByLibelle($libelle)->getId() != NULL ) {
+    if ($sm->getSectionByLibelle($libelle)->getId() != NULL) {
         return "<label class='alert alert-danger' style='float:left;margin-left:20em;'>La section existe déjà</label>";
 
     } else {
@@ -433,7 +439,8 @@ function addSection() {
     }
 }
 
-function modifySection(Section $section) {
+function modifySection(Section $section)
+{
     $section->setLibelle($_POST['name']);
     $sm = new SectionManager(connexionDb());
     $sectionTest = $sm->getSectionByLibelle($section->getLibelle());
@@ -447,10 +454,11 @@ function modifySection(Section $section) {
     }
 }
 
-function addMarque() {
+function addMarque()
+{
     $libelle = $_POST['name'];
     $mm = new MarqueManager(connexionDb());
-    if ($mm->getMarqueByLibelle($libelle)->getId() != NULL ) {
+    if ($mm->getMarqueByLibelle($libelle)->getId() != NULL) {
         return "<label class='alert alert-danger' style='float:left;margin-left:20em;'>La marque existe déjà</label>";
 
     } else {
@@ -460,7 +468,8 @@ function addMarque() {
     }
 }
 
-function modifyMarque(Marque $marque) {
+function modifyMarque(Marque $marque)
+{
     $marque->setLibelle($_POST['name']);
     $mm = new MarqueManager(connexionDb());
     $marqueTest = $mm->getMarqueByLibelle($marque->getLibelle());
@@ -474,13 +483,14 @@ function modifyMarque(Marque $marque) {
     }
 }
 
-function addTVA() {
+function addTVA()
+{
     $libelle = $_POST['name'];
     $tva = new TVA(array());
-    $tva->setCoef($libelle/100);
-    $tva->setTexteTVA($libelle."%");
+    $tva->setCoef($libelle / 100);
+    $tva->setTexteTVA($libelle . "%");
     $tm = new TVAManager(connexionDb());
-    if ($tm->getTVAByTexte($tva->getTexteTVA())->getId() != NULL ) {
+    if ($tm->getTVAByTexte($tva->getTexteTVA())->getId() != NULL) {
         return "<label class='alert alert-danger' style='float:left;margin-left:20em;'>La TVA existe déjà</label>";
 
     } else {
@@ -490,10 +500,11 @@ function addTVA() {
     }
 }
 
-function modifyTVA(TVA $tva) {
+function modifyTVA(TVA $tva)
+{
     $libelle = $_POST['name'];
-    $tva->setCoef($libelle/100);
-    $tva->setTexteTVA($libelle."%");
+    $tva->setCoef($libelle / 100);
+    $tva->setTexteTVA($libelle . "%");
     $tm = new TVAManager(connexionDb());
     $tvaTest = $tm->getTVAByTexte($tva->getTexteTVA());
     if ($tvaTest->getId() != NULL && $tvaTest->getId() != $tva->getId()) {
@@ -505,4 +516,5 @@ function modifyTVA(TVA $tva) {
 
     }
 }
+
 ?>

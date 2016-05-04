@@ -22,10 +22,6 @@
     <input type="text" class="contact_input" id="ville" name="ville" required>
     <label class="contact" for="code"><strong>Code postal* :</strong></label>
     <input type="number" class="contact_input" id="code" name="code" required>
-    <label class="contact" for="mdp"><strong>Mot de passe* :</strong></label>
-    <input type="password" class="contact_input" id="txtNewPassword" name="mdp" onchange="checkPasswordMatch();"required>
-    <label class="contact" for="mdpverif"><strong>Vérification du mot de passe* :</strong></label>
-    <input type="password" class="contact_input" id="txtConfirmPassword" name="mdpverif" onchange="checkPasswordMatch();" required>
     <label for="error" class="alert alert-danger" id="contact" style="display:none">Les mots de passe ne correspondent pas</label>
     <div class="form_row">
         <button type="submit"  name="formulaire" id="btnCompte">Créer le compte</button>

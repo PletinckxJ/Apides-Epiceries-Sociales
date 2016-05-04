@@ -187,19 +187,18 @@ class UserManager {
         $user->setSalt(uniqid(mt_rand(), true));
         $query = $this
             ->db
-            ->prepare("INSERT INTO utilisateur(nom_societe, mdp, contact, date_inscription, date_connexion, mail, salt, telephone, adresse, ville, code_postal) VALUES (:username , :mdp , :contact, NOW(),NOW(), :mail, :salt, :tel, :adresse, :ville, :code)");
+            ->prepare("INSERT INTO utilisateur(nom_societe,  contact, date_inscription, date_connexion, mail, salt, telephone, adresse, ville, code_postal) VALUES (:username ,  :contact, NOW(),NOW(), :mail, :salt, :tel, :adresse, :ville, :postal)");
 
         $user->setHashMdp();
         $query->execute(array(
             ":username" => $user->getNomSociete(),
-            ":mdp" => $user->getMdp(),
             ":contact" => $user->getContact(),
             ":mail" => $user->getMail(),
             ":salt" => $user->getSalt(),
             ":tel" => $user->getTelephone(),
             ":adresse" => $user->getAdresse(),
             ":ville" => $user->getVille(),
-            ":code" => $user->getCode()
+            ":postal" => $user->getCode()
         ));
     }
 
@@ -257,7 +256,6 @@ class UserManager {
         $query = $this
             -> db
             ->prepare("UPDATE utilisateur SET mdp = :mdp where id = :id");
-        $user->setHashMdp();
         $query
             ->execute(array(
                 ":id" => $user->getId(),

@@ -41,6 +41,8 @@ require "../Library/Page/compte.lib.php";
 require "../Entity/Droit.class.php";
 require "../Library/Function/Function.lib.php";
 require "../kint-master/Kint.class.php";
-
+require_once "../Library/Function/recaptcha.lib.php";
+require "../Library/Page/validation.lib.php";
+require "../Library/Page/recuperation.lib.php";
 startSession();
 ?>
