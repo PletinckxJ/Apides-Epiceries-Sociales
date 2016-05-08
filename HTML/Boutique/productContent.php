@@ -11,7 +11,13 @@ $pm = new ProduitManager(connexionDb());
 $produitList = $pm->getAllProduit();
 $am = new AchatManager(connexionDb());
 $tabBestAchat = $am->getAchatQuantity();
-$bestAchat = $tabBestAchat[0];
+foreach ($tabBestAchat as $elem) {
+    if ($elem->getProduit()->getProduitActif() == 1) {
+        $bestAchat = $elem;
+        break;
+    }
+
+}
 if (isset($_GET['addtocart'])) {
     if (produitExistant()) {
         addToCart();

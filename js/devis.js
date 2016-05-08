@@ -6,17 +6,21 @@
 $(function() {
     $('input').change(function() {
         var id = $(this).attr('name');
-        var grade = $(this).attr('grade');
-        var quantity = parseInt($('#quantity_'+id).html());
-        if ($(this).val() > quantity && grade != 3) {
-            $(this).val(quantity);
-        } else if ($(this).val() == 0) {
-            $(this).val(1);
+        if (id != null) {
+            var grade = $(this).attr('grade');
+            var quantity = parseInt($('#quantity_' + id).html());
+            if ($(this).val() > quantity && grade != 3) {
+                $(this).val(quantity);
+            } else if ($(this).val() == 0) {
+                $(this).val(1);
+            }
+            rectification(id);
         }
-        rectification(id);
         });
 
     });
+
+
 
 function rectification(id) {
     var value = $('#'+id).val();
@@ -47,6 +51,27 @@ function rectification(id) {
     $('#total').html("Total : "+newtotal+"€");
 }
 
+function deleteProduit(id, devis) {
+    $.ajax({
+        url: '../Library/Page/devis.lib.php',
+        type: "POST",
+        data : {produit : id,
+            action : 'delete',
+            devis : devis
+        },
+        success:function (data) {
+            console.log(data);
+            if (data == 'deleted') {
+                window.location.href = "../Compte";
+            } else {
+                window.location.reload(true);
+            }
+        }
+
+    });
+
+
+}
 
 function lancerCloturation(id) {
     var achat = {};
@@ -60,6 +85,53 @@ function lancerCloturation(id) {
     $(".facture").append("<object data='../Library/Page/Facture.lib.php' type='application/pdf' height='1000' width='1000' ><embed src='../Library/Page/Facture.lib.php' type='application/pdf' height='1000' width='1000' /> </object>");
     $(".facture").append("<div class='facture' style='padding-bottom:2em;'><a href='../Devis/index.php?id="+id+"' class='btn btn-warning col-sm-6'><i class='fa fa-angle-left'></i> Retourner au devis</a><a class='btn btn-success col-sm-6' onclick='startCloturation();'>Finir la procédure <i class='fa fa-angle-right'></i></a></div>");
 }
+
+function addProduit(devis) {
+    var name = $('input#prod').val();
+    var prod;
+    if (name.trim()) {
+        $.ajax({
+            url: '../Library/Page/devis.lib.php',
+            type: "POST",
+            data : {
+                action : 'add',
+                name : name,
+                devis : devis
+            },
+            success:function (data) {
+                console.log(data);
+                prod = data;
+                window.location.reload(true);
+            }
+
+        });
+    }
+}
+$(function() {
+    $("input#prod").bind("keyup blur",function(event) {
+        var source;
+        var val = $(this).val();
+        $.ajax({
+            url: '../Library/Function/prodList.php',
+            type: "POST",
+            success:function (data) {
+                source = JSON.parse(data);
+                var arr = $.map(source, function(el) { return el});
+                if (jQuery.inArray(val,arr) == -1) {
+                    $("button#addprod").prop('disabled', true);
+                    document.getElementById("prod").style.borderColor = "#E34234";
+                } else {
+                    $("button#addprod").prop('disabled', false);
+                    document.getElementById("prod").style.borderColor = "#00FF00";
+                }
+            }
+
+        });
+
+
+    });
+});
+
 
 function startCloturation() {
     $.ajax({

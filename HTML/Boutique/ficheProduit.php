@@ -22,9 +22,12 @@ if ($produit->getProduitActif() == 1) {
 }
 $id = 0;
 $listSimilar = array();
+
 foreach ($produitList as $elem) {
-    if ($elem->getId() > $id) {
+    if ($elem->getId() > $id && $elem->getProduitActif() == 1) {
+
         $newProduct = $elem;
+        $id = $elem->getId();
     }
     if ($elem->getSection()->getId() == $produit->getSection()->getId() && $produit->getId() != $elem->getId() && $elem->getProduitActif() == 1) {
         $listSimilar[] = $elem;
@@ -102,7 +105,7 @@ if (sizeof($listSimilar) != 0) {
         }
 
     } else {
-    echo "<div id='nothing' > Aucun produit similaire, désolé</div>";
+    echo "<div id='nothing' > <span class='alert alert-warning'>Aucun produit similaire, désolé</span></div>";
 }
 
 ?>

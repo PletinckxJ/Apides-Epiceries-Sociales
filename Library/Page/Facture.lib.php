@@ -45,6 +45,9 @@ if (isset ($_SESSION['Devis'])) {
       if ($_SESSION['Cloture'][$elem->getProduit()->getId()] !=  $elem->getQuantite()) {
           $different = true;
       }
+      if (count($tabProd) != count($_SESSION['Cloture'])) {
+          $different = true;
+      }
   }
 }
 if ((isset ($_SESSION['Devis']) && $different) || (!isset($_SESSION['Devis']) && !$different)) {

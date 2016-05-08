@@ -16,7 +16,7 @@ if (!isset($_GET['section']) or sectionExistant()) {
 foreach($produitList as $elem) {
     $prix = round(($elem->getPrixHTVA() + ($elem->getPrixHTVA() * $elem->getTVA()->getCoef())), 2);
     $vente = round($prix / 2, 1);
-    if ($elem->getId() > $newProduct->getId()) {
+    if ($elem->getId() > $newProduct->getId() && $elem->getProduitActif() == 1) {
         $newProduct = $elem;
         $newProduct->setPrixHTVA($prix);
 

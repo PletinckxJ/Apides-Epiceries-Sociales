@@ -42,6 +42,7 @@ ob_start();
         $(document).ready(function() {
             $('#example').DataTable( {
                 "pagingType": "full_numbers",
+
                 "language": {
                     "lengthMenu" : "Afficher _MENU_ résultats par page",
                     "zeroRecords" : "Aucun résultat trouvé, désolé",
@@ -61,8 +62,10 @@ ob_start();
                         "sortAscending": ": Activer pour triage ascendant",
                         "sortDescending": ": Activer pour triage descendant"
                     }
+            
+                    },
+                    aaSorting : []
 
-                    }
                 });
 
             } );

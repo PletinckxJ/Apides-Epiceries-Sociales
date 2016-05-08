@@ -6,6 +6,10 @@ $(document).ready(function() {
         autoOpen: false,
         modal: true
     });
+    $("#dialog2").dialog({
+        autoOpen: false,
+        modal: true
+    });
 });
 
 $(".confirmLink").click(function(e) {
@@ -62,4 +66,26 @@ $("#confirmClot").click(function(e) {
     });
 
     $("#dialog").dialog("open");
+});
+
+$("#confirmSuppr").click(function(e) {
+    e.preventDefault();
+    var targetUrl = $(this).attr("href");
+    var prod = $(this).attr("produit");
+    var devis = $(this).attr("devis");
+
+    $("#dialog2").dialog({
+        buttons : {
+            "Oui" : function() {
+
+                deleteProduit(prod, devis);
+                $(this).dialog("close");
+            },
+            "Non" : function() {
+                $(this).dialog("close");
+            }
+        }
+    });
+
+    $("#dialog2").dialog("open");
 });

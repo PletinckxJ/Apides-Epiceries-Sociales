@@ -50,7 +50,8 @@ function deleteAchat(id, user) {
         data : {produit : id,
                 action : 'delete',
                 user : user
-        }
+        },
+
 
     });
     location.reload();
@@ -83,6 +84,6 @@ function startCommande() {
         }
 
     });
-    window.location.href = "../Produits";
+    window.location.href = "../Compte";
 
 }

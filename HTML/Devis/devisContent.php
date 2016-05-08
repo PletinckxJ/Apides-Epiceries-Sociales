@@ -5,11 +5,18 @@
  * Date: 29/04/2016
  * Time: 10:20
  */
+//TODO verif id possesseur devis
 $dm = new DevisManager(connexionDb());
 $pm = new ProduitManager(connexionDb());
 $am = new AchatManager(connexionDb());
 $devis = $dm->getDevisById($_GET['id']);
+$um = new UserManager(connexionDb());
+$user = $um->getUserById($dm->getDevisUser($devis->getId()));
 $tabAchat = $am->getAllAchatsFromDevis($devis);
+$_SESSION['CurrentDevis'] = $devis;
+if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateur']->getDroit()->getId() == 3 ) {
+    header('Location :../Deconnexion');
+}
 ?>
 <div class="crumb_navigation"> Navigation: <span class="current">Home</span> </div>
 <script>
@@ -43,9 +50,12 @@ $tabAchat = $am->getAllAchatsFromDevis($devis);
                     <th style="width:10%">Prix</th>
                     <?php if ($devis->getCloture() == 0) { ?>
                         <th style="width:8%">Quantité</th>
-                    <th style="width:15%" class="text-center"><?php if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) { echo "Modifications"; } else { echo "Rectifications";} ?></th>
+                        <th style="width:15%" class="text-center"><?php if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) { echo "Modifications"; } else { echo "Rectifications";} ?></th>
                     <?php } else { echo "<th style='width:23%'  class='text-center'>Quantité</th><th  class='hidden-xs'></th>";} ?>
                     <th style="width:22%" class="text-center">Sous-total</th>
+                    <?php if ($devis->getCloture() == 0 && $user->getId() == $_SESSION['Utilisateur']->getId()) { ?>
+                        <th style="width:5%"></th>
+                    <?php } ?>
                 </tr>
                 </thead>
                 <tbody>
@@ -76,6 +86,7 @@ $tabAchat = $am->getAllAchatsFromDevis($devis);
                         <td data-th="Quantity" class="text-center"
                                    id="quantity_<?php echo $elem->getProduit()->getId(); ?>"><?php echo $elem->getQuantite(); ?>
                         </td>
+
                         <?php if ($devis->getCloture() == 0) { ?>
                         <td data-th="Rectification">
                             <input type="number" min="1" <?php if ($_SESSION['Utilisateur']->getDroit()->getId() != 3) { ?>max="<?php echo $elem->getQuantite(); ?>"<?php } ?> class="form-control text-center"
@@ -87,6 +98,19 @@ $tabAchat = $am->getAllAchatsFromDevis($devis);
                         <td data-th="Subtotal" class="text-center"
                             id="subtotal_<?php echo $elem->getProduit()->getId(); ?>"><?php echo $prix*$elem->getQuantite(); ?> €
                         </td>
+
+                        <?php if ($devis->getCloture() == 0 && $user->getId() == $_SESSION['Utilisateur']->getId()) { ?>
+                            <td class="actions" data-th="">
+                                <button title="Supprimer le produit" class="btn btn-danger btn-sm"
+                                        <?php if (count($tabAchat) != 1) { ?>
+                                            onclick="deleteProduit(<?php echo $elem->getProduit()->getId() . "," . $devis->getId(); ?>);">
+                                        <?php } else {
+                                            echo "id='confirmSuppr' produit='".$elem->getProduit()->getId()."' devis='".$devis->getId()."'>";
+                                         } ?>
+                                    <i class="fa fa-trash-o"></i></button>
+                            </td>
+                        <?php } ?>
+
                     </tr>
                 <?php } ?>
                 </tbody>
@@ -94,6 +118,17 @@ $tabAchat = $am->getAllAchatsFromDevis($devis);
                 <tr class="visible-xs">
                     <td class="text-center"><strong>Total </strong></td>
                 </tr>
+                <?php if ($devis->getCloture() == 0 && $user->getId() == $_SESSION['Utilisateur']->getId()) { ?>
+                <tr>
+                    <td>
+                    <label for="prod">Ajouter un produit : </label>
+                    <input style="width:480px;" id="prod">
+                    </td>
+                    <td><button class="btn btn-success btn-sm" id="addprod" title="Ajouter le produit" style="margin-top:2.7em;" onclick="addProduit(<?php echo $devis->getId(); ?>);"><span class="glyphicon glyphicon-plus"></span></button></td>
+                    <td></td><td></td><td></td><td></td>
+
+                </tr>
+                <?php } ?>
                 <tr>
                     <td><a href=<?php if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) { echo "../Compte"; } else { echo "../Administration/index.php?page=devis";} ?> class="btn btn-warning"><i class="fa fa-angle-left"></i> Retourner dans les devis</a>
                     </td>
@@ -109,6 +144,10 @@ $tabAchat = $am->getAllAchatsFromDevis($devis);
                         <td class="hidden-xs"></td>
                     <td><a class="btn btn-danger btn-block  disabled">Devis cloturé</a></td>
                     <?php } ?>
+                    <?php if ($devis->getCloture() == 0 && $user->getId() == $_SESSION['Utilisateur']->getId())
+                        echo "<td></td>";
+                    ?>
+
                 </tr>
                 </tfoot>
             </table>
@@ -135,5 +174,18 @@ $tabAchat = $am->getAllAchatsFromDevis($devis);
         echo "Clôturer la commande ?";
     }
 ?>
+</div>
+<script>
+    $(function() {
+        $( "#prod" ).autocomplete({
+            source: '../Library/Function/prodList.php',
+            max : 10,
+        });
+    });
+
+
+</script>
+<div id="dialog2" title="Confirmation require">
+    La suppression de ce produit étant le dernier de votre devis, supprimera le devis, êtes-vous certain ?
 </div>
 <script type="text/javascript" src="../js/dialogBox.js"></script>

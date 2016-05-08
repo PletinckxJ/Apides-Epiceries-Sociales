@@ -48,6 +48,22 @@ class ProduitManager {
 
         return $tab;
     }
+
+    public function getProduitByName($name) {
+        $query = $this->db->prepare("SELECT * FROM produits WHERE produit = :nom");
+        $query->execute(array(
+            ":nom" => $name
+        ));
+
+        if ($tabProduit = $query->fetch(PDO::FETCH_ASSOC)) {
+            $produit = new Produit($tabProduit);
+            $produit = $this->getProduitArray($produit);
+        } else {
+            $produit = new Produit(array());
+        }
+
+        return $produit;
+    }
     public function getProduitById($id) {
         $query = $this->db->prepare("SELECT * FROM produits WHERE id = :id");
         $query->execute(array(
@@ -64,6 +80,19 @@ class ProduitManager {
 
 
         return $produit;
+    }
+
+    public function getProduitName($name) {
+        $query = $this->db->query("SELECT * FROM produits WHERE produit LIKE '%".$name."%' AND produit_actif = 1 ORDER BY produit ASC");
+        $query->execute();
+
+        $data = array();
+        while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+            $data[] = $row['produit'];
+        }
+
+        return $data;
+
     }
 
     public function getProduitByCode($code) {

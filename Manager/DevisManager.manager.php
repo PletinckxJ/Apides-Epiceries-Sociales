@@ -20,7 +20,7 @@ class DevisManager {
     }
 
     public function getAllDevis() {
-        $query = $this->db->prepare("SELECT * FROM devis");
+        $query = $this->db->prepare("SELECT * FROM devis ORDER BY id DESC");
         $query->execute();
 
         $tabDevis = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -129,6 +129,13 @@ class DevisManager {
 
     public function cloturerDevis($id) {
         $query = $this->db->prepare("update devis set cloture = 1 WHERE id=:id");
+        $query->execute(array(
+            ":id" => $id
+        ));
+    }
+
+    public function deleteDevis($id) {
+        $query = $this->db->prepare("DELETE FROM devis where id = :id");
         $query->execute(array(
             ":id" => $id
         ));

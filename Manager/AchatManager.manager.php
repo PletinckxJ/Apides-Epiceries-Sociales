@@ -170,4 +170,12 @@ class AchatManager {
             ":quant" => $achat->getQuantite()
         ));
     }
+
+    public function deleteProduitDevis($produit, $devis) {
+        $query = $this->db->prepare("DELETE FROM produit_devis WHERE id_devis = :devis and id_produit = :produit");
+        $query->execute(array(
+            ":devis" => $devis,
+            ":produit" => $produit
+        ));
+    }
 }
