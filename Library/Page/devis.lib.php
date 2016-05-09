@@ -65,9 +65,12 @@ if (isset($_POST['session'])) {
     }
 } else if (isset($_POST['action']) && $_POST['action'] == 'delete') {
     $am = new AchatManager(connexionDb());
+    $tab = array();
     $devis = new Devis(array(
         "id" => $_POST['devis'],
     ));
+    $devis = $dm->getDevisById($devis->getId());
+    $_SESSION['Devis'] = $devis;
     $tabAchat = $am->getAllAchatsFromDevis($devis);
     $am->deleteProduitDevis($_POST['produit'], $_POST['devis']);
     if (count($tabAchat) == 1) {
@@ -75,12 +78,22 @@ if (isset($_POST['session'])) {
         unlink("../../Devis/pdf/".$devis->getId().".pdf");
 
         print "deleted";
+    }  else {
+        $tabAchat = $am->getAllAchatsFromDevis($devis);
+        foreach($tabAchat as $elem) {
+            $tab[$elem->getProduit()->getId()] = $elem->getQuantite();
+        }
+        $_SESSION['Cloture'] = $tab;
+        $_SESSION['action'] = "modif";
+        include("Facture.lib.php");
+        print "go";
     }
 
 
 } else if (isset($_POST['action']) && $_POST['action'] == "add") {
     $pm = new ProduitManager(connexionDb());
     $prod = $pm->getProduitByName($_POST['name']);
+    $tab = array();
     $am = new AchatManager(connexionDb());
     $achat = new Achat(array(
         "quantite" => 1,
@@ -90,7 +103,19 @@ if (isset($_POST['session'])) {
     $devis = new Devis(array(
         "id" => $_POST['devis'],
     ));
+
     $am->setProduitDevis($achat, $devis);
+    $devis = $dm->getDevisById($devis->getId());
+    $_SESSION['Devis'] = $devis;
+    $tabAchat = $am->getAllAchatsFromDevis($devis);
+    foreach($tabAchat as $elem) {
+        $tab[$elem->getProduit()->getId()] = $elem->getQuantite();
+    }
+    $_SESSION['Cloture'] = $tab;
+    $_SESSION['action'] = "modif";
+    include("Facture.lib.php");
+
+    /**
     $prod = array(
         "id" => $achat->getProduit()->getId(),
         "quantite" => $achat->getQuantite(),
@@ -103,7 +128,7 @@ if (isset($_POST['session'])) {
 
     );
     print json_encode($prod);
-
+    */
 
 }
 

@@ -15,8 +15,22 @@ $tabTVA = $tm->getAllTVA();
 $sm = new SectionManager(connexionDb());
 $tabSection = $sm->getAllSection();
 ?>
+<script>
+    function test() {
+        console.log($("input#scanner").val())
+    }
+    $(document).click(function(event) {
 
-<form enctype='multipart/form-data' action="index.php?page=produit&option=create" method="post" class="formCreation">
+        if (event.target.nodeName != "INPUT" && event.target.nodeName != "LABEL" && event.target.nodeName != "STRONG" && event.target.nodeName != "SELECT" && event.target.nodeName != "BUTTON" && event.target.id != "radio") {
+            console.log(event.target.nodeName);
+            $("input#scanner").focus();
+        }
+        window.scrollTo(x, y);
+    });
+</script>
+
+<input type="text" id="scanner" name="scanner"style="width:500px;position:absolute;margin-top:-10000px" autofocus oninput="setTimeout(test,1000);">
+<form enctype='multipart/form-data' action="index.php?page=produit&option=create" id="form" method="post" class="formCreation">
     <label class="contact" for="name"><strong>Nom* :</strong></label>
     <input type="text" class="contact_input" id="name" name="name" required>
     <label class="contact" for="image" ><strong>Image: </strong></label>
@@ -74,13 +88,13 @@ $tabSection = $sm->getAllSection();
     <input type="text" step="any" class="contact_input" id="poids" name="poids" >
     <label class="contact" for="groupement"><strong>Groupement* :</strong></label>
     <input type="text" class="contact_input" id="groupement" name="groupement" required>
-    <div style="display:inline-block;margin-left:-18em;">
+    <div id="radio" style="display:inline-block;margin-left:-18em;">
         <label class="contact" for="promo"><strong>En promotion* :</strong></label>
         <input class=contact_input" type="radio" name="promo" value="0" checked> Non
         <input class=contact_input" type="radio" name="promo" value="1"> Oui
     </div>
     <br>
-    <div style="display:inline-block;margin-left:-18em;" >
+    <div id="radio" style="display:inline-block;margin-left:-18em;" >
         <label class="contact" for="actif"><strong>Actif* :</strong></label>
         <input type="radio" name="actif" value="0" > Non
         <input type="radio" name="actif" value="1" checked> Oui

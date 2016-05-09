@@ -5,7 +5,6 @@
  * Date: 29/04/2016
  * Time: 10:20
  */
-//TODO verif id possesseur devis
 $dm = new DevisManager(connexionDb());
 $pm = new ProduitManager(connexionDb());
 $am = new AchatManager(connexionDb());

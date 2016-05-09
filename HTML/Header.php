@@ -10,26 +10,29 @@
 
 <div id="main_container">
     <div id="header">
-        <div id="logo"> <a href="#"><img src="../Style/images/logo_apides_site1.png" alt="" border="0" width="350" height="140" /></a> </div>
+        <div id="logo"><a href="#"><img src="../Style/images/logo_apides_site1.png" alt="" border="0" width="350"
+                                        height="140"/></a></div>
         <!-- end of oferte_content-->
     </div>
     <div id="main_content">
         <div id="menu_tab">
             <div class="left_menu_corner"></div>
-            <ul class="menu">
-                <li><a href="index.php" class="nav1"> Accueil</a></li>
-                <li class="divider"></li>
-                <li><a href="../Produits" class="nav2">Produits</a></li>
-                <li class="divider"></li>
-                <li><a href="../Administration" class="nav2">Administration</a></li>
-                <li class="divider"></li>
-                <li><a href="../Compte" class="nav4">Mon compte</a></li>
-                <li class="divider"></li>
-                <li><a href="#" class="nav5">Shipping</a></li>
-                <li class="divider"></li>
-                <li><a href="contact.html" class="nav5">Contact Us</a></li>
-                <li class="divider"></li>
-                <li><a href="../Deconnexion" class="nav4">Déconnexion</a></li>
-            </ul>
-            <div class="right_menu_corner"></div>
-        </div>
+                <div id="menu">
+                <ul class="menu">
+                    <li><a href="index.php" class="nav1"> Accueil</a></li>
+                    <li class="divider"></li>
+                    <li><a href="../Produits" class="nav5">Produits</a></li>
+                    <li class="divider"></li>
+                    <?php if ($_SESSION['Utilisateur']->getDroit()->getId() != 3) { ?>
+                        <li><a href="../Administration" class="nav2">Administration</a></li>
+                        <li class="divider"></li>
+                    <?php } ?>
+                    <li><a href="../Compte" class="nav4">Mon compte</a></li>
+                    <li class="divider"></li>
+                    <li><a href="../contact.php" class="nav6">Contacter l'admin</a></li>
+                    <li class="divider"></li>
+                    <li><a href="../Deconnexion" class="nav3">Déconnexion</a></li>
+                </ul>
+                </div>
+                <div class="right_menu_corner"></div>
+                </div>

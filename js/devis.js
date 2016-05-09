@@ -64,7 +64,11 @@ function deleteProduit(id, devis) {
             if (data == 'deleted') {
                 window.location.href = "../Compte";
             } else {
-                window.location.reload(true);
+                if (data == "go") {
+                    window.location.reload(true);
+                }
+
+
             }
         }
 
@@ -100,8 +104,8 @@ function addProduit(devis) {
             },
             success:function (data) {
                 console.log(data);
-                prod = data;
                 window.location.reload(true);
+
             }
 
         });

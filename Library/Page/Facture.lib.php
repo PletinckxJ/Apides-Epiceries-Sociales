@@ -9,30 +9,32 @@
 
 // (c) Xavier Nicolay
 // Exemple de génération de devis/facture PDF
-require "../../Manager/ProduitManager.manager.php";
-require "../../Manager/SectionManager.manager.php";
-require "../../Manager/DroitManager.manager.php";
-require "../../Manager/UserManager.manager.php";
-require "../../Manager/AchatManager.manager.php";
-require "../../Manager/DevisManager.manager.php";
-require "../../Manager/FournisseurManager.manager.php";
-require "../../Manager/MarqueManager.manager.php";
-require "../../Manager/TVAManager.manager.php";
-require "../../Entity/Produit.class.php";
-require "../../Entity/Fournisseur.class.php";
-require "../../Entity/Utilisateur.class.php";
-require "../../Entity/Section.class.php";
-require "../../Entity/Marque.class.php";
-require "../../Entity/TVA.class.php";
-require "../../Entity/Achat.class.php";
-require "../../Entity/Droit.class.php";
-require "../../Entity/Devis.class.php";
-require('../Function/invoice.php');
-require('../../kint-master/Kint.class.php');
-require('../Function/Session.lib.php');
-require('../Function/Config.lib.php');
-require('../Function/Database.lib.php');
+if (!isset($_SESSION['action'])) {
+    require "../../Manager/ProduitManager.manager.php";
+    require "../../Manager/SectionManager.manager.php";
+    require "../../Manager/DroitManager.manager.php";
 
+    require "../../Manager/AchatManager.manager.php";
+    require "../../Manager/DevisManager.manager.php";
+    require "../../Manager/FournisseurManager.manager.php";
+    require "../../Manager/MarqueManager.manager.php";
+    require "../../Manager/TVAManager.manager.php";
+    require "../../Entity/Produit.class.php";
+    require "../../Entity/Fournisseur.class.php";
+    require "../../Entity/Utilisateur.class.php";
+    require "../../Entity/Section.class.php";
+    require "../../Entity/Marque.class.php";
+    require "../../Entity/TVA.class.php";
+    require "../../Entity/Achat.class.php";
+    require "../../Entity/Droit.class.php";
+    require "../../Entity/Devis.class.php";
+    require('../Function/invoice.php');
+    require('../../kint-master/Kint.class.php');
+    require('../Function/Session.lib.php');
+    require('../Function/Config.lib.php');
+    require('../Function/Database.lib.php');
+}
+require "../../Manager/UserManager.manager.php";
 
 
 startSession();
@@ -50,7 +52,7 @@ if (isset ($_SESSION['Devis'])) {
       }
   }
 }
-if ((isset ($_SESSION['Devis']) && $different) || (!isset($_SESSION['Devis']) && !$different)) {
+if ((isset ($_SESSION['Devis']) && $different) || (!isset($_SESSION['Devis']) && !$different) || $_SESSION['action'] == "modif") {
     if (!isset($_SESSION['Devis'])) {
         $tabDevis = $dm->getAllDevis();
         $actualNum = 0;
@@ -272,9 +274,18 @@ if ((isset ($_SESSION['Devis']) && $different) || (!isset($_SESSION['Devis']) &&
         $_SESSION['Devis'] = $devis;
     } else {
         $_SESSION['Cloture'] = $actualProd;
+
     }
     $_SESSION['pdf'] = $pdf;
-    $pdf->Output();
+    if (isset($_SESSION['action']) && $_SESSION['action'] == "modif") {
+        $pdf->Output("../../Devis/pdf/" . $_SESSION['Devis']->getId() . ".pdf", "F");
+        unset($_SESSION['action']);
+        unset($_SESSION['pdf']);
+        unset($_SESSION['Devis']);
+        unset($_SESSION['Cloture']);
+    } else {
+        $pdf->Output();
+    }
 } else {
     require_once('../Function/fpdf/fpdi.php');
     require_once('../Function/fpdf/fpdf.php');
@@ -282,7 +293,6 @@ if ((isset ($_SESSION['Devis']) && $different) || (!isset($_SESSION['Devis']) &&
     $pdf->AddPage();
     unset($_SESSION['Cloture']);
     unset($_SESSION['pdf']);
-
     $pdf->setSourceFile("../../Devis/pdf/".$_SESSION['Devis']->getId().".pdf");
 // import page 1
     $tplIdx = $pdf->importPage(1);
