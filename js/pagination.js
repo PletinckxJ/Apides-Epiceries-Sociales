@@ -4,7 +4,7 @@
 $(document).ready(function() {pagintest();});
 function pagintest() {
     //how much items per page to show
-    var show_per_page = 3;
+    var show_per_page = 9;
     //getting the amount of elements inside content div
     var number_of_items = $('.store').children().size();
     //calculate the number of pages we are going to have
@@ -30,11 +30,11 @@ function pagintest() {
     }
 
     var current_link = 1;
-    var navigation_html = '<a class="previous_link" href="javascript:first('+number_of_pages+');">Début</a>';
+    var navigation_html = '<div id="navig"><a class="previous_link" href="javascript:first('+number_of_pages+');">Début</a>';
     navigation_html += '<a class="previous_link" href="javascript:previous('+number_of_pages+');">Précédent</a>';
     navigation_html += '<span id="numpages">' + current_link + ' sur ' + number_of_pages + '</span>';
     navigation_html += '<a class="next_link" href="javascript:next(' + (number_of_pages) + ');">Suivant</a>';
-    navigation_html += '<a class="next_link" href="javascript:end(' + (number_of_pages - 1) + ');">Fin</a>';
+    navigation_html += '<a class="next_link" href="javascript:end(' + (number_of_pages - 1) + ');">Fin</a></div>';
     $('#page_navigation').html(navigation_html);
 
     //add active_page class to the first page link

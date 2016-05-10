@@ -9,10 +9,21 @@
 ?>
 <input type='hidden' id='current_page' />
 <input type='hidden' id='show_per_page' />
+
 <?php
 if (!isset($_GET['section']) or sectionExistant()) {
     echo "<div class='store'>";
     $newProduct = new Produit(array());
+    function tri($a,$b) {
+        if ($a->getPromo() == 0 && $b->getPromo() == 1) {
+            return 1;
+        } else if ($a->getPromo() == 1 && $b->getPromo() == 0) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+    uasort($produitList, 'tri');
 foreach($produitList as $elem) {
     $prix = round(($elem->getPrixHTVA() + ($elem->getPrixHTVA() * $elem->getTVA()->getCoef())), 2);
     $vente = round($prix / 2, 1);
@@ -22,8 +33,12 @@ foreach($produitList as $elem) {
 
     }
     if ((!isset($_GET['section']) or  ($elem->getSection()->getId() == $_GET['section'])) and $elem->getProduitActif() == 1) {
-
-        echo "<div class='prod_box' >";
+        if ($elem->getPromo() == 1) {
+            $i = 1;
+        } else {
+            $i=100;
+        }
+        echo "<div class='prod_box'  data-listing-price='$i'>";
         echo "<div class='top_prod_box'></div >";
         echo "<div class='center_prod_box' >";
         echo "<div class='product_title' ><a href = 'index.php?page=details&produit=".$elem->getId()."' > " . $elem->getProduit() . " | " . $elem->getPoids() . " </a ></div >";

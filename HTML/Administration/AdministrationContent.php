@@ -32,7 +32,7 @@ $title = getTitle();
                 }
             } else if ($_GET['page'] == "modifyUser" && isset($_GET['id']) && membreExistant()) {
                 include("../HTML/Administration/AdministrationUserProfil.php");
-            } else if ($_GET['page'] == "benef" && !isset($_GET['option'])) {
+            /**} else if ($_GET['page'] == "benef" && !isset($_GET['option'])) {
                 include("../HTML/Administration/AdministrationBenefList.php");
             } else if ($_GET['page'] == "benef" && $_GET['option'] == "create") {
                 include("../Form/createBeneficiaire.form.php");
@@ -42,7 +42,7 @@ $title = getTitle();
             } else if ($_GET['page'] == "benef" && $_GET['option'] == "budget") {
                 include("../HTML/Administration/AdministrationBenefBudget.php");
             } else if ($_GET['page'] == "modifyBenef" && isset($_GET['id']) && benefExistant()) {
-                include("../HTML/Administration/AdministrationBenefProfil.php");
+                include("../HTML/Administration/AdministrationBenefProfil.php");*/
             } else if ($_GET['page'] == "createBudget") {
                 include("../Form/createBudget.form.php");
                 if (isset($_POST['creerBudget'])) {

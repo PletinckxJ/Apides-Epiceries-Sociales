@@ -6,6 +6,9 @@
  * Time: 11:33
  */
 
+if (!isConnect()) {
+    header("Location :../Deconnexion");
+}
 ?>
 
 <div id="main_container">
@@ -29,7 +32,7 @@
                     <?php } ?>
                     <li><a href="../Compte" class="nav4">Mon compte</a></li>
                     <li class="divider"></li>
-                    <li><a href="../contact.php" class="nav6">Contacter l'admin</a></li>
+                    <li><a href="../Contact" class="nav6">Contacter l'admin</a></li>
                     <li class="divider"></li>
                     <li><a href="../Deconnexion" class="nav3">Déconnexion</a></li>
                 </ul>
