@@ -93,6 +93,7 @@ if (isset($_POST['session'])) {
 } else if (isset($_POST['action']) && $_POST['action'] == "add") {
     $pm = new ProduitManager(connexionDb());
     $prod = $pm->getProduitByName($_POST['name']);
+    var_dump($prod);
     $tab = array();
     $am = new AchatManager(connexionDb());
     $achat = new Achat(array(

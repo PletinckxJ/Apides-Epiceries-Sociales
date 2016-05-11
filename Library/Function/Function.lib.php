@@ -6,6 +6,11 @@
  * Time: 13:23
  */
 
+function round_up($number, $precision = 2)
+{
+    $fig = pow(10, $precision);
+    return (ceil($number * $fig) / $fig);
+}
 /**
  * Fonction servant à générer un code aléatoire servant au mot de passe oublié ou à l'activation.
  * @return string : le code généré.

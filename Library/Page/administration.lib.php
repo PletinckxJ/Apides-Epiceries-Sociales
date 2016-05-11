@@ -320,7 +320,7 @@ function addProduit()
     $produitEANTest = $pm->getProduitByEAN($produit->getEAN());
     if ($produitCodeTest->getId() != NULL) {
         return "<label class='alert alert-danger' style='float:left;margin-left:20em;'>Le code produit existe déjà</label>";
-    } else if ($produitEANTest->getId() != NULL) {
+    } else if ($produitEANTest->getId() != NULL && $produit->getEAN() != "") {
         return "<label class='alert alert-danger' style='float:left;margin-left:20em;'>L'EAN existe déjà</label>";
     } else {
         $pm->addProduit($produit);
@@ -334,6 +334,7 @@ function addProduit()
         } else {
             copy("../Style/images/produits/produit.png", "../Style/images/produits/" . $pid->getId() . ".png");
         }
+
         $pm->setProduitFournisseur($pid, $produit->getFournisseur()->getId());
         $pm->setProduitMarque($pid, $produit->getMarque()->getId());
         $pm->setProduitSection($pid, $produit->getSection()->getId());
@@ -350,7 +351,7 @@ function modifyProduit($produit)
     $produitEANTest = $pm->getProduitByEAN($produit->getEAN());
     if ($produitCodeTest->getId() != NULL && $produitCodeTest->getId() != $produit->getId()) {
         return false;
-    } else if ($produitEANTest->getId() != NULL && $produitEANTest->getId() != $produit->getId()) {
+    } else if ($produitEANTest->getId() != NULL && $produitEANTest->getId() != $produit->getId() && $produit->getEAN() != "") {
         return false;
     } else {
         $pm->updateProduit($produit);
@@ -361,8 +362,9 @@ function modifyProduit($produit)
             } else {
                 uploadImage('../Style/images/produits', $produit->getId());
             }
-        } else
-            $pm->updateProduitMarque($produit, $produit->getMarque()->getId());
+        }
+
+        $pm->updateProduitMarque($produit, $produit->getMarque()->getId());
         $pm->updateProduitFournisseur($produit, $produit->getFournisseur()->getId());
         $pm->updateProduitSection($produit, $produit->getSection()->getId());
         $pm->updateProduitTVA($produit, $produit->getTVA()->getId());
@@ -377,10 +379,10 @@ function fillProduit(Produit $produit)
     $produit->setEAN($_POST['ean']);
     $produit->setProduit($_POST['name']);
     $fournisseur = new Fournisseur(array());
-    $fournisseur->setId($_POST['fournisseur']);
+    $fournisseur->setLibelle($_POST['fournisseur']);
     $produit->setFournisseur($fournisseur);
     $marque = new Marque(array());
-    $marque->setId($_POST['marque']);
+    $marque->setLibelle($_POST['marque']);
     $produit->setMarque($marque);
     $section = new Section(array());
     $section->setId($_POST['section']);
@@ -393,6 +395,21 @@ function fillProduit(Produit $produit)
     $produit->setPrixHTVA($_POST['prix']);
     $produit->setProduitActif($_POST['actif']);
     $produit->setPromo($_POST['promo']);
+    $produit->setPromoTexte($_POST['textepromo']);
+    $fm = new FournisseurManager(connexionDb());
+    $fourni = $fm->getFournisseurByLibelle($produit->getFournisseur()->getLibelle());
+    if ($fourni->getId() == NULL) {
+        $fm->addFournisseur($produit->getFournisseur()->getLibelle());
+        $fourni = $fm->getFournisseurByLibelle($produit->getFournisseur()->getLibelle());
+    }
+    $produit->setFournisseur($fourni);
+    $mm = new MarqueManager(connexionDb());
+    $marque = $mm->getMarqueByLibelle($produit->getMarque()->getLibelle());
+    if ($marque->getId() == NULL) {
+        $mm->addMarque($produit->getMarque()->getLibelle());
+        $marque = $mm->getMarqueByLibelle($produit->getMarque()->getLibelle());
+    }
+    $produit->setMarque($marque);
     return $produit;
 }
 

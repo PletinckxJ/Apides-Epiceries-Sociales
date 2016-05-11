@@ -20,7 +20,7 @@ $tabSection = $sm->getAllSection();
         console.log($("input#scanner").val())
     }
     $(document).click(function(event) {
-
+        var x = window.scrollX, y = window.scrollY;
         if (event.target.nodeName != "INPUT" && event.target.nodeName != "LABEL" && event.target.nodeName != "STRONG" && event.target.nodeName != "SELECT" && event.target.nodeName != "BUTTON" && event.target.id != "radio") {
             console.log(event.target.nodeName);
             $("input#scanner").focus();
@@ -37,7 +37,7 @@ $tabSection = $sm->getAllSection();
     <input name="image" size="30" type="file" onchange="readURL(this);" accept="image/x-png, image/gif, image/jpeg" />
     <img id="show" style="display:none;padding-left : 10em;" src="#" alt="your image" /> <br>
     <label class="contact" for="fournisseur"><strong>Fournisseur* :</strong></label>
-
+    <?php /**
     <select name='fournisseur' id='fournisseur' class="contact_input">
         <?php
 
@@ -46,6 +46,9 @@ $tabSection = $sm->getAllSection();
         }
         ?>
     </select>
+ * */
+     ?>
+    <input type="text" class="contact_input" name="fournisseur" id="fournisseur" required>
     <label class="contact" for="section"><strong>Section* :</strong></label>
 
     <select name='section' id='section' class="contact_input">
@@ -57,15 +60,8 @@ $tabSection = $sm->getAllSection();
         ?>
     </select>
     <label class="contact" for="marque"><strong>Marque* :</strong></label>
+    <input type="text" class="contact_input" name="marque" id="marque" required>
 
-    <select name='marque' id='marque' class="contact_input">
-        <?php
-
-        foreach($tabMarque as $elem) {
-            echo "<option value='". $elem->getId() ."'>". $elem->getLibelle() ."</option>";
-        }
-        ?>
-    </select>
     <label class="contact" for="tva"><strong>TVA* :</strong></label>
 
     <select name='tva' id='tva' class="contact_input">
@@ -77,22 +73,24 @@ $tabSection = $sm->getAllSection();
         ?>
     </select>
     <label class="contact" for="code"><strong>Code produit* :</strong></label>
-    <input type="number" class="contact_input" id="code" name="code" required>
+    <input type="text" class="contact_input" id="code" name="code" required>
     <label class="contact" for="ean"><strong>EAN :</strong></label>
-    <input type="number" class="contact_input" id="ean" name="ean">
+    <input type="text" class="contact_input" id="ean" name="ean">
     <label class="contact" for="dlv"><strong>DLV :</strong></label>
     <input type="text" class="contact_input" id="dlv" name="dlv" >
     <label class="contact" for="prix"><strong>Prix HTVA (€)*:</strong></label>
     <input type="number" step="any" class="contact_input" id="prix" name="prix"  required>
-    <label class="contact" for="poids"><strong>Quantité (kg/l) :</strong></label>
+    <label class="contact" for="poids"><strong>Quantité  :</strong></label>
     <input type="text" step="any" class="contact_input" id="poids" name="poids" >
     <label class="contact" for="groupement"><strong>Groupement* :</strong></label>
-    <input type="text" class="contact_input" id="groupement" name="groupement" required>
+    <input type="number" class="contact_input" id="groupement" name="groupement" required>
     <div id="radio" style="display:inline-block;margin-left:-18em;">
         <label class="contact" for="promo"><strong>En promotion* :</strong></label>
         <input class=contact_input" type="radio" name="promo" value="0" checked> Non
         <input class=contact_input" type="radio" name="promo" value="1"> Oui
-    </div>
+    </div><br>
+    <label class="contact" for="textepromo"><strong>Texte promo* :</strong></label>
+    <input type="text" class="contact_input" id="textepromo" name="textepromo" >
     <br>
     <div id="radio" style="display:inline-block;margin-left:-18em;" >
         <label class="contact" for="actif"><strong>Actif* :</strong></label>
@@ -103,3 +101,17 @@ $tabSection = $sm->getAllSection();
         <button type="submit"  name="createProduit" id="btnCompte">Créer le produit</button>
     </div>
 </form>
+<script>
+    $(function() {
+        $("#fournisseur").autocomplete({
+            source: '../Library/Function/fournisseurList.php',
+            max: 10
+        });
+        $("#marque").autocomplete({
+            source: '../Library/Function/marqueList.php',
+            max: 10
+        });
+    })
+
+
+</script>

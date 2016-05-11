@@ -35,6 +35,18 @@ class MarqueManager {
         return $tab;
     }
 
+    public function getMarqueByName($name) {
+        $query = $this->db->query("SELECT * FROM marque WHERE libelle LIKE '%".$name."%'");
+        $query->execute();
+
+        $data = array();
+        while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+            $data[] = utf8_encode($row['libelle']);
+        }
+
+        return $data;
+
+    }
     public function getMarqueById($id) {
         $query = $this->db->prepare("SELECT * FROM marque WHERE id = :id");
         $query->execute(array(

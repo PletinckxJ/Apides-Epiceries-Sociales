@@ -50,6 +50,7 @@ class ProduitManager {
     }
 
     public function getProduitByName($name) {
+        $this->db->exec("SET NAMES 'utf8'");
         $query = $this->db->prepare("SELECT * FROM produits WHERE produit = :nom");
         $query->execute(array(
             ":nom" => $name
@@ -88,7 +89,7 @@ class ProduitManager {
 
         $data = array();
         while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-            $data[] = $row['produit'];
+            $data[] = utf8_encode($row['produit']);
         }
 
         return $data;
@@ -132,8 +133,8 @@ class ProduitManager {
     }
 
     public function addProduit(Produit $produit) {
-        $query = $this->db->prepare("INSERT INTO produits(code_produit, EAN, DLV, groupement, poids, prix_htva, produit, produit_actif, promo)
-                                      VALUES(:code, :ean, :dlv, :groupement, :poids, :prix, :name, :actif, :promo)");
+        $query = $this->db->prepare("INSERT INTO produits(code_produit, EAN, DLV, groupement, poids, prix_htva, produit, produit_actif, promo, promo_texte)
+                                      VALUES(:code, :ean, :dlv, :groupement, :poids, :prix, :name, :actif, :promo, :promotexte)");
         $query->execute(array(
             ":code" => $produit->getCodeProduit(),
             ":ean" => $produit->getEAN(),
@@ -143,7 +144,8 @@ class ProduitManager {
             ":prix" => $produit->getPrixHTVA(),
             ":name" => $produit->getProduit(),
             ":actif" => $produit->getProduitActif(),
-            ":promo" => $produit->getPromo()
+            ":promo" => $produit->getPromo(),
+            ":promotexte" => $produit->getTextePromo()
         ));
     }
 
@@ -290,7 +292,7 @@ class ProduitManager {
 
     public function updateProduit(Produit $produit) {
         $query = $this->db->prepare("UPDATE produits SET promo = :promo, code_produit = :code, DLV = :dlv, EAN = :ean, groupement = :groupement, poids = :poids, prix_htva = :prix, produit = :nom,
-                   produit_actif = :actif WHERE id = :id");
+                   produit_actif = :actif, promo_texte = :promotexte WHERE id = :id");
 
         $query->execute(array(
             ":promo" => $produit->getPromo(),
@@ -302,7 +304,8 @@ class ProduitManager {
             ":poids" => $produit->getPoids(),
             ":prix" => $produit->getPrixHTVA(),
             ":actif" => $produit->getProduitActif(),
-            ":id" => $produit->getId()
+            ":id" => $produit->getId(),
+            "promotexte" => $produit->getTextePromo()
         ));
     }
 

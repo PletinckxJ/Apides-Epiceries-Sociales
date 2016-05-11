@@ -8,8 +8,8 @@
 
 $produit = $pm->getProduitById($_GET['produit']);
 $prix = round(($produit->getPrixHTVA() + ($produit->getPrixHTVA() * $produit->getTVA()->getCoef())), 2);
-$vente = round($prix / 2, 1);
-if ($produit->getDLV() != NULL && $produit->getDLV != "") {
+$vente = round_up($prix / 2, 1);
+if ($produit->getDLV() != NULL && $produit->getDLV() != "") {
     $dlv = $produit->getDLV();
 } else {
     $dlv = "Aucune";
@@ -52,6 +52,10 @@ foreach ($produitList as $elem) {
                     Prix de vente en magasin :  <span class="blue"><?php echo $vente; ?> €</span><br />
                     Quantité : <span class="blue"><?php echo $produit->getPoids(); ?></span><br />
                     Groupement : <span class="blue"><?php echo $produit->getGroupement(); ?></span><br />
+                    <?php if ($produit->getTextePromo() != NULL && $produit->getTextePromo() != "") {
+                        echo "Promotion : <span class='blue'>".$produit->getTextePromo()."</span><br />";
+                    }
+                    ?>
                 </div>
                 <div class="prod_price_big"><span class="price"><?php echo $prix; ?> €</span></div>
                <a href='index.php?addtocart=<?php echo $produit->getId(); ?>' class="confirmLink" id="addtocart">Ajouter au panier</a> </div>

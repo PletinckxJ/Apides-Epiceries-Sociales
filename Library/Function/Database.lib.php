@@ -22,6 +22,5 @@ function connexionDb()
     $dbname = $confDb['dbname'];
 
     $db = new PDO("$servername;dbname=$dbname", $username, $password);
-
     return $db;
 }

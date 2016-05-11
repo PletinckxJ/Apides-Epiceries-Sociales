@@ -45,7 +45,6 @@ class UserManager {
     }
 
     public function searchUserByName($name) {
-
         $resultats = $this->db->prepare("SELECT * FROM utilisateur WHERE nom_societe like :name");
         $resultats->execute(array(
             ":name" => "%".$name."%"
@@ -208,10 +207,10 @@ class UserManager {
      */
     public function updateUserProfil(Utilisateur $user)
     {
-        $_SESSION['lol'] = $user;
+
         $query = $this
             ->db
-            ->prepare("UPDATE utilisateur SET nom_societe = :username , mdp = :mdp , contact = :contact, mail = :mail, telephone = :tel, adresse = :adresse, ville = :ville, code_postal = :code WHERE id = :id");
+            ->prepare("UPDATE utilisateur SET nom_societe = :username , contact = :contact, mail = :mail, telephone = :tel, adresse = :adresse, ville = :ville, code_postal = :code WHERE id = :id");
 
         $query
             ->execute(array(
@@ -219,13 +218,13 @@ class UserManager {
                 ":username" => $user->getNomSociete(),
                 ":contact" => $user->getContact(),
                 ":mail" => $user->getMail(),
-                ":mdp" => $user->getMdp(),
                 ":tel" => $user->getTelephone(),
                 ":adresse" => $user->getAdresse(),
                 ":ville" => $user->getVille(),
                 ":code" => $user->getCode()
             ));
         $this->updateUserDroit($user->getId(), $user->getDroit()->getId());
+        d($user);
 
 
     }

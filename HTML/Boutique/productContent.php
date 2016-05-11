@@ -49,6 +49,10 @@ if (isset($_GET['addtocart'])) {
     <div class="title_box">Produit le plus récent</div>
     <div class="border_box">
         <div class="product_title_expo"><a href='index.php?page=details&produit=<?php echo $newProduct->getId(); ?>'><?php echo $newProduct->getProduit()." | ".$newProduct->getPoids(); ?></a></div>
+        <?php
+        if ($newProduct->getTextePromo() != NULL && $newProduct->getTextePromo() != "")
+        echo "<div class='prod_price' ><span class='price' ><strong> " . $newProduct->getTextePromo(). "</strong></span ></div >";
+        ?>
         <div class="product_img"><a href='index.php?page=details&produit=<?php echo $newProduct->getId(); ?>'><img src="../Style/images/produits/<?php echo $newProduct->getId(); ?>.png" alt="" border="0" style='max-height:90px;max-width:100px;' /></a></div>
         <div style="padding-bottom:2em; margin-left:4em;"><a href = 'index.php?addtocart=<?php echo $newProduct->getId(); ?>' class="confirmLink" id='prod_cart'> Commander </a ></div>
         <div class="prod_price"><span class="price"><?php echo $newProduct->getPrixHTVA(); ?>€</span></div>
@@ -56,6 +60,10 @@ if (isset($_GET['addtocart'])) {
     <div class="title_box">Le plus vendu</div>
     <div class="border_box">
         <div class="product_title_expo"><a href='index.php?page=details&produit=<?php echo $bestAchat->getProduit()->getId(); ?>'><?php echo $bestAchat->getProduit()->getProduit(); ?></a></div>
+        <?php
+        if ($bestAchat->getProduit()->getPromo() == 1 && $bestAchat->getProduit()->getTextePromo() != NULL && $bestAchat->getProduit()->getTextePromo() != "")
+            echo "<div class='prod_price' ><span class='price' ><strong> " . $bestAchat->getProduit()->getTextePromo(). "</strong></span ></div >";
+        ?>
         <div class="product_img"><a href='index.php?page=details&produit=<?php echo $bestAchat->getProduit()->getId(); ?>'><img src="../Style/images/produits/<?php echo $bestAchat->getProduit()->getId(); ?>.png" alt="" border="0" style='max-height:90px;max-width:100px;'/></a></div>
         <div style="padding-bottom:2em; margin-left:4em;"><a href = 'index.php?addtocart=<?php echo $bestAchat->getProduit()->getId(); ?>' class="confirmLink" id='prod_cart'> Commander </a ></div>
         <div class="prod_price"><span class="price"><?php echo round($bestAchat->getProduit()->getPrixHTVA()+($bestAchat->getProduit()->getPrixHTVA()*$bestAchat->getProduit()->getTVA()->getCoef()),2); ?>€</span></div>

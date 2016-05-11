@@ -22,6 +22,7 @@ class Produit {
     private $marque;
     private $section;
     private $tva;
+    private $promo_texte;
 
     /**
      * Fonction permettant l'hydratation de la classe.
@@ -79,6 +80,11 @@ class Produit {
     public function getPrixHTVA()
     {
         return $this->prix_htva;
+    }
+
+    public function getTextePromo()
+    {
+        return $this->promo_texte;
     }
 
     public function getProduit()
@@ -151,6 +157,10 @@ class Produit {
     public function setPrixHTVA($prix)
     {
         $this->prix_htva = $prix;
+    }
+
+    public function setPromoTexte($texte) {
+        $this->promo_texte = $texte;
     }
 
     public function setProduit($produit)
