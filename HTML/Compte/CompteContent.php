@@ -5,8 +5,8 @@
  * Date: 02/05/2016
  * Time: 13:48
  */
-
-$tabError = modifyProfil();
+if (isset($_POST['modifyAccount']))
+$tabError = modifyProfilUser();
 ?>
 <div class="crumb_navigation"> Navigation: <span class="current">Home</span> </div>
 <script>

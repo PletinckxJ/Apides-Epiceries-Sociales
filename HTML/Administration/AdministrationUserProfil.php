@@ -21,7 +21,7 @@ if (isset($_POST['modifyAccount'])) {
         }
     } else if ($retour['bool']) {
         ob_clean();
-        header("Location :index.php?page=modifyUser&id=$id");
+       header("Location :index.php?page=modifyUser&id=$id");
     }
 
 }

@@ -224,7 +224,6 @@ class UserManager {
                 ":code" => $user->getCode()
             ));
         $this->updateUserDroit($user->getId(), $user->getDroit()->getId());
-        d($user);
 
 
     }
