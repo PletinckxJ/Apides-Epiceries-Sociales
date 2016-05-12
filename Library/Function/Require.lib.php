@@ -46,4 +46,6 @@ require_once "../Library/Function/recaptcha.lib.php";
 require "../Library/Page/validation.lib.php";
 require "../Library/Page/recuperation.lib.php";
 startSession();
+header("Cache-Control: no-cache");
+header("Pragma: no-cache");
 ?>

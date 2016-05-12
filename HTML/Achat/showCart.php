@@ -63,7 +63,7 @@
                     <td data-th="Quantity">
                         <input type="number" min="1" max="999" class="form-control text-center"
                                id="<?php echo $elem->getProduit()->getId(); ?>"
-                               name="<?php echo $elem->getProduit()->getId(); ?>" value="1"
+                               name="<?php echo $elem->getProduit()->getId(); ?>" value="<?php echo $elem->getQuantite(); ?>" groupement="<?php echo $elem->getProduit()->getGroupement(); ?>"
                                >
                     </td>
                     <td data-th="Subtotal" class="text-center"

@@ -10,7 +10,9 @@
 include("../Library/Function/Require.lib.php");
 include("../HTML/Head.php");
 include("../HTML/Header.php");
-
+unset($_SESSION['Devis']);
+unset($_SESSION['pdf']);
+unset($_SESSION['Cloture']);
 
 ?>
 

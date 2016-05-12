@@ -3,18 +3,39 @@
  */
 
 $(function() {
-    $('input').change(function() {
+    $('input').bind("change keyup",(function() {
         var id = $(this).attr('name');
         var max = $(this).attr('max');
+        var groupement = $(this).attr('groupement');
         if ($(this).val() > parseInt(max)) {
             $(this).val(parseInt(max));
         } else if ($(this).val() == 0) {
             $(this).val(1);
         }
+        if ($(this).val() %groupement == 0) {
+            document.getElementById(id).style.borderColor = "#00FF00";
+        } else {
+            document.getElementById(id).style.borderColor = "#FFAF0A";
+        }
         recalculate(id);
-    });
+    }));
 
 });
+
+$(function() {
+    $('input').each(function() {
+        var groupement = $(this).attr('groupement');
+        var id = $(this).attr('name');
+        if ($(this).val()%groupement == 0) {
+            document.getElementById(id).style.borderColor = "#00FF00";
+        } else {
+            document.getElementById(id).style.borderColor = "#FFAF0A";
+        }
+    });
+});
+
+
+
 function recalculate(id) {
     var value = $('#'+id).val();
     var price = $('#price_'+id).html();
@@ -65,7 +86,7 @@ function lancerFacture() {
     });
     $.post("../Library/Page/Panier.lib.php", {"session" : achat});
     console.log(achat);
-
+    setTimeout(100);
     $(".container").remove();
     $(".facture").append("<object data='../Library/Page/Facture.lib.php' type='application/pdf' height='1000' width='1000' ><embed src='../Library/Page/Facture.lib.php' type='application/pdf' height='1000' width='1000' /> </object>");
     $(".facture").append("<div class='facture' style='padding-bottom:2em;'><a href='../Achat' class='btn btn-warning col-sm-6'><i class='fa fa-angle-left'></i> Retourner au panier</a><a class='btn btn-success col-sm-6' onclick='startCommande();'>Passer commande <i class='fa fa-angle-right'></i></a></div>");

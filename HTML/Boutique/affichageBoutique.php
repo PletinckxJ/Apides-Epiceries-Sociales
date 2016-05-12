@@ -48,7 +48,7 @@ foreach($produitList as $elem) {
         echo "<div class='prod_price' ><span class='price' ><strong> " . $elem->getTextePromo(). "</strong></span ></div >";
         echo "</div >";
         echo "<div class='bottom_prod_box' ></div >";
-        echo "<div class='prod_details_tab' > <a id='prod_cart' href='index.php?addtocart=".$elem->getId()."' class='confirmLink' > Commander </a > <a href = 'index.php?page=details&produit=".$elem->getId()."' class='prod_details' > details</a > </div >";
+        echo "<div class='prod_details_tab' > <a id='prod_cart' href='index.php?addtocart=".$elem->getId()."&quant=' class='confirmLink' > Commander </a > <a href = 'index.php?page=details&produit=".$elem->getId()."' class='prod_details' > details</a > </div >";
         echo "</div >";
     }
 
@@ -59,7 +59,8 @@ foreach($produitList as $elem) {
 ?>
 </div>
 <div id="dialog" title="Confirmation requise">
-    Ajouter ce produit à votre panier ?
+    Ajouter ce produit à votre panier ?<br>
+    <br>Quelle quantité désirez-vous ? <input type="number" min="1" max="999" name="quantite" id="quant" value="1">
 </div>
 
 

@@ -14,7 +14,6 @@ ob_start();
 <head>
     <title>Apides Centrale</title>
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
-
     <link rel="stylesheet" type="text/css" href="../Style/style.css" />
     <link rel="stylesheet" type="text/css" href="../Style/privateCSS.css" />
 

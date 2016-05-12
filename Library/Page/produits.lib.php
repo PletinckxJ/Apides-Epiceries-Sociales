@@ -8,9 +8,10 @@
 
 function addToCart() {
     $id = $_GET['addtocart'];
+    $quant = $_GET['quant'];
     $am = new AchatManager(connexionDb());
     if ($am->getAchatFromUser($_SESSION['Utilisateur']->getId(), $id)->getProduit() == NULL) {
-        $am->setUtilisateurAchat($_SESSION['Utilisateur']->getId(), $id);
+        $am->setUtilisateurAchat($_SESSION['Utilisateur']->getId(), $id, $quant);
     }
     ob_clean();
     header("Location :../Produits");

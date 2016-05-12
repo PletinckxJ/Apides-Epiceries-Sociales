@@ -19,7 +19,8 @@ $(".confirmLink").click(function(e) {
     $("#dialog").dialog({
         buttons : {
             "Je l'ajoute" : function() {
-                window.location.href = targetUrl;
+                targetUrl = targetUrl + $("input#quant").val();
+                window.location.href = targetUrl
             },
             "Non, je ne veux pas" : function() {
                 $(this).dialog("close");

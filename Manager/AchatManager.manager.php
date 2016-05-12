@@ -76,7 +76,6 @@ class AchatManager {
             $achat = new Achat($elem);
             $pm = new ProduitManager(connexionDb());
             $achat->setProduit($pm->getProduitById($elem['id_produit']));
-            $achat->setQuantite(0);
             $tab[] = $achat;
 
         }
@@ -145,11 +144,12 @@ class AchatManager {
         ));
 }
 
-    public function setUtilisateurAchat($id_user, $id_produit) {
-        $query = $this->db->prepare("INSERT INTO utilisateur_achat(id_user, id_produit) values (:iduser, :idprod)");
+    public function setUtilisateurAchat($id_user, $id_produit, $quant) {
+        $query = $this->db->prepare("INSERT INTO utilisateur_achat(id_user, id_produit, quantite) values (:iduser, :idprod, :quant)");
         $query->execute(array(
             ":iduser" => $id_user,
-            ":idprod" => $id_produit
+            ":idprod" => $id_produit,
+            ":quant" => $quant
         ));
     }
 

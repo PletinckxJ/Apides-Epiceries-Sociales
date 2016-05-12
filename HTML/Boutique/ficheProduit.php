@@ -49,7 +49,7 @@ foreach ($produitList as $elem) {
                     Marque : <span class="blue"><?php echo $produit->getMarque()->getLibelle(); ?></span><br />
                     Date limite de vente : <span class="blue"><?php echo $dlv ?></span><br />
                     Prix d'achat : <span class="blue"><?php echo $prix; ?> €</span><br />
-                    Prix de vente en magasin :  <span class="blue"><?php echo $vente; ?> €</span><br />
+                    Prix de vente conseillé :  <span class="blue"><?php echo $vente; ?> €</span><br />
                     Quantité : <span class="blue"><?php echo $produit->getPoids(); ?></span><br />
                     Groupement : <span class="blue"><?php echo $produit->getGroupement(); ?></span><br />
                     <?php if ($produit->getTextePromo() != NULL && $produit->getTextePromo() != "") {

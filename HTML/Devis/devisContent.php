@@ -41,7 +41,7 @@ if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateu
     <div id="tabs-1" style="border: none; width:1000px; background-color : #f7f3f3;">
 
         <div class="container">
-            <table id="cart" class="table table-hover table-condensed" style="<?php if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) { echo "margin-left:-2em;width:85%"; } else { echo "margin-left:-1em;width:100%"; }?>;">
+            <table id="cart" class="table table-hover table-condensed" style="<?php if ($_SESSION['Utilisateur']->getDroit()->getId() == 3 && $devis->getCloture() == 0) { echo "margin-left:-1em;width:120%"; } else { echo "margin-left:-1em;width:100%"; }?>;">
                 <caption><h3 align="center">Liste des produits du devis</h3></caption>
                 <thead>
                 <tr>
