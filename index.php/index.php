@@ -27,7 +27,7 @@ if (!isConnect()) {
     echo "</div>";
     echo "</span>";
 } else {
-    header("Location :../Compte");
+    header("Location :../Accueil");
 }
 ?>
 </body>

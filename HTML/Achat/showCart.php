@@ -24,7 +24,7 @@
     <link href="../Style/cartTable.css" rel="stylesheet">
     <script src="../js/cart.js"></script>
     <div class="container">
-        <table id="cart" class="table table-hover table-condensed" style="width:85%;">
+        <table id="cart" class="table table-hover table-condensed" style="width:100%;">
             <caption><h3 align="center">Liste des achats</h3></caption>
             <thead>
             <tr>

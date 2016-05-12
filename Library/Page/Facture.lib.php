@@ -43,14 +43,14 @@ $different = false;
 if (isset ($_SESSION['Devis'])) {
     $am = new AchatManager(connexionDb());
     $tabProd = $am->getAllAchatsFromDevis($_SESSION['Devis']);
-  foreach ($tabProd as $elem) {
-      if ($_SESSION['Cloture'][$elem->getProduit()->getId()] !=  $elem->getQuantite()) {
-          $different = true;
-      }
-      if (count($tabProd) != count($_SESSION['Cloture'])) {
-          $different = true;
-      }
-  }
+    foreach ($tabProd as $elem) {
+        if ($_SESSION['Cloture'][$elem->getProduit()->getId()] != $elem->getQuantite()) {
+            $different = true;
+        }
+        if (count($tabProd) != count($_SESSION['Cloture'])) {
+            $different = true;
+        }
+    }
 }
 if ((isset ($_SESSION['Devis']) && $different) || (!isset($_SESSION['Devis']) && !$different) || $_SESSION['action'] == "modif") {
     if (!isset($_SESSION['Devis'])) {
@@ -128,6 +128,7 @@ if ((isset ($_SESSION['Devis']) && $different) || (!isset($_SESSION['Devis']) &&
     $actualProd = array();
     do {
         if (!isset($_SESSION['Devis'])) {
+
             foreach ($_SESSION['Achat'] as $key => $value) {
                 $prod = $pm->getProduitById($key);
 
@@ -152,6 +153,7 @@ if ((isset ($_SESSION['Devis']) && $different) || (!isset($_SESSION['Devis']) &&
 
             }
         } else if (isset($_SESSION['Devis'])) {
+
             foreach ($_SESSION['Cloture'] as $key => $value) {
                 $prod = $pm->getProduitById($key);
 
@@ -238,11 +240,13 @@ if ((isset ($_SESSION['Devis']) && $different) || (!isset($_SESSION['Devis']) &&
 //                      "accompte_percent" => percent  // pourcentage d'acompte (TTC)
 //                  "Remarque" => "texte"              // texte
     $tot_prods = array();
+
     foreach ($actualProd as $elem) {
         $current = array("px_unit" => $elem->getProduit()->getPrixHTVA(), "qte" => $elem->getQuantite(), "tva" => $elem->getProduit()->getTVA()->getId());
         $tot_prods[] = $current;
 
     }
+
     $tab_tva = array();
     $tm = new TVAManager(connexionDb());
     $tvas = $tm->getAllTVA();
@@ -293,7 +297,7 @@ if ((isset ($_SESSION['Devis']) && $different) || (!isset($_SESSION['Devis']) &&
     $pdf->AddPage();
     unset($_SESSION['Cloture']);
     unset($_SESSION['pdf']);
-    $pdf->setSourceFile("../../Devis/pdf/".$_SESSION['Devis']->getId().".pdf");
+    $pdf->setSourceFile("../../Devis/pdf/" . $_SESSION['Devis']->getId() . ".pdf");
 // import page 1
     $tplIdx = $pdf->importPage(1);
 //use the imported page and place it at point 0,0; calculate width and height
@@ -301,7 +305,6 @@ if ((isset ($_SESSION['Devis']) && $different) || (!isset($_SESSION['Devis']) &&
     $pdf->useTemplate($tplIdx, 0, 0, 0, 0, true);
     $pdf->Output();
 }
-
 
 
 ?>

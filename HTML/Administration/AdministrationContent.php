@@ -9,9 +9,9 @@ $title = getTitle();
 ?>
 
 <?php include("../HTML/Administration/NavigationAdministration.php"); ?>
-<div class="center_content" >
+<div class="center_content">
     <?php
-     echo "<div class='center_title_bar'>".$title."</div>";
+    echo "<div class='center_title_bar'>" . $title . "</div>";
     ?>
     <div class="prod_box_big">
         <div class="top_prod_box_big"></div>
@@ -32,17 +32,17 @@ $title = getTitle();
                 }
             } else if ($_GET['page'] == "modifyUser" && isset($_GET['id']) && membreExistant()) {
                 include("../HTML/Administration/AdministrationUserProfil.php");
-            /**} else if ($_GET['page'] == "benef" && !isset($_GET['option'])) {
-                include("../HTML/Administration/AdministrationBenefList.php");
-            } else if ($_GET['page'] == "benef" && $_GET['option'] == "create") {
-                include("../Form/createBeneficiaire.form.php");
-                if (isset($_POST['createBenef'])) {
-                    echo addBenef();
-                }
-            } else if ($_GET['page'] == "benef" && $_GET['option'] == "budget") {
-                include("../HTML/Administration/AdministrationBenefBudget.php");
-            } else if ($_GET['page'] == "modifyBenef" && isset($_GET['id']) && benefExistant()) {
-                include("../HTML/Administration/AdministrationBenefProfil.php");*/
+                /**} else if ($_GET['page'] == "benef" && !isset($_GET['option'])) {
+                 * include("../HTML/Administration/AdministrationBenefList.php");
+                 * } else if ($_GET['page'] == "benef" && $_GET['option'] == "create") {
+                 * include("../Form/createBeneficiaire.form.php");
+                 * if (isset($_POST['createBenef'])) {
+                 * echo addBenef();
+                 * }
+                 * } else if ($_GET['page'] == "benef" && $_GET['option'] == "budget") {
+                 * include("../HTML/Administration/AdministrationBenefBudget.php");
+                 * } else if ($_GET['page'] == "modifyBenef" && isset($_GET['id']) && benefExistant()) {
+                 * include("../HTML/Administration/AdministrationBenefProfil.php");*/
             } else if ($_GET['page'] == "createBudget") {
                 include("../Form/createBudget.form.php");
                 if (isset($_POST['creerBudget'])) {
@@ -112,9 +112,9 @@ $title = getTitle();
 </div>
 <div class="right_content">
     <?php if ((isset($_GET['page']) && ($_GET['page'] != 'devis') && $_GET['page'] != 'modifyDevis') or !isset($_GET['page'])) { ?>
-    <div class="title_box">Options</div>
-    <ul class="left_menu">
-        <?php include("../HTML/Administration/AdministrationRightList.php"); ?>
-    </ul>
+        <div class="title_box">Options</div>
+        <ul class="left_menu">
+            <?php include("../HTML/Administration/AdministrationRightList.php"); ?>
+        </ul>
     <?php } ?>
 </div>

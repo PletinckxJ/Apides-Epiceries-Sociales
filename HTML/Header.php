@@ -22,7 +22,7 @@ if (!isConnect()) {
             <div class="left_menu_corner"></div>
                 <div id="menu">
                 <ul class="menu" style="<?php if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) echo "margin-left:155px"; ?>">
-                    <li><a href="index.php" class="nav1"> Accueil</a></li>
+                    <li><a href="../Accueil" class="nav1"> Accueil</a></li>
                     <li class="divider"></li>
                     <li><a href="../Produits" class="nav5">Produits</a></li>
                     <li class="divider"></li>

@@ -6,14 +6,39 @@
  * Time: 13:41
  */
 
+if (isset($_POST['id'])) {
+    require_once("../Library/Function/Database.lib.php");
+    require_once("../Library/Function/Session.lib.php");
+    require_once("../Library/Function/Config.lib.php");
+    require_once("../Manager/ProduitManager.manager.php");
+    require_once("../Manager/FournisseurManager.manager.php");
+    require_once("../Manager/MarqueManager.manager.php");
+    require_once("../Manager/SectionManager.manager.php");
+    require_once("../Manager/TVAManager.manager.php");
+    require_once("../Entity/Produit.class.php");
+    require_once("../Entity/Marque.class.php");
+    require_once("../Entity/Section.class.php");
+    require_once("../Entity/TVA.class.php");
+    require_once("../Entity/Fournisseur.class.php");
+    $pm = new ProduitManager(connexionDb());
+    $produit = $pm->getProduitById($_POST['id']);
+    $sm = new SectionManager(connexionDb());
+    $tabSection = $sm->getAllSection();
+    $tm = new TVAManager(connexionDb());
+    $tabTVA = $tm->getAllTVA();
+    header('Content-Type: text/html; charset=windows-1252');
+}
+
 ?>
 
-<form enctype='multipart/form-data' action="index.php?page=modifyProduit&id=<?php echo $id; ?>" method="post" class="formCreation">
+<form enctype='multipart/form-data' action="index.php?page=modifyProduit&id=<?php if (isset($_POST['id'])) { echo $produit->getId(); } else { echo $id; } ?>" method="post" class="formCreation">
+    <label class="contact" for="code"><strong>Code produit :</strong></label>
+    <input type="text" class="contact_input" id="code" name="code" value="<?php echo $produit->getCodeProduit(); ?>" onchange="getprod();" required>
     <label class="contact" for="name"><strong>Nom :</strong></label>
     <input type="text" class="contact_input" id="name" name="name" value="<?php echo $produit->getProduit();?>"required>
     <label class="contact" for="image" ><strong>Image: </strong></label>
     <input name="image" size="30" type="file" onchange="readURL(this);" accept="image/x-png, image/gif, image/jpeg" /><br>
-    <img id="show" style="padding-left : 10em; max-height: 200px; max-width: 150px" src="../Style/images/produits/<?php echo $id.".png" ?>" alt="your image" /> <br>
+    <img id="show" style="padding-left : 10em; max-height: 200px; max-width: 150px" src="../Style/images/produits/<?php if (isset($_POST['id'])) { echo $produit->getId(); } else { echo $id; } ?>" alt="your image" /> <br>
     <label class="contact" for="fournisseur"><strong>Fournisseur :</strong></label>
     <input type="text" class="contact_input" name="fournisseur" id="fournisseur" value="<?php echo $produit->getFournisseur()->getLibelle();?>" required>
 
@@ -50,8 +75,7 @@
         }
         ?>
     </select>
-    <label class="contact" for="code"><strong>Code produit :</strong></label>
-    <input type="text" class="contact_input" id="code" name="code" value="<?php echo $produit->getCodeProduit(); ?>"required>
+
     <label class="contact" for="ean"><strong>EAN :</strong></label>
     <input type="text" class="contact_input" id="ean" name="ean" value="<?php echo $produit->getEAN(); ?>" >
     <label class="contact" for="dlv"><strong>DLV :</strong></label>
