@@ -51,7 +51,7 @@ if (isConnect()) {
             <address>
                 <abbr title="Phone">P:</abbr> 010/61.17.84
                 <br>
-                <abbr title="Email">E:</abbr> <a href="mailto:stephanemonard@centrale-achat-apides.be">contact@centrales-achat-apides.be</a>
+                <abbr title="Email">E:</abbr> <a href="mailto:centrale_achat@apides.be">centrale_achat@apides.be</a>
             </address>
         </div>
     </div>

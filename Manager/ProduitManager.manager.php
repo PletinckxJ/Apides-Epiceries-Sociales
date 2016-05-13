@@ -289,7 +289,66 @@ class ProduitManager {
             ":id" => $produit->getId()
         ));
     }
+    public function getFavoris($user) {
+        $query = $this->db->prepare("SELECT * FROM utilisateur_favoris WHERE id_utilisateur = :id");
+        $query->execute(array(
+            ":id" => $user
+        ));
+        $tabProduit = $query->fetchAll(PDO::FETCH_ASSOC);
 
+        $tab = array();
+
+        foreach($tabProduit as $elem)
+        {
+            $produit = $this->getProduitById($elem['id_produit']);
+            $produit = $this->getProduitArray($produit);
+            $tab[] = $produit;
+
+        }
+
+        return $tab;
+    }
+
+    public function isFavori($prod, $user) {
+        $query = $this->db->prepare("SELECT * FROM utilisateur_favoris WHERE id_utilisateur = :id and id_produit = :prod");
+        $query->execute(array(
+            ":id" => $user,
+            "prod" => $prod
+        ));
+        $tabProduit = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        $tab = array();
+
+        foreach($tabProduit as $elem)
+        {
+            $produit = $this->getProduitById($elem['id_produit']);
+            $produit = $this->getProduitArray($produit);
+            $tab[] = $produit;
+
+        }
+
+        if (isset($tab[0])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function addToFavoris($prod, $user) {
+        $query = $this->db->prepare("INSERT INTO utilisateur_favoris(id_utilisateur, id_produit) values (:id, :prod)");
+        $query->execute(array(
+            ":id" => $user,
+            "prod" => $prod
+        ));
+    }
+
+    public function deleteFavoris($prod, $user) {
+        $query = $this->db->prepare("DELETE FROM utilisateur_favoris where id_utilisateur = :id and id_produit = :prod");
+        $query->execute(array(
+            ":id" => $user,
+            "prod" => $prod
+        ));
+    }
     public function updateProduit(Produit $produit) {
         $query = $this->db->prepare("UPDATE produits SET promo = :promo, code_produit = :code, DLV = :dlv, EAN = :ean, groupement = :groupement, poids = :poids, prix_htva = :prix, produit = :nom,
                    produit_actif = :actif, promo_texte = :promotexte WHERE id = :id");

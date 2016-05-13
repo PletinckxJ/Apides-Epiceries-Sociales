@@ -589,7 +589,7 @@ span.border_cart {
 /*---------prod_box----------*/
 .prod_box {
     width: 173px;
-    height: 202px;
+    height: 220px;
     float: left;
     padding: 10px 10px 10px 11px;
 }
@@ -614,7 +614,7 @@ span.border_cart {
 
 .center_prod_box {
     width: 173px;
-    height: 156px;
+    height: 174px;
     background: url(images/product_box_center.gif) repeat-y;
     float: left;
     text-align: center;
@@ -652,7 +652,7 @@ a.prod_details {
     float: left;
     background: url(images/square-blue-add.gif) no-repeat left;
     padding: 0 0 0 20px;
-    margin: 7px 0 0 38px;
+    margin: 7px 0 0 35px;
     _margin: 6px 0 0 35px;
     text-decoration: none;
     color: #0fa0dd;

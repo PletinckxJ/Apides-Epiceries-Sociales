@@ -44,12 +44,14 @@ foreach($produitList as $elem) {
         echo "<div class='product_title' ><a href = 'index.php?page=details&produit=".$elem->getId()."' > " . $elem->getProduit() . " | " . $elem->getPoids() . " </a ></div >";
         echo "<div class='product_img' ><a href = 'index.php?page=details&produit=".$elem->getId()."' ><img src = '../Style/images/produits/" . $elem->getId() . ".png' alt = '' style='max-height:90px;max-width:100px;' border = '0' /></a ></div >";
         echo "<div class='prod_price' ><span class='price' > " . $prix . "€</span ></div >";
-        if ($elem->getPromo() == 1 && $elem->getTextePromo() != NULL && $elem->getTextePromo() != "")
-        echo "<div class='prod_price' ><span class='price' ><strong> " . $elem->getTextePromo(). "</strong></span ></div >";
+        echo "<div class='prod_price' ><span class='price' ><strong> Groupement idéal : " . $elem->getGroupement(). "</strong></span ></div >";
         echo "</div >";
         echo "<div class='bottom_prod_box' ></div >";
-        echo "<div class='prod_details_tab' > <a id='prod_cart' href='index.php?addtocart=".$elem->getId()."&quant=' class='confirmLink' > Commander </a > <a href = 'index.php?page=details&produit=".$elem->getId()."' class='prod_details' > details</a > </div >";
-        echo "</div >";
+        echo "<div class='prod_details_tab' > <a id='prod_cart' href='index.php?addtocart=".$elem->getId()."&quant=' class='confirmLink' > Commander </a >";
+        if(!$pm->isFavori($elem->getId(), $_SESSION['Utilisateur']->getId())) {
+            echo "<a href='index.php?addtofavoris=" . $elem->getId() . "' class='prod_details' > Favoris</a >";
+        }
+        echo "</div ></div >";
     }
 
     }

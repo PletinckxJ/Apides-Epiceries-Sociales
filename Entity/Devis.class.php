@@ -12,6 +12,7 @@ class Devis {
     private $date_emission;
     private $id;
     private $num_devis;
+    private $note;
 
     /**
      * Fonction permettant l'hydratation de la classe.
@@ -51,6 +52,10 @@ class Devis {
         return $this->num_devis;
     }
 
+    public function getNote() {
+        return $this->note;
+    }
+
     /** SETTER */
 
     public function setId($id)
@@ -71,5 +76,10 @@ class Devis {
     public function setNumeroDevis($num)
     {
         $this->num_devis = $num;
+    }
+
+    public function setNote($note)
+    {
+        $this->note = $note;
     }
 }

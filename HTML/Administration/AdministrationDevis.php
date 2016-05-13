@@ -17,8 +17,8 @@ echo "<table align='center' id='example'>";
     <tr>
         <th>Numéro de devis </th>
         <th>Date d'émission</th>
-        <th>Utilisateur</th>
-        <th>Cloture</th>
+        <th>Client </th>
+        <th>Etat d'avancement</th>
         <th></th>
     </tr>
     </thead>
@@ -28,8 +28,10 @@ echo "<table align='center' id='example'>";
 foreach ($tabDevis as $elem) {
     if ($elem->getCloture() == 0) {
         $cloture = "En cours";
-    } else {
+    } else if ($elem->getCloture() == 1) {
         $cloture = "Cloturé";
+    } else {
+        $cloture = "En cours d'achat";
     }
 
     $user = $um->getUserById($dm->getDevisUser($elem->getId()));

@@ -76,6 +76,11 @@
                     </td>
                 </tr>
             <?php } ?>
+            <tr>
+            <td data-th="Note" colspan="5"><textarea name="note" id="note" type="text" style="width:912px;height:134px;max-width:912px;" placeholder="Entrez une note pour votre devis "></textarea>
+
+            </td>
+            </tr>
             </tbody>
             <tfoot>
             <tr class="visible-xs">

@@ -110,12 +110,20 @@ class DevisManager {
         ));
     }
     public function insertDevis(Devis $devis) {
-        $query = $this->db->prepare("INSERT INTO devis(date_emission, num_devis) values ( NOW(), :num) ");
+        $query = $this->db->prepare("INSERT INTO devis(date_emission, num_devis, note) values ( NOW(), :num, :note) ");
         $query->execute(array(
-            ":num" => $devis->getNumeroDevis()
+            ":num" => $devis->getNumeroDevis(),
+            ":note" => $devis->getNote()
         ));
     }
 
+    public function modifyNote($note, $devis) {
+        $query = $this->db->prepare("update devis set note = :note WHERE id=:id");
+        $query->execute(array(
+            ":id" => $devis,
+            "note" => $note
+        ));
+    }
 
     public function updateDevis(Devis $devis) {
         $query = $this->db->prepare("update devis set cloture = :cloture, date_emission = :date, num_devis = :numero WHERE id=:id");
@@ -126,9 +134,15 @@ class DevisManager {
             ":id" => $devis->getId()
         ));
     }
-
     public function cloturerDevis($id) {
         $query = $this->db->prepare("update devis set cloture = 1 WHERE id=:id");
+        $query->execute(array(
+            ":id" => $id
+        ));
+    }
+
+    public function verrouillerDevis($id) {
+        $query = $this->db->prepare("update devis set cloture = 2 WHERE id=:id");
         $query->execute(array(
             ":id" => $id
         ));

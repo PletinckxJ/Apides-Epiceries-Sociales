@@ -49,14 +49,50 @@ $("#confirmLink").click(function(e) {
 
     $("#dialog").dialog("open");
 });
+$("#confirmAchat").click(function(e) {
+    e.preventDefault();
+    var targetUrl = $(this).attr("href");
 
+    $("#dialog").dialog({
+        buttons : {
+            "Oui": function() {
+                lancerAchat(targetUrl);
+                $(this).dialog("close");
+            },
+            "Non" : function() {
+                $(this).dialog("close");
+            }
+        }
+    });
+
+    $("#dialog").dialog("open");
+});
+
+$("#confirmTransfer").click(function(e) {
+    e.preventDefault();
+    var targetUrl = $(this).attr("href");
+
+    $("#dialog").dialog({
+        buttons : {
+            "Oui": function() {
+                transferFav(targetUrl);
+                $(this).dialog("close");
+            },
+            "Non" : function() {
+                $(this).dialog("close");
+            }
+        }
+    });
+
+    $("#dialog").dialog("open");
+});
 $("#confirmClot").click(function(e) {
     e.preventDefault();
     var targetUrl = $(this).attr("href");
 
     $("#dialog").dialog({
         buttons : {
-            "Oui" : function() {
+            "Oui": function() {
                 lancerCloturation(targetUrl);
                 $(this).dialog("close");
             },

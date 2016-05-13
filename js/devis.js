@@ -20,7 +20,23 @@ $(function() {
 
     });
 
+$(function() {
+    $('textarea#note').change(function() {
+        var val = $(this).val();
+        var devis = $(this).attr('devis');
+        $.ajax({
+            url : "../Library/Page/devis.lib.php",
+            type : "POST",
+            data : {
+                note : val,
+                noteDev : devis
+            },
+            success:function(data) {
 
+            }
+        })
+    });
+})
 
 function rectification(id) {
     var value = $('#'+id).val();
@@ -83,12 +99,35 @@ function lancerCloturation(id) {
         achat[$(this).attr("name")] = $(this).val();
     });
     console.log(achat, id);
+    $.ajax({
+        url: '../Library/Page/devis.lib.php',
+        type: "POST",
+        data : {
+            session : achat,
+            devis : id
+        }
+    });
     $.post("../Library/Page/devis.lib.php", {"session" : achat,
                                             "devis" : id});
     setTimeout(100);
     $("#tabs").remove();
     $(".facture").append("<object data='../Library/Page/Facture.lib.php' type='application/pdf' height='1000' width='1000' ><embed src='../Library/Page/Facture.lib.php' type='application/pdf' height='1000' width='1000' /> </object>");
     $(".facture").append("<div class='facture' style='padding-bottom:2em;'><a href='../Devis/index.php?id="+id+"' class='btn btn-warning col-sm-6'><i class='fa fa-angle-left'></i> Retourner au devis</a><a class='btn btn-success col-sm-6' onclick='startCloturation();'>Finir la procédure <i class='fa fa-angle-right'></i></a></div>");
+}
+
+function lancerAchat(id) {
+    $.ajax({
+        url: '../Library/Page/devis.lib.php',
+        type: "POST",
+        data : {
+            action : 'achat',
+            devis : id
+        },
+        success:function () {
+            window.location.reload(true);
+
+        }
+    })
 }
 
 function addProduit(devis) {

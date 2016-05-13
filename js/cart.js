@@ -24,6 +24,7 @@ $(function() {
 
 $(function() {
     $('input').each(function() {
+        recalculate($(this).attr('name'));
         var groupement = $(this).attr('groupement');
         var id = $(this).attr('name');
         if ($(this).val()%groupement == 0) {
@@ -71,7 +72,7 @@ function deleteAchat(id, user) {
         data : {produit : id,
                 action : 'delete',
                 user : user
-        },
+        }
 
 
     });
@@ -84,8 +85,19 @@ function lancerFacture() {
     $('input').each(function() {
         achat[$(this).attr("name")] = $(this).val();
     });
-    $.post("../Library/Page/Panier.lib.php", {"session" : achat});
-    console.log(achat);
+    var note = $('textarea#note').val();
+    $.ajax({
+       url :  "../Library/Page/Panier.lib.php",
+        type : "POST",
+        data: {
+            session : achat,
+            noteDevis : note
+        },
+        success:function(data) {
+            console.log(data);
+        }
+    });
+    console.log(achat,note);
     setTimeout(100);
     $(".container").remove();
     $(".facture").append("<object data='../Library/Page/Facture.lib.php' type='application/pdf' height='1000' width='1000' ><embed src='../Library/Page/Facture.lib.php' type='application/pdf' height='1000' width='1000' /> </object>");
@@ -105,6 +117,6 @@ function startCommande() {
         }
 
     });
-    window.location.href = "../Compte";
+    window.location.href = "../Commande";
 
 }

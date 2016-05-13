@@ -58,9 +58,10 @@ if (isset($_POST['session'])) {
 
     unset($_SESSION['Devis']);
     if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) {
-        print "../Compte";
+        print "../Commande";
 
     } else {
+        $dm->cloturerDevis($devis->getId());
         print "../Administration/index.php?page=devis";
     }
 } else if (isset($_POST['action']) && $_POST['action'] == 'delete') {
@@ -131,5 +132,9 @@ if (isset($_POST['session'])) {
     print json_encode($prod);
     */
 
+} else if (isset($_POST['action']) && $_POST['action'] == "achat") {
+    $dm->verrouillerDevis($_POST['devis']);
+} else if (isset($_POST['note'])) {
+    $dm->modifyNote($_POST['note'], $_POST['noteDev']);
 }
 

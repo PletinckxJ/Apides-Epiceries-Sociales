@@ -26,8 +26,18 @@ if (isset($_GET['addtocart'])) {
     }
 
 }
-?>
 
+if (isset($_GET['addtofavoris'])) {
+    if (produitExistant()) {
+        addToFav();
+    } else {
+        header("Location :../Deconnexion");
+    }
+}
+?>
+<?php if (isset($_GET['page']) && $_GET['page'] == "favoris") {
+    include("../HTML/Boutique/favoris.php");
+} else { ?>
 <?php include("../HTML/Boutique/NavigationProduct.php"); ?>
 <div class="center_content">
 
@@ -71,5 +81,5 @@ if (isset($_GET['addtocart'])) {
 </div>
 <script type="text/javascript" src="../js/dialogBox.js"></script>
 
-
+<?php } ?>
 

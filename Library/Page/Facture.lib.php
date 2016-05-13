@@ -53,6 +53,7 @@ if (isset ($_SESSION['Devis'])) {
     }
 }
 if ((isset ($_SESSION['Devis']) && $different) || (!isset($_SESSION['Devis']) && !$different) || $_SESSION['action'] == "modif") {
+
     if (!isset($_SESSION['Devis'])) {
         $tabDevis = $dm->getAllDevis();
         $actualNum = 0;

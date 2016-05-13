@@ -58,12 +58,13 @@ foreach ($produitList as $elem) {
                     ?>
                 </div>
                 <div class="prod_price_big"><span class="price"><?php echo $prix; ?> €</span></div>
-               <a href='index.php?addtocart=<?php echo $produit->getId(); ?>' class="confirmLink" id="addtocart">Ajouter au panier</a> </div>
+               <a href='index.php?addtocart=<?php echo $produit->getId(); ?>&quant=' class="confirmLink" id="addtocart">Ajouter au panier</a> </div>
         </div>
         <div class="bottom_prod_box_big"></div>
     </div>
     <div id="dialog" title="Confirmation requise">
-        Ajouter ce produit à votre panier ?
+        Ajouter ce produit à votre panier ?<br>
+        <br>Quelle quantité désirez-vous ? <input type="number" min="1" max="999" name="quantite" id="quant" value="1">
     </div>
     <script type="text/javascript" src="../js/dialogBox.js"></script>
     <div class="center_title_bar">Produits similaires</div>
