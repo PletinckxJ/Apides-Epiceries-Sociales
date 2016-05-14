@@ -13,6 +13,7 @@ class Devis {
     private $id;
     private $num_devis;
     private $note;
+    private $date_livraison;
 
     /**
      * Fonction permettant l'hydratation de la classe.
@@ -56,6 +57,9 @@ class Devis {
         return $this->note;
     }
 
+    public function getDateLivraison() {
+        return $this->date_livraison;
+    }
     /** SETTER */
 
     public function setId($id)
@@ -81,5 +85,10 @@ class Devis {
     public function setNote($note)
     {
         $this->note = $note;
+    }
+
+    public function setDateLivraison($date)
+    {
+        $this->date_livraison = $date;
     }
 }

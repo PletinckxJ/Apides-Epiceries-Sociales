@@ -41,6 +41,7 @@ foreach ($produitList as $elem) {
         <div class="top_prod_box_big"></div>
         <div class="center_prod_box_big">
             <div class="product_img_big"> <img style="max-height:300px; max-width:180px;" src="../Style/images/produits/<?php echo $produit->getId() .".png" ?>" alt="" border="0" />
+
             </div>
             <div class="details_big_box" style="padding-left:2em; padding-top : 1em;">
                 <div class="product_title_big"><?php echo $produit->getProduit(); ?></div>
@@ -58,7 +59,8 @@ foreach ($produitList as $elem) {
                     ?>
                 </div>
                 <div class="prod_price_big"><span class="price"><?php echo $prix; ?> €</span></div>
-               <a href='index.php?addtocart=<?php echo $produit->getId(); ?>&quant=' class="confirmLink" id="addtocart">Ajouter au panier</a> </div>
+                <a href='index.php?addtocart=<?php echo $produit->getId(); ?>&quant=' class="confirmLink" id="addtocart">Ajouter au panier</a>
+                <a href='index.php?addtofavoris=<?php echo $produit->getId(); ?>' id="addtofav">Ajouter aux favoris</a></div>
         </div>
         <div class="bottom_prod_box_big"></div>
     </div>

@@ -21,6 +21,23 @@ $(function() {
     });
 
 $(function() {
+    $('#datepicker').change(function() {
+        var date = $(this).val();
+        var devis = $(this).attr('devis');
+        $.ajax({
+            url: "../Library/Page/devis.lib.php",
+            type: "POST",
+            data: {
+                dateLivr: date,
+                dateDev: devis
+            },
+            success: function (data) {
+
+            }
+        });
+    });
+});
+$(function() {
     $('textarea#note').change(function() {
         var val = $(this).val();
         var devis = $(this).attr('devis');
@@ -36,7 +53,7 @@ $(function() {
             }
         })
     });
-})
+});
 
 function rectification(id) {
     var value = $('#'+id).val();
@@ -78,7 +95,7 @@ function deleteProduit(id, devis) {
         success:function (data) {
             console.log(data);
             if (data == 'deleted') {
-                window.location.href = "../Compte";
+                window.location.href = "../Commande";
             } else {
                 if (data == "go") {
                     window.location.reload(true);
@@ -96,7 +113,9 @@ function deleteProduit(id, devis) {
 function lancerCloturation(id) {
     var achat = {};
     $('input').each(function() {
-        achat[$(this).attr("name")] = $(this).val();
+        if ($(this).val() != "") {
+            achat[$(this).attr("name")] = $(this).val();
+        }
     });
     console.log(achat, id);
     $.ajax({
@@ -121,6 +140,35 @@ function lancerAchat(id) {
         type: "POST",
         data : {
             action : 'achat',
+            devis : id
+        },
+        success:function () {
+            window.location.reload(true);
+
+        }
+    })
+}
+
+function lancerLivraison(id) {
+    $.ajax({
+        url: '../Library/Page/devis.lib.php',
+        type: "POST",
+        data : {
+            action : 'livraison',
+            devis : id
+        },
+        success:function () {
+            window.location.reload(true);
+
+        }
+    })
+}
+function lancerFinal(id) {
+    $.ajax({
+        url: '../Library/Page/devis.lib.php',
+        type: "POST",
+        data : {
+            action : 'final',
             devis : id
         },
         success:function () {

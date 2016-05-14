@@ -69,7 +69,7 @@ class DevisManager {
     }
 
     public function getAllDevisFromUser(Utilisateur $user) {
-        $query = $this->db->prepare("SELECT id_devis FROM utilisateur_devis WHERE id_utilisateur = :id");
+        $query = $this->db->prepare("SELECT id_devis FROM utilisateur_devis WHERE id_utilisateur = :id ORDER BY id_devis DESC");
         $query->execute(array(
             ":id" => $user->getId(),
         ));
@@ -141,13 +141,31 @@ class DevisManager {
         ));
     }
 
-    public function verrouillerDevis($id) {
+    public function lancerAchatDevis($id) {
         $query = $this->db->prepare("update devis set cloture = 2 WHERE id=:id");
         $query->execute(array(
             ":id" => $id
         ));
     }
-
+    public function lancerLivraisonDevis($id) {
+        $query = $this->db->prepare("update devis set cloture = 3 WHERE id=:id");
+        $query->execute(array(
+            ":id" => $id
+        ));
+    }
+    public function lancerFinalDevis($id) {
+        $query = $this->db->prepare("update devis set cloture = 4 WHERE id=:id");
+        $query->execute(array(
+            ":id" => $id
+        ));
+    }
+    public function modifyLivraison($date, $devis) {
+        $query = $this->db->prepare("update devis set date_livraison = :dateliv WHERE id=:id");
+        $query->execute(array(
+            ":id" => $devis,
+            ":dateliv" => $date
+        ));
+    }
     public function deleteDevis($id) {
         $query = $this->db->prepare("DELETE FROM devis where id = :id");
         $query->execute(array(

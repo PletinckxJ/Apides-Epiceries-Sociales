@@ -30,8 +30,12 @@ foreach ($tabDevis as $elem) {
         $cloture = "En cours";
     } else if ($elem->getCloture() == 1) {
         $cloture = "Cloturé";
-    } else {
+    } else if ($elem->getCloture() == 2) {
         $cloture = "En cours d'achat";
+    } else if ($elem->getCloture() == 3) {
+        $cloture = "En cours de livraison";
+    } else {
+        $cloture = "Facturé";
     }
 
     $user = $um->getUserById($dm->getDevisUser($elem->getId()));

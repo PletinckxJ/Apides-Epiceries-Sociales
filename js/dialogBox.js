@@ -49,6 +49,45 @@ $("#confirmLink").click(function(e) {
 
     $("#dialog").dialog("open");
 });
+
+$("#confirmLivraison").click(function(e) {
+    e.preventDefault();
+    var targetUrl = $(this).attr("href");
+
+    $("#dialog").dialog({
+        buttons : {
+            "Oui": function() {
+                lancerLivraison(targetUrl);
+                $(this).dialog("close");
+            },
+            "Non" : function() {
+                $(this).dialog("close");
+            }
+        }
+    });
+
+    $("#dialog").dialog("open");
+});
+
+$("#confirmFinal").click(function(e) {
+    e.preventDefault();
+    var targetUrl = $(this).attr("href");
+
+    $("#dialog").dialog({
+        buttons : {
+            "Oui": function() {
+                lancerFinal(targetUrl);
+                $(this).dialog("close");
+            },
+            "Non" : function() {
+                $(this).dialog("close");
+            }
+        }
+    });
+
+    $("#dialog").dialog("open");
+});
+
 $("#confirmAchat").click(function(e) {
     e.preventDefault();
     var targetUrl = $(this).attr("href");

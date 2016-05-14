@@ -133,8 +133,14 @@ if (isset($_POST['session'])) {
     */
 
 } else if (isset($_POST['action']) && $_POST['action'] == "achat") {
-    $dm->verrouillerDevis($_POST['devis']);
+    $dm->lancerAchatDevis($_POST['devis']);
+} else if (isset($_POST) && $_POST['action'] == 'livraison') {
+    $dm->lancerLivraisonDevis($_POST['devis']);
+} else if (isset($_POST) && $_POST['action'] == 'final') {
+    $dm->lancerFinalDevis($_POST['devis']);
 } else if (isset($_POST['note'])) {
     $dm->modifyNote($_POST['note'], $_POST['noteDev']);
+} else if (isset($_POST['dateLivr'])) {
+    $dm->modifyLivraison($_POST['dateLivr'], $_POST['dateDev']);
 }
 

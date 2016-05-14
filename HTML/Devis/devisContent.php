@@ -23,6 +23,12 @@ switch ($devis->getCloture()) {
     case 2 :
         $clot = "En cours d'achat";
         break;
+    case 3 :
+        $clot = "En cours de livraison";
+        break;
+    case 4 :
+        $clot = "Facturé";
+        break;
 
 }
 if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateur']->getDroit()->getId() == 3) {
@@ -34,6 +40,7 @@ if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateu
     $(function () {
         $("#tabs").tabs();
     });
+
 </script>
 <div class="facture">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -46,12 +53,12 @@ if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateu
                         if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) {
                             echo "Modifier le devis";
                         } else {
-                            echo "Cloturer le devis";
+                            echo "Gérer le devis";
                         }
                     } else {
                         echo "Visualiser le devis";
                     } ?> </a></li>
-            <?php if ($devis->getCloture() == 1 and file_exists("../Devis/pdf/revision-" . $devis->getId() . ".pdf")) { ?>
+            <?php if (($devis->getCloture() == 1 or $devis->getCloture() == 4) and file_exists("../Devis/pdf/revision-" . $devis->getId() . ".pdf")) { ?>
                 <li><a href="#tabs-2" style="border: none; width:240px;"> Facture initiale</a></li>
                 <li><a href="#tabs-3" style="border: none; width:240px;"> Facture révisée</a></li>
             <?php } else { ?>
@@ -59,15 +66,27 @@ if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateu
             <?php } ?>
         </ul>
         <div id="tabs-1" style="border: none; width:1000px; background-color : #f7f3f3;">
-
+            <?php if ($devis->getCloture() != 0) { ?>
+                <div style="float:right;"><label for="dateLivr"> Date de livraison prévue : </label><input type="date"
+                                                                                                           id="datepicker" <?php echo "devis='" . $devis->getId() . "'";
+                    if ($_SESSION['Utilisateur']->getDroit()->getId() == 3 or $devis->getCloture() == 1 or $devis->getCloture() == 4) {
+                        echo "disabled ";
+                    }
+                    if ($devis->getDateLivraison() != null) {
+                        echo "value='" . date('Y-m-d', strtotime($devis->getDateLivraison())) . "'";
+                    } ?>></div>
+            <?php } ?>
             <div class="container">
+
                 <table id="cart" class="table table-hover table-condensed"
                        style="<?php if ($_SESSION['Utilisateur']->getDroit()->getId() == 3 && $devis->getCloture() == 0) {
                            echo "margin-left:-1em;width:120%";
                        } else {
                            echo "margin-left:-1em;width:100%";
                        } ?>;">
-                    <h3 align="center" style="margin-left:-1em;"><span class="alert alert-info"> Etat du devis : <?php echo $clot; ?></span></h3>
+
+                    <h3 align="center" style="margin-left:-1em;margin-top:2em;"><span class="alert alert-info"> Etat du devis : <?php echo $clot; ?></span>
+                    </h3>
                     <caption><h3 align="center">Liste des produits du devis</h3></caption>
                     <thead>
                     <tr>
@@ -81,12 +100,12 @@ if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateu
                             <?php } else { ?>
                                 <th style="width:28%" class="text-center">Quantité</th>
                             <?php } ?>
-                        <?php } else if ($devis->getCloture() == 2) { ?>
+                        <?php } else if ($devis->getCloture() == 3) { ?>
                             <th style="width:8%">Quantité</th>
                             <?php if ($_SESSION['Utilisateur']->getDroit()->getId() != 3) { ?>
-                            <th style="width:15%" class="text-center">Rectifications</th>
+                                <th style="width:15%" class="text-center">Rectifications</th>
                             <?php } ?>
-                        <?php } else if ($devis->getCloture() == 1) {
+                        <?php } else if ($devis->getCloture() == 1 or $devis->getCloture() == 2 or $devis->getCloture() == 4) {
                             echo "<th style='width:23%'  class='text-center'>Quantité</th>";
                         } ?>
                         <th style="width:22%" class="text-center">Sous-total</th>
@@ -125,7 +144,7 @@ if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateu
                                 id="quantity_<?php echo $elem->getProduit()->getId(); ?>"><?php echo $elem->getQuantite(); ?>
                             </td>
 
-                            <?php if (($devis->getCloture() == 2 && $_SESSION['Utilisateur']->getDroit()->getId() != 3) or ($devis->getCloture() == 0 && $_SESSION['Utilisateur']->getDroit()->getId() == 3)) { ?>
+                            <?php if (($devis->getCloture() == 3 && $_SESSION['Utilisateur']->getDroit()->getId() != 3) or ($devis->getCloture() == 0 && $_SESSION['Utilisateur']->getDroit()->getId() == 3)) { ?>
                                 <td data-th="Rectification">
                                     <input type="number" min="1"
                                            <?php if ($_SESSION['Utilisateur']->getDroit()->getId() != 3) { ?>max="<?php echo $elem->getQuantite(); ?>"<?php } ?>
@@ -168,7 +187,7 @@ if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateu
 
                             </td>
                             <td colspan="4">
-                            <input style="width:480px;margin-top:0.5em;" id="prod">
+                                <input style="width:480px;margin-top:0.5em;" id="prod">
                             </td>
                             <td>
                                 <button class="btn btn-success btn-sm" id="addprod" title="Ajouter le produit"
@@ -179,9 +198,14 @@ if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateu
                         </tr>
                     <?php } ?>
                     <tr>
-                        <td data-th="Note" colspan="6"><textarea <?php if ($devis->getCloture() != 0 || ($devis->getCloture() == 0 && $_SESSION['Utilisateur']->getDroit()->getId() != 3)) { echo "disabled"; } ?> name="note" devis="<?php echo $devis->getId(); ?>" id="note" type="text" style="width:850px;height:134px;max-width:850px;" placeholder="Entrez une note pour votre devis "><?php echo $devis->getNote(); ?></textarea>
+                        <td data-th="Note" colspan="6">
+                            <textarea <?php if ($devis->getCloture() != 0 || ($devis->getCloture() == 0 && $_SESSION['Utilisateur']->getDroit()->getId() != 3)) {
+                                echo "disabled";
+                            } ?> name="note" devis="<?php echo $devis->getId(); ?>" id="note" type="text"
+                                 style="width:850px;height:134px;max-width:850px;"
+                                 placeholder="Entrez une note pour votre devis "><?php echo $devis->getNote(); ?></textarea>
                     </tr>
-                        <tr>
+                    <tr>
                         <td><a href=<?php if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) {
                                 echo "../Compte";
                             } else {
@@ -197,7 +221,7 @@ if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateu
                                 <td colspan="2" class="hidden-xs"></td>
                             <?php } else { ?>
                                 <td></td>
-                                <?php } ?>
+                            <?php } ?>
                             <td class="hidden-xs text-center"><strong id="total">Total : <?php echo $somme; ?>
                                     €</strong></td>
                             <td><a class="btn btn-success btn-block"
@@ -206,22 +230,46 @@ if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateu
                                 } else {
                                     echo "id='confirmAchat' > Confirmer la commande";
                                 } ?> <i class="fa fa-angle-right"></i></a></td>
+
                         <?php } else if ($devis->getCloture() == 1) { ?>
 
                             <td colspan='2' class="hidden-xs text-center"><strong id="total">Total
                                     : <?php echo $somme; ?> €</strong></td>
-                            <td><a class="btn btn-danger btn-block  disabled">Devis cloturé</a></td>
+                            <?php if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) { ?>
+                                <td><a class="btn btn-danger btn-block disabled">Devis cloturé</a></td>
+                            <?php } else { ?>
+                                <td><a class="btn btn-success btn-block"
+                                       href="<?php echo $_GET['id']; ?>" id='confirmFinal'> Verrouiller la commande
+                                        <i class="fa fa-angle-right"></i></a></td>
+                            <?php } ?>
+                        <?php } else if ($devis->getCloture() == 4) { ?>
+                            <td colspan='2' class="hidden-xs text-center"><strong id="total">Total
+                                    : <?php echo $somme; ?> €</strong></td>
+                            <td><a class="btn btn-danger btn-block  disabled">Devis cloturé et facturé</a></td>
                         <?php } else if ($devis->getCloture() == 2) { ?>
-
-
                             <?php if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) { ?>
                                 <td colspan="1" class="hidden-xs"></td>
                                 <td class="hidden-xs text-center"><strong id="total">Total : <?php echo $somme; ?>
                                         €</strong></td>
                                 <td><a class="btn btn-danger btn-block  disabled">En cours d'achat</a></td>
                             <?php } else { ?>
+                                <td colspan="1" class="hidden-xs"></td>
+                                <td class="hidden-xs text-center"><strong id="total">Total : <?php echo $somme; ?>
+                                        €</strong>
+                                </td>
+                                <td><a class="btn btn-success btn-block" href="<?php echo $_GET['id']; ?>"
+                                       id="confirmLivraison">Commencer le livraison <i class="fa fa-angle-right"></i></a></td>
+                            <?php }
+                        } else if ($devis->getCloture() == 3) { ?>
+                            <?php if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) { ?>
+                                <td colspan="1" class="hidden-xs"></td>
+                                <td class="hidden-xs text-center"><strong id="total">Total : <?php echo $somme; ?>
+                                        €</strong></td>
+                                <td><a class="btn btn-danger btn-block  disabled">En cours de livraison</a></td>
+                            <?php } else { ?>
                                 <td colspan="2" class="hidden-xs"></td>
-                                <td class="hidden-xs text-center"><strong id="total">Total : <?php echo $somme; ?>€</strong></td>
+                                <td class="hidden-xs text-center"><strong id="total">Total : <?php echo $somme; ?>
+                                        €</strong></td>
                                 <td><a class="btn btn-success btn-block" href="<?php echo $_GET['id']; ?>"
                                        id="confirmClot">Clôturer <i class="fa fa-angle-right"></i></a></td>
 
@@ -239,7 +287,7 @@ if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateu
                 </table>
             </div>
         </div>
-        <?php if ($devis->getCloture() == 1 and file_exists("../Devis/pdf/revision-" . $devis->getId() . ".pdf")) { ?>
+        <?php if (($devis->getCloture() == 1 or $devis->getCloture() == 4) and file_exists("../Devis/pdf/revision-" . $devis->getId() . ".pdf")) { ?>
             <div id="tabs-2" style="border: none; background-color : #f7f3f3;">
                 <iframe src='../Devis/pdf/<?php echo $devis->getId(); ?>.pdf#view=FitH&zoom=100' width='100%'
                         style='height:1000px'></iframe>
@@ -260,10 +308,14 @@ if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateu
     <?php if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) {
         echo "Modifier la commande ?";
     } else {
-        if ($devis->getCloture() == 2) {
+        if ($devis->getCloture() == 3) {
             echo "Clôturer la commande ?";
         } else if ($devis->getCloture() == 0) {
             echo "Voulez-vous verrouiller la commande et débuter l'achat des différents produits présents dedans ?";
+        } else if ($devis->getCloture() == 2) {
+            echo "Commencer la livraison des produits ?";
+        } else if ($devis->getCloture() == 1) {
+            echo "Verrouiller le devis suite à sa facturation ? ";
         }
     }
     ?>
