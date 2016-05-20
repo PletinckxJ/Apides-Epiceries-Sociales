@@ -40,6 +40,26 @@ if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateu
     $(function () {
         $("#tabs").tabs();
     });
+    $.datepicker.setDefaults(
+        {
+            altField: "#datepicker",
+            closeText: 'Fermer',
+            prevText: 'Précédent',
+            firstDay : 1,
+            nextText: 'Suivant',
+            currentText: 'Aujourd\'hui',
+            monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+            monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+            dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+            dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+            dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+            weekHeader: 'Sem.',
+            dateFormat: 'yy-mm-dd'
+        }
+    );
+    $(function(){
+        $('#datepicker').datepicker({showAnim: "fadeIn"});
+    })
 
 </script>
 <div class="facture">
@@ -67,10 +87,9 @@ if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateu
         </ul>
         <div id="tabs-1" style="border: none; width:1000px; background-color : #f7f3f3;">
             <?php if ($devis->getCloture() != 0) { ?>
-                <div style="float:right;"><label for="dateLivr"> Date de livraison prévue : </label><input type="date"
-                                                                                                           id="datepicker" <?php echo "devis='" . $devis->getId() . "'";
+                <div style="float:right;"><label for="dateLivr"> Date de livraison prévue : </label> <input type="date" id="datepicker"  <?php echo "devis='" . $devis->getId() . "'";
                     if ($_SESSION['Utilisateur']->getDroit()->getId() == 3 or $devis->getCloture() == 1 or $devis->getCloture() == 4) {
-                        echo "disabled ";
+                        echo " disabled ";
                     }
                     if ($devis->getDateLivraison() != null) {
                         echo "value='" . date('Y-m-d', strtotime($devis->getDateLivraison())) . "'";
@@ -186,7 +205,7 @@ if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateu
                                 <label for="prod">Ajouter un produit : </label>
 
                             </td>
-                            <td colspan="4">
+                            <td colspan="<?php if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) { echo "4"; } else { echo "3"; } ?>">
                                 <input style="width:480px;margin-top:0.5em;" id="prod">
                             </td>
                             <td>
@@ -198,7 +217,7 @@ if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateu
                         </tr>
                     <?php } ?>
                     <tr>
-                        <td data-th="Note" colspan="6">
+                        <td data-th="Note" colspan="<?php if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) { echo "6"; } else { echo "5"; } ?>">
                             <textarea <?php if ($devis->getCloture() != 0 || ($devis->getCloture() == 0 && $_SESSION['Utilisateur']->getDroit()->getId() != 3)) {
                                 echo "disabled";
                             } ?> name="note" devis="<?php echo $devis->getId(); ?>" id="note" type="text"
@@ -267,8 +286,8 @@ if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateu
                                         €</strong></td>
                                 <td><a class="btn btn-danger btn-block  disabled">En cours de livraison</a></td>
                             <?php } else { ?>
-                                <td colspan="2" class="hidden-xs"></td>
-                                <td class="hidden-xs text-center"><strong id="total">Total : <?php echo $somme; ?>
+                                <td colspan="1" class="hidden-xs"></td>
+                                <td colspan="2" class="hidden-xs text-center"><strong id="total">Total : <?php echo $somme; ?>
                                         €</strong></td>
                                 <td><a class="btn btn-success btn-block" href="<?php echo $_GET['id']; ?>"
                                        id="confirmClot">Clôturer <i class="fa fa-angle-right"></i></a></td>
