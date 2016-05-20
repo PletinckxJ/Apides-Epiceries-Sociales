@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e060873d-9773-46ac-9c0c-3ab0f4f70612" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HTML/Administration/AdministrationDevis.php" afterPath="$PROJECT_DIR$/HTML/Administration/AdministrationDevis.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/DevisManager.manager.php" afterPath="$PROJECT_DIR$/Manager/DevisManager.manager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Library/Page/Facture.lib.php" afterPath="$PROJECT_DIR$/Library/Page/Facture.lib.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HTML/Head.php" afterPath="$PROJECT_DIR$/HTML/Head.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Library/Page/Panier.lib.php" afterPath="$PROJECT_DIR$/Library/Page/Panier.lib.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/cart.js" afterPath="$PROJECT_DIR$/js/cart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HTML/Commande/commandeContent.php" afterPath="$PROJECT_DIR$/HTML/Commande/commandeContent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Form/contact.form.php" afterPath="$PROJECT_DIR$/Form/contact.form.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Library/Page/contact.lib.php" afterPath="$PROJECT_DIR$/Library/Page/contact.lib.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HTML/Contact/contactContent.php" afterPath="$PROJECT_DIR$/HTML/Contact/contactContent.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/devis.js" afterPath="$PROJECT_DIR$/js/devis.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Library/Page/devis.lib.php" afterPath="$PROJECT_DIR$/Library/Page/devis.lib.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HTML/Devis/devisContent.php" afterPath="$PROJECT_DIR$/HTML/Devis/devisContent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HTML/Boutique/ficheProduit.php" afterPath="$PROJECT_DIR$/HTML/Boutique/ficheProduit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Achat/index.php" afterPath="$PROJECT_DIR$/Achat/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Devis/index.php" afterPath="$PROJECT_DIR$/Devis/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Style/privateCSS.css" afterPath="$PROJECT_DIR$/Style/privateCSS.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HTML/Achat/showCart.php" afterPath="$PROJECT_DIR$/HTML/Achat/showCart.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Style/style.css" afterPath="$PROJECT_DIR$/Style/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Apides-Epiceries-Sociales.iws" />
@@ -91,7 +72,7 @@
       <file leaf-file-name="devisContent.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HTML/Devis/devisContent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7585799">
+            <state vertical-scroll-proportion="-2.5005918">
               <caret line="75" column="37" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#tfoot#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -113,12 +94,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="privateCSS.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Style/privateCSS.css">
+      <file leaf-file-name="Facture.lib.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Library/Page/Facture.lib.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-              <folding />
+            <state vertical-scroll-proportion="-12.653846">
+              <caret line="49" column="61" selection-start-line="49" selection-start-column="61" selection-end-line="49" selection-end-column="61" />
+              <folding>
+                <element signature="e#6#88#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -199,9 +182,9 @@
         <entry file="file://$PROJECT_DIR$/js/devis.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+              <caret line="115" column="102" selection-start-line="115" selection-start-column="102" selection-end-line="115" selection-end-column="102" />
               <folding>
-                <marker date="1463753032131" expanded="true" signature="3710:3729" placeholder="..." />
+                <marker date="1463755515361" expanded="true" signature="3782:3801" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -274,7 +257,6 @@
         <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/Library/Page/Panier.lib.php" />
         <option value="$PROJECT_DIR$/Devis/index.php" />
-        <option value="$PROJECT_DIR$/Library/Page/Facture.lib.php" />
         <option value="$PROJECT_DIR$/Achat/index.php" />
         <option value="$PROJECT_DIR$/Style/style.css" />
         <option value="$PROJECT_DIR$/HTML/Administration/AdministrationDevis.php" />
@@ -282,9 +264,10 @@
         <option value="$PROJECT_DIR$/HTML/Head.php" />
         <option value="$PROJECT_DIR$/Style/privateCSS.css" />
         <option value="$PROJECT_DIR$/Library/Page/devis.lib.php" />
-        <option value="$PROJECT_DIR$/js/devis.js" />
         <option value="$PROJECT_DIR$/Manager/DevisManager.manager.php" />
         <option value="$PROJECT_DIR$/HTML/Devis/devisContent.php" />
+        <option value="$PROJECT_DIR$/Library/Page/Facture.lib.php" />
+        <option value="$PROJECT_DIR$/js/devis.js" />
       </list>
     </option>
   </component>
@@ -1317,16 +1300,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Library/Page/Facture.lib.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.115385">
-          <caret line="303" column="34" selection-start-line="303" selection-start-column="34" selection-end-line="303" selection-end-column="34" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HTML/Administration/AdministrationDevis.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.692307">
@@ -1434,19 +1407,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Library/Page/Facture.lib.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.653846">
+          <caret line="49" column="61" selection-start-line="49" selection-start-column="61" selection-end-line="49" selection-end-column="61" />
+          <folding>
+            <element signature="e#6#88#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/devis.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+          <caret line="115" column="102" selection-start-line="115" selection-start-column="102" selection-end-line="115" selection-end-column="102" />
           <folding>
-            <marker date="1463753032131" expanded="true" signature="3710:3729" placeholder="..." />
+            <marker date="1463755515361" expanded="true" signature="3782:3801" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HTML/Devis/devisContent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7585799">
+        <state vertical-scroll-proportion="-2.5005918">
           <caret line="75" column="37" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
           <folding>
             <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#tfoot#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />

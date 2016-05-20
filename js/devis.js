@@ -113,7 +113,7 @@ function deleteProduit(id, devis) {
 function lancerCloturation(id) {
     var achat = {};
     $('input').each(function() {
-        if ($(this).val() != "") {
+        if ($(this).val() != "" && $(this).attr('id') != 'datepicker' && $(this).attr('name') != "note") {
             achat[$(this).attr("name")] = $(this).val();
         }
     });
