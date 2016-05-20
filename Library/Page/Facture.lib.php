@@ -127,10 +127,15 @@ if ((isset ($_SESSION['Devis']) && $different) || (!isset($_SESSION['Devis']) &&
     $p = 2;
     $pm = new ProduitManager(connexionDb());
     $actualProd = array();
+    if (isset($_SESSION['Cloture'])) {
+        $tempTab = $_SESSION['Cloture'];
+    } else if (isset($_SESSION['Achat'])) {
+        $tempTab = $_SESSION['Achat'];
+    }
     do {
         if (!isset($_SESSION['Devis'])) {
 
-            foreach ($_SESSION['Achat'] as $key => $value) {
+            foreach ($tempTab as $key => $value) {
                 $prod = $pm->getProduitById($key);
 
                 if ($prod->getId() != NULL) {
@@ -149,13 +154,13 @@ if ((isset ($_SESSION['Devis']) && $different) || (!isset($_SESSION['Devis']) &&
                     $actualProd[] = $achat;
                 }
 
-                unset($_SESSION['Achat'][$key]);
+                unset($tempTab[$key]);
                 if (($count % 14) == 0) break;
 
             }
         } else if (isset($_SESSION['Devis'])) {
 
-            foreach ($_SESSION['Cloture'] as $key => $value) {
+            foreach ($tempTab as $key => $value) {
                 $prod = $pm->getProduitById($key);
 
                 if ($prod->getId() != NULL) {
@@ -174,7 +179,7 @@ if ((isset ($_SESSION['Devis']) && $different) || (!isset($_SESSION['Devis']) &&
                     $actualProd[] = $achat;
                 }
 
-                unset($_SESSION['Cloture'][$key]);
+                unset($tempTab[$key]);
                 if (($count % 14) == 0) break;
 
             }
@@ -271,14 +276,14 @@ if ((isset ($_SESSION['Devis']) && $different) || (!isset($_SESSION['Devis']) &&
     $pdf->addTVAs($params, $tab_tva, $tot_prods);
     $pdf->addCadreEurosFrancs();
     if (!isset($_SESSION['Devis'])) {
-        $_SESSION['Achat'] = $actualProd;
+        $_SESSION['tempAchat'] = $actualProd;
         $devis = new Devis(array(
             "date_emission" => date("d/m/Y"),
             "num_devis" => $year . " \\ " . ($actualNum + 1)
         ));
-        $_SESSION['Devis'] = $devis;
+        $_SESSION['tempDev'] = $devis;
     } else {
-        $_SESSION['Cloture'] = $actualProd;
+        $_SESSION['tempSess'] = $actualProd;
 
     }
     $_SESSION['pdf'] = $pdf;
@@ -295,15 +300,19 @@ if ((isset ($_SESSION['Devis']) && $different) || (!isset($_SESSION['Devis']) &&
     require_once('../Function/fpdf/fpdi.php');
     require_once('../Function/fpdf/fpdf.php');
     $pdf = new FPDI();
-    $pdf->AddPage();
-    unset($_SESSION['Cloture']);
+    $numProd = count($_SESSION['Cloture']);
+    $numPages = (int) $numProd/14;
     unset($_SESSION['pdf']);
     $pdf->setSourceFile("../../Devis/pdf/" . $_SESSION['Devis']->getId() . ".pdf");
 // import page 1
-    $tplIdx = $pdf->importPage(1);
-//use the imported page and place it at point 0,0; calculate width and height
-//automaticallay and ajust the page size to the size of the imported page
-    $pdf->useTemplate($tplIdx, 0, 0, 0, 0, true);
+    $counter = 1;
+    while ($counter <= $numPages+1) {
+        $pdf->AddPage();
+        $tplIdx = $pdf->importPage($counter);
+        $pdf->useTemplate($tplIdx, 0, 0, 0, 0, true);
+
+        $counter++;
+    }
     $pdf->Output();
 }
 

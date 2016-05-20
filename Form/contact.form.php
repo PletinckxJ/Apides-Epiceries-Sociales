@@ -22,4 +22,8 @@
     <div class="form_row">
         <button type="submit"  name="sendmess" id="btnCompte">Envoyer</button><br><br>
     </div>
+    <?php
+    echo sendContact();
+    ?>
 </form>
+

@@ -44,10 +44,10 @@ require('../Function/Database.lib.php');
     } else if (isset($_POST['action']) && $_POST['action'] == 'devis') {
         $dm = new DevisManager(connexionDb());
         $am = new AchatManager(connexionDb());
-        $_SESSION['Devis']->setNote($_SESSION['Note']);
-        $dm->insertDevis($_SESSION['Devis']);
-        $devis = $dm->getDevisByNum($_SESSION['Devis']->getNumeroDevis());
-        foreach ($_SESSION['Achat'] as $elem) {
+        $_SESSION['tempDev']->setNote($_SESSION['Note']);
+        $dm->insertDevis($_SESSION['tempDev']);
+        $devis = $dm->getDevisByNum($_SESSION['tempDev']->getNumeroDevis());
+        foreach ($_SESSION['tempAchat'] as $elem) {
             $am->setProduitDevis($elem, $devis);
         }
         $_SESSION['pdf']->Output("../../Devis/pdf/".$devis->getId().".pdf", "F");
@@ -55,6 +55,7 @@ require('../Function/Database.lib.php');
         $am->deleteAllUtilisateurAchat($_SESSION['Utilisateur']->getId());
         unset($_SESSION['Note']);
         unset($_SESSION['pdf']);
-        unset($_SESSION['Devis']);
+        unset($_SESSION['tempDev']);
+        unset($_SESSION['tempAchat']);
     }
 

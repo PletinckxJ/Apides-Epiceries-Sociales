@@ -35,8 +35,8 @@ if (isset($_POST['session'])) {
     $_SESSION['Devis'] = $dm->getDevisById($_POST['devis']);
 } else if (isset($_POST['action']) && $_POST['action'] == 'devis') {
     $devis = $_SESSION['Devis'];
-    if (isset($_SESSION['Cloture'])) {
-        $tabAchat = $_SESSION['Cloture'];
+    if (isset($_SESSION['tempSess'])) {
+        $tabAchat = $_SESSION['tempSess'];
         $am = new AchatManager(connexionDb());
         foreach ($tabAchat as $elem) {
             $am->modifyProduitDevisQuantity($elem, $devis);
@@ -53,7 +53,7 @@ if (isset($_POST['session'])) {
 
         }
 
-         unset($_SESSION['Cloture']);
+         unset($_SESSION['tempSess']);
     }
 
     unset($_SESSION['Devis']);

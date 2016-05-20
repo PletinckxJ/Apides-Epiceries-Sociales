@@ -27,7 +27,7 @@ echo "<table align='center' id='example'>";
 <?php
 foreach ($tabDevis as $elem) {
     if ($elem->getCloture() == 0) {
-        $cloture = "En cours";
+        $cloture = "Ouvert";
     } else if ($elem->getCloture() == 1) {
         $cloture = "Cloturé";
     } else if ($elem->getCloture() == 2) {

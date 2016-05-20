@@ -24,8 +24,8 @@ ob_start();
     <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css" />
     <script src="../Style/bootstrap-3.3.6-dist/js/bootstrap.min.js"
-    <script type=text/javascript" class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script type="text/javascript" class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+    <script type=text/javascript" class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../js/readURL.js"></script>
     <script type="text/javascript" src="../js/jquery-1.12.3.js"></script>
     <script type="text/javascript" src="../js/jquery-2.2.3.min.js"></script>

@@ -13,6 +13,8 @@ include("../HTML/Header.php");
 unset($_SESSION['Devis']);
 unset($_SESSION['pdf']);
 unset($_SESSION['Cloture']);
+unset($_SESSION['tempSess']);
+unset($_SESSION['Achat']);
 
 ?>
 

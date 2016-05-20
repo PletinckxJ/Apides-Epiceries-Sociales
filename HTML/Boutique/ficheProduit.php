@@ -53,7 +53,7 @@ foreach ($produitList as $elem) {
                     Prix de vente conseillé :  <span class="blue"><?php echo $vente; ?> €</span><br />
                     Quantité : <span class="blue"><?php echo $produit->getPoids(); ?></span><br />
                     Groupement : <span class="blue"><?php echo $produit->getGroupement(); ?></span><br />
-                    <?php if ($produit->getTextePromo() != NULL && $produit->getTextePromo() != "") {
+                    <?php if ($produit->getTextePromo() != NULL && $produit->getTextePromo() != "" && $produit->getPromo() == 1) {
                         echo "Promotion : <span class='blue'>".$produit->getTextePromo()."</span><br />";
                     }
                     ?>

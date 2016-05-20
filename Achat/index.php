@@ -12,6 +12,9 @@ include("../HTML/Header.php");
 startSession();
 unset($_SESSION['Devis']);
 unset($_SESSION['pdf']);
+unset($_SESSION['tempAchat']);
+unset($_SESSION['tempDev']);
+unset($_SESSION['Cloture']);
 ?>
 
 <?php

@@ -592,6 +592,7 @@ span.border_cart {
     height: 220px;
     float: left;
     padding: 10px 10px 10px 11px;
+    margin-bottom : 3px;
 }
 
 .top_prod_box {
@@ -614,7 +615,7 @@ span.border_cart {
 
 .center_prod_box {
     width: 173px;
-    height: 174px;
+    height: 185px;
     background: url(images/product_box_center.gif) repeat-y;
     float: left;
     text-align: center;

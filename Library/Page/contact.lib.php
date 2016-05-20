@@ -17,10 +17,10 @@ function sendContact() {
         $message .= "\n\n <div style='background-color:#9dbed0;height:35px;width:700px;'><div style='margin:2em;padding:1em;'><strong>Provenant de la page</strong><a href='". $_SERVER["HTTP_REFERER"]."'> " . $_SERVER["HTTP_REFERER"]."</a></div></div><br><br>";
         $message .= "\n\n <strong>Date </strong> : " . date("Y-m-d h:i:s")."<br><br>";
         $message .= "\n\n <strong>Utilisateur </strong> : ".$_SESSION['Utilisateur']->getNomSociete()." | ".$_SESSION['Utilisateur']->getContact()."";
-        $siteEmail = 'stephanemonard@centrale-achat-apides.be';
+        $siteEmail = 'centrale_achat@apides.be';
         $emailTitle = 'Message provenant de la centrale d\'achats';
         mail($siteEmail,$emailTitle,$message,$entete);
-        return "<span class='alert alert-success' style='margin-left:23em'>Message envoyé ! Nous vous répondrons bientôt.</span>";
+        return "<span class='alert alert-success' style='margin-left:9.5em;'>Message envoyé ! Nous vous répondrons bientôt.</span>";
     }
 
 

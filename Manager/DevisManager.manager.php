@@ -163,7 +163,7 @@ class DevisManager {
         $query = $this->db->prepare("update devis set date_livraison = :dateliv WHERE id=:id");
         $query->execute(array(
             ":id" => $devis,
-            ":dateliv" => $date
+            ":dateliv" => date("Y-m-d", strtotime($date))
         ));
     }
     public function deleteDevis($id) {

@@ -76,7 +76,9 @@ function deleteAchat(id, user) {
 
 
     });
-    location.reload();
+    setTimeout(function() {
+        location.reload();
+    },350);
 
 }
 
@@ -117,6 +119,8 @@ function startCommande() {
         }
 
     });
+    setTimeout(function() {
     window.location.href = "../Commande";
+    },350);
 
 }

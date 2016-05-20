@@ -10,6 +10,6 @@
 <div class="facture">
     <?php
     include("../Form/contact.form.php");
-    echo sendContact();
+
     ?>
 </div>

@@ -29,8 +29,8 @@
             <thead>
             <tr>
                 <th style="width:50%">Produit</th>
-                <th style="width:10%">Prix</th>
-                <th style="width:8%">Quantité</th>
+                <th style="width:10%" class="text-center">Prix</th>
+                <th style="width:8%" class="text-center">Quantité</th>
                 <th style="width:22%" class="text-center">Sous-total</th>
                 <th style="width:10%"></th>
             </tr>
