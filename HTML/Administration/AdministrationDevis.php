@@ -26,22 +26,24 @@ echo "<table align='center' id='example'>";
     <tbody>
 <?php
 foreach ($tabDevis as $elem) {
-    if ($elem->getCloture() == 0) {
-        $cloture = "Ouvert";
-    } else if ($elem->getCloture() == 1) {
-        $cloture = "Cloturé";
-    } else if ($elem->getCloture() == 2) {
-        $cloture = "En cours d'achat";
-    } else if ($elem->getCloture() == 3) {
-        $cloture = "En cours de livraison";
-    } else {
-        $cloture = "Facturé";
-    }
+    if ($elem->getCloture() != 5) {
+        if ($elem->getCloture() == 0) {
+            $cloture = "Ouvert";
+        } else if ($elem->getCloture() == 1) {
+            $cloture = "Cloturé";
+        } else if ($elem->getCloture() == 2) {
+            $cloture = "En cours d'achat";
+        } else if ($elem->getCloture() == 3) {
+            $cloture = "En cours de livraison";
+        } else {
+            $cloture = "Facturé";
+        }
 
-    $user = $um->getUserById($dm->getDevisUser($elem->getId()));
-    echo "<tr><td>" . $elem->getNumeroDevis()."</td><td>".date('d/m/Y', strtotime($elem->getDateEmission()))."</td><td>".$user->getNomSociete()."</td><td>" . $cloture . "</td>
+        $user = $um->getUserById($dm->getDevisUser($elem->getId()));
+        echo "<tr><td>" . $elem->getNumeroDevis() . "</td><td>" . date('d/m/Y', strtotime($elem->getDateEmission())) . "</td><td>" . $user->getNomSociete() . "</td><td>" . $cloture . "</td>
             <td><a href='../Devis/index.php?id=" . $elem->getId() . "' title='Opérations sur ce devis'>
             <img src='../../Style/images/Edit_user.png' height='32' width='32' alt='Opérations sur ce devis' /></a></td></tr>";
+    }
 }
 
 echo "</tbody>";

@@ -13,9 +13,11 @@ if (!isConnect()) {
 
 <div id="main_container">
     <div id="header">
+        <?php /**
         <div id="logo"><a href="#"><img src="../Style/images/logo_apides_site1.png" alt="" border="0" width="350"
                                         height="140"/></a></div>
         <!-- end of oferte_content-->
+ */ ?>
     </div>
     <div id="main_content">
         <div id="menu_tab">

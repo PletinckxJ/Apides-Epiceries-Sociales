@@ -167,7 +167,7 @@ class DevisManager {
         ));
     }
     public function deleteDevis($id) {
-        $query = $this->db->prepare("DELETE FROM devis where id = :id");
+        $query = $this->db->prepare("update devis set cloture = 5 WHERE id=:id");
         $query->execute(array(
             ":id" => $id
         ));

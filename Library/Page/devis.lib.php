@@ -142,5 +142,16 @@ if (isset($_POST['session'])) {
     $dm->modifyNote($_POST['note'], $_POST['noteDev']);
 } else if (isset($_POST['dateLivr'])) {
     $dm->modifyLivraison($_POST['dateLivr'], $_POST['dateDev']);
+} else if (isset($_POST['devis']) && $_POST['action'] == "deleteDevis") {
+    $am = new AchatManager(connexionDb());
+    $am->deleteAllProduitFromDevis($_POST['devis']);
+    $dm->deleteDevis($_POST['devis']);
+    unlink("../../Devis/pdf/".$_POST['devis'].".pdf");
+    if ($_SESSION['Utilisateur']->getDroit()->getId() < 3) {
+        print "admin";
+    } else {
+        print "user";
+    }
+
 }
 

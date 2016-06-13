@@ -10,6 +10,10 @@ $(document).ready(function() {
         autoOpen: false,
         modal: true
     });
+    $("#dialog3").dialog({
+        autoOpen: false,
+        modal: true
+    });
 });
 
 $(".confirmLink").click(function(e) {
@@ -124,6 +128,24 @@ $("#confirmTransfer").click(function(e) {
     });
 
     $("#dialog").dialog("open");
+});
+$("#deleteDevis").click(function(e) {
+    e.preventDefault();
+    var targetUrl = $(this).attr("href");
+
+    $("#dialog3").dialog({
+        buttons : {
+            "Oui": function() {
+                deleteDevis(targetUrl);
+                $(this).dialog("close");
+            },
+            "Non" : function() {
+                $(this).dialog("close");
+            }
+        }
+    });
+
+    $("#dialog3").dialog("open");
 });
 $("#confirmClot").click(function(e) {
     e.preventDefault();

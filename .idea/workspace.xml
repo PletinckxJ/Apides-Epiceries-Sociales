@@ -2,7 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e060873d-9773-46ac-9c0c-3ab0f4f70612" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/datepicker.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/AchatManager.manager.php" afterPath="$PROJECT_DIR$/Manager/AchatManager.manager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HTML/Administration/AdministrationDevis.php" afterPath="$PROJECT_DIR$/HTML/Administration/AdministrationDevis.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/DevisManager.manager.php" afterPath="$PROJECT_DIR$/Manager/DevisManager.manager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HTML/Header.php" afterPath="$PROJECT_DIR$/HTML/Header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HTML/Administration/MemberAdministrationList.php" afterPath="$PROJECT_DIR$/HTML/Administration/MemberAdministrationList.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HTML/Commande/commandeContent.php" afterPath="$PROJECT_DIR$/HTML/Commande/commandeContent.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/devis.js" afterPath="$PROJECT_DIR$/js/devis.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Library/Page/devis.lib.php" afterPath="$PROJECT_DIR$/Library/Page/devis.lib.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HTML/Devis/devisContent.php" afterPath="$PROJECT_DIR$/HTML/Devis/devisContent.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/dialogBox.js" afterPath="$PROJECT_DIR$/js/dialogBox.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Accueil/index.php" afterPath="$PROJECT_DIR$/Accueil/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/administration/index.php" afterPath="$PROJECT_DIR$/administration/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Form/modifyUser.form.php" afterPath="$PROJECT_DIR$/Form/modifyUser.form.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Style/style.css" afterPath="$PROJECT_DIR$/Style/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Apides-Epiceries-Sociales.iws" />
@@ -36,11 +53,7 @@
         <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - apides@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="apides" />
+        <option name="myItemId" value="MySQL - centraleulroot@localhost" />
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
@@ -50,15 +63,11 @@
         <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - apides@localhost" />
+        <option name="myItemId" value="MySQL - centraleulroot@localhost" />
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="apides" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="produit_marque" />
+        <option name="myItemId" value="centraleulroot" />
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
@@ -69,84 +78,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="Head.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HTML/Head.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.9230769">
+              <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="67" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="devisContent.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HTML/Devis/devisContent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.5005918">
-              <caret line="75" column="37" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.4224852">
+              <caret line="69" column="165" selection-start-line="69" selection-start-column="165" selection-end-line="69" selection-end-column="165" />
               <folding>
-                <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#tfoot#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#td#2;n#tr#1;n#tfoot#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <marker date="1463754100723" expanded="true" signature="6166:6175" placeholder="..." />
-                <marker date="1463754100723" expanded="true" signature="11527:11574" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="footer.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Style/footer.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Facture.lib.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Library/Page/Facture.lib.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.653846">
-              <caret line="49" column="61" selection-start-line="49" selection-start-column="61" selection-end-line="49" selection-end-column="61" />
-              <folding>
-                <element signature="e#6#88#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Style/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.8965516">
-              <caret line="594" column="24" selection-start-line="594" selection-start-column="24" selection-end-line="594" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="devis.lib.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Library/Page/devis.lib.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-26.615385">
-              <caret line="143" column="4" selection-start-line="143" selection-start-column="4" selection-end-line="143" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DevisManager.manager.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Manager/DevisManager.manager.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-25.961538">
-              <caret line="170" column="30" selection-start-line="170" selection-start-column="30" selection-end-line="170" selection-end-column="30" />
-              <folding>
-                <marker date="1463753206587" expanded="true" signature="417:453" placeholder="SELECT * FRO..devis..." />
-                <marker date="1463753206587" expanded="true" signature="790:824" placeholder="SELECT * FRO..devis..." />
-                <marker date="1463753206587" expanded="true" signature="1178:1220" placeholder="SELECT * FRO..devis..." />
-                <marker date="1463753206587" expanded="true" signature="1595:1683" placeholder="SELECT id_de..utilisateur_devis..." />
-                <marker date="1463753206587" expanded="true" signature="2115:2180" placeholder="SELECT id_ut..utilisateur_devis..." />
-                <marker date="1463753206587" expanded="true" signature="2542:2625" placeholder="INSERT INTO ..." />
-                <marker date="1463753206587" expanded="true" signature="2829:2907" placeholder="INSERT INTO ..." />
-                <marker date="1463753206587" expanded="true" signature="3136:3178" placeholder="update devis..." />
-                <marker date="1463753206587" expanded="true" signature="3374:3466" placeholder="update devis..." />
-                <marker date="1463753206587" expanded="true" signature="3784:3825" placeholder="update devis..." />
-                <marker date="1463753206587" expanded="true" signature="3985:4026" placeholder="update devis..." />
-                <marker date="1463753206587" expanded="true" signature="4189:4230" placeholder="update devis..." />
-                <marker date="1463753206587" expanded="true" signature="4389:4430" placeholder="update devis..." />
-                <marker date="1463753206587" expanded="true" signature="4598:4653" placeholder="update devis..." />
-                <marker date="1463753206587" expanded="true" signature="4869:4901" placeholder="DELETE FROM ..." />
+                <element signature="n#style#0;n#a#0;n#li#3;n#ul#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <marker date="1465831739622" expanded="true" signature="6034:6043" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -155,24 +108,23 @@
       <file leaf-file-name="commandeContent.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HTML/Commande/commandeContent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.076923">
-              <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+            <state vertical-scroll-proportion="-3.9230769">
+              <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
               <folding>
-                <element signature="e#6#88#0#PHP" expanded="true" />
-                <marker date="1463750839598" expanded="true" signature="720:736" placeholder="..." />
-                <marker date="1463750839598" expanded="true" signature="1689:2051" placeholder="..." />
-                <marker date="1463750839598" expanded="true" signature="1838:2046" placeholder="..." />
-                <marker date="1463750839598" expanded="true" signature="1925:2041" placeholder="..." />
+                <marker date="1465831393302" expanded="true" signature="720:736" placeholder="..." />
+                <marker date="1465831393302" expanded="true" signature="1785:2147" placeholder="..." />
+                <marker date="1465831393302" expanded="true" signature="1934:2142" placeholder="..." />
+                <marker date="1465831393302" expanded="true" signature="2021:2137" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Head.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HTML/Head.php">
+      <file leaf-file-name="dialogBox.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/dialogBox.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.730769">
-              <caret line="26" column="58" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -182,19 +134,94 @@
         <entry file="file://$PROJECT_DIR$/js/devis.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="115" column="102" selection-start-line="115" selection-start-column="102" selection-end-line="115" selection-end-column="102" />
+              <caret line="247" column="12" selection-start-line="247" selection-start-column="12" selection-end-line="247" selection-end-column="12" />
               <folding>
-                <marker date="1463755515361" expanded="true" signature="3782:3801" placeholder="..." />
+                <marker date="1465830575846" expanded="true" signature="3782:3801" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Achat/index.php">
+      <file leaf-file-name="devis.lib.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Library/Page/devis.lib.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.1923075">
-              <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+            <state vertical-scroll-proportion="-27.26923">
+              <caret line="155" column="1" selection-start-line="155" selection-start-column="1" selection-end-line="155" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DevisManager.manager.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Manager/DevisManager.manager.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-16.5">
+              <caret line="154" column="5" selection-start-line="154" selection-start-column="5" selection-end-line="154" selection-end-column="5" />
+              <folding>
+                <marker date="1465830208609" expanded="true" signature="417:453" placeholder="SELECT * FRO..devis..." />
+                <marker date="1465830208609" expanded="true" signature="790:824" placeholder="SELECT * FRO..devis..." />
+                <marker date="1465830208609" expanded="true" signature="1178:1220" placeholder="SELECT * FRO..devis..." />
+                <marker date="1465830208609" expanded="true" signature="1595:1683" placeholder="SELECT id_de..utilisateur_devis..." />
+                <marker date="1465830208609" expanded="true" signature="2115:2180" placeholder="SELECT id_ut..utilisateur_devis..." />
+                <marker date="1465830208609" expanded="true" signature="2542:2625" placeholder="INSERT INTO ..." />
+                <marker date="1465830208609" expanded="true" signature="2829:2907" placeholder="INSERT INTO ..." />
+                <marker date="1465830208609" expanded="true" signature="3136:3178" placeholder="update devis..." />
+                <marker date="1465830208609" expanded="true" signature="3374:3466" placeholder="update devis..." />
+                <marker date="1465830208609" expanded="true" signature="3784:3825" placeholder="update devis..." />
+                <marker date="1465830208609" expanded="true" signature="3985:4026" placeholder="update devis..." />
+                <marker date="1465830208609" expanded="true" signature="4189:4230" placeholder="update devis..." />
+                <marker date="1465830208609" expanded="true" signature="4389:4430" placeholder="update devis..." />
+                <marker date="1465830208609" expanded="true" signature="4598:4653" placeholder="update devis..." />
+                <marker date="1465830208609" expanded="true" signature="4869:4910" placeholder="update devis..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdministrationDevis.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HTML/Administration/AdministrationDevis.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.115385">
+              <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+              <folding>
+                <marker date="1465830861292" expanded="true" signature="250:266" placeholder="..." />
+                <marker date="1465830861292" expanded="true" signature="1080:1481" placeholder="..." />
+                <marker date="1465830861292" expanded="true" signature="1268:1476" placeholder="..." />
+                <marker date="1465830861292" expanded="true" signature="1355:1471" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AchatManager.manager.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Manager/AchatManager.manager.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-28.576923">
+              <caret line="187" column="1" selection-start-line="187" selection-start-column="1" selection-end-line="187" selection-end-column="1" />
+              <folding>
+                <marker date="1465830068305" expanded="true" signature="457:517" placeholder="SELECT * FRO..beneficiaire_achat..." />
+                <marker date="1465830068305" expanded="true" signature="1056:1139" placeholder="SELECT sum(q..produit_devis..." />
+                <marker date="1465830068305" expanded="true" signature="1643:1694" placeholder="SELECT * FRO..utilisateur_achat..." />
+                <marker date="1465830068305" expanded="true" signature="2247:2295" placeholder="SELECT * FRO..produit_devis..." />
+                <marker date="1465830068305" expanded="true" signature="2854:2936" placeholder="SELECT * FRO..utilisateur_achat..." />
+                <marker date="1465830068305" expanded="true" signature="3650:3728" placeholder="DELETE FROM ..." />
+                <marker date="1465830068305" expanded="true" signature="3949:4002" placeholder="DELETE FROM ..." />
+                <marker date="1465830068305" expanded="true" signature="4193:4287" placeholder="INSERT INTO ..." />
+                <marker date="1465830068305" expanded="true" signature="4547:4650" placeholder="INSERT INTO ..." />
+                <marker date="1465830068305" expanded="true" signature="4960:5051" placeholder="UPDATE produ..." />
+                <marker date="1465830068305" expanded="true" signature="5344:5419" placeholder="DELETE FROM ..." />
+                <marker date="1465830068305" expanded="true" signature="5633:5682" placeholder="DELETE FROM ..." />
+                <marker date="1465830068305" expanded="true" signature="5633:5684" placeholder="DELETE FROM ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="modifyUser.form.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Form/modifyUser.form.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.3076923">
+              <caret line="7" column="54" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -217,10 +244,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Library/Page/administration.lib.php" />
-        <option value="$PROJECT_DIR$/Library/Page/compte.lib.php" />
-        <option value="$PROJECT_DIR$/Manager/UserManager.manager.php" />
-        <option value="$PROJECT_DIR$/HTML/Administration/AdministrationContent.php" />
         <option value="$PROJECT_DIR$/Library/Function/getProduit.php" />
         <option value="$PROJECT_DIR$/Form/modifyProduit.form.php" />
         <option value="$PROJECT_DIR$/Form/createProduit.form.php" />
@@ -230,14 +253,11 @@
         <option value="$PROJECT_DIR$/index.php/index.php" />
         <option value="$PROJECT_DIR$/HTML/Administration/AdministrationModifyProduit.php" />
         <option value="$PROJECT_DIR$/Library/Function/fpdf/fpdf.php" />
-        <option value="$PROJECT_DIR$/Manager/AchatManager.manager.php" />
         <option value="$PROJECT_DIR$/HTML/Administration/AdministrationRightList.php" />
         <option value="$PROJECT_DIR$/Library/Function/Require.lib.php" />
-        <option value="$PROJECT_DIR$/Accueil/index.php" />
         <option value="$PROJECT_DIR$/Commande/index.php" />
         <option value="$PROJECT_DIR$/HTML/Compte/CompteContent.php" />
         <option value="$PROJECT_DIR$/Style/bootstrap-3.3.6-dist/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/HTML/Header.php" />
         <option value="$PROJECT_DIR$/Manager/ProduitManager.manager.php" />
         <option value="$PROJECT_DIR$/Library/Function/Function.lib.php" />
         <option value="$PROJECT_DIR$/HTML/Boutique/affichageBoutique.php" />
@@ -247,7 +267,6 @@
         <option value="$PROJECT_DIR$/js/favoris.js" />
         <option value="$PROJECT_DIR$/Library/Page/produits.lib.php" />
         <option value="$PROJECT_DIR$/Entity/Devis.class.php" />
-        <option value="$PROJECT_DIR$/js/dialogBox.js" />
         <option value="$PROJECT_DIR$/HTML/Boutique/ficheProduit.php" />
         <option value="$PROJECT_DIR$/HTML/Contact/contactContent.php" />
         <option value="$PROJECT_DIR$/Form/contact.form.php" />
@@ -258,16 +277,24 @@
         <option value="$PROJECT_DIR$/Library/Page/Panier.lib.php" />
         <option value="$PROJECT_DIR$/Devis/index.php" />
         <option value="$PROJECT_DIR$/Achat/index.php" />
-        <option value="$PROJECT_DIR$/Style/style.css" />
-        <option value="$PROJECT_DIR$/HTML/Administration/AdministrationDevis.php" />
-        <option value="$PROJECT_DIR$/HTML/Commande/commandeContent.php" />
         <option value="$PROJECT_DIR$/HTML/Head.php" />
         <option value="$PROJECT_DIR$/Style/privateCSS.css" />
-        <option value="$PROJECT_DIR$/Library/Page/devis.lib.php" />
-        <option value="$PROJECT_DIR$/Manager/DevisManager.manager.php" />
-        <option value="$PROJECT_DIR$/HTML/Devis/devisContent.php" />
+        <option value="$PROJECT_DIR$/HTML/Header.php" />
+        <option value="$PROJECT_DIR$/Style/style.css" />
+        <option value="$PROJECT_DIR$/Accueil/index.php" />
+        <option value="$PROJECT_DIR$/administration/index.php" />
         <option value="$PROJECT_DIR$/Library/Page/Facture.lib.php" />
+        <option value="$PROJECT_DIR$/Form/modifyUser.form.php" />
+        <option value="$PROJECT_DIR$/HTML/Administration/MemberAdministrationList.php" />
+        <option value="$PROJECT_DIR$/js/datepicker.js" />
+        <option value="$PROJECT_DIR$/js/dialogBox.js" />
+        <option value="$PROJECT_DIR$/Manager/AchatManager.manager.php" />
+        <option value="$PROJECT_DIR$/Manager/DevisManager.manager.php" />
         <option value="$PROJECT_DIR$/js/devis.js" />
+        <option value="$PROJECT_DIR$/HTML/Administration/AdministrationDevis.php" />
+        <option value="$PROJECT_DIR$/Library/Page/devis.lib.php" />
+        <option value="$PROJECT_DIR$/HTML/Commande/commandeContent.php" />
+        <option value="$PROJECT_DIR$/HTML/Devis/devisContent.php" />
       </list>
     </option>
   </component>
@@ -311,6 +338,34 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Apides-Epiceries-Sociales">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Apides-Epiceries-Sociales">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Entity">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -357,29 +412,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="bootstrap-3.3.6-dist" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Apides-Epiceries-Sociales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Apides-Epiceries-Sociales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Style" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bootstrap-3.3.6-dist" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -737,6 +770,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="administration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Apides-Epiceries-Sociales" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Apides-Epiceries-Sociales" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Activation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -771,41 +818,13 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Apides-Epiceries-Sociales">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Apides-Epiceries-Sociales">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Entity">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../IntegrationTP_Groupe_1/Projet/Web" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="dynamic.classpath" value="false" />
     <property name="FullScreen" value="false" />
     <property name="settings.editor.selected.configurable" value="SQL Dialects" />
@@ -914,25 +933,25 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26492536" sideWeight="0.4955357" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27025586" sideWeight="0.4955357" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20758928" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34371525" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3192436" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.50446427" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3192436" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20758928" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -974,161 +993,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/HTML/Administration/NavigationAdministration.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/Administration/AdministrationRightList.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Library/Function/Require.lib.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.653847">
-          <caret line="46" column="47" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
-          <folding>
-            <element signature="e#6#86#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/AchatManager.manager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.9701314">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Accueil/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.307692">
-          <caret line="53" column="86" selection-start-line="53" selection-start-column="86" selection-end-line="53" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Compte/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="22" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Style/bootstrap-3.3.6-dist/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.2352943">
-          <caret line="1584" column="10" selection-start-line="1584" selection-start-column="1" selection-end-line="1584" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/Header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.769231">
-          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Commande/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/ProduitManager.manager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.692307">
-          <caret line="345" column="118" selection-start-line="345" selection-start-column="118" selection-end-line="345" selection-end-column="118" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/Panier.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.153847">
-          <caret line="41" column="96" selection-start-line="41" selection-start-column="96" selection-end-line="41" selection-end-column="96" />
-          <folding>
-            <element signature="e#1727#1744#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/Achat/AchatContent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Library/Page/recuperation.lib.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Library/Function/prodList.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1827957">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="28" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/boxOver.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.391433">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/windowopen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/favoris.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/Boutique/productContent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3076923">
-          <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HTML/Boutique/favoris.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.77572966">
           <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="false" />
-            <element signature="e#659#678#0#HTML" expanded="false" />
-            <element signature="e#833#850#0#HTML" expanded="false" />
-            <element signature="e#904#921#0#HTML" expanded="false" />
-            <element signature="e#952#969#0#HTML" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1136,7 +1004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.47004607">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1151,7 +1018,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1159,7 +1025,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="61" column="5" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1175,7 +1040,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.961538">
           <caret line="160" column="44" selection-start-line="160" selection-start-column="44" selection-end-line="160" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1183,15 +1047,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.615385">
           <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/dialogBox.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="100" column="32" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1199,7 +1054,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.576923">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1207,7 +1061,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.730769">
           <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1215,11 +1068,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.461538">
           <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-          <folding>
-            <marker date="1463692918932" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1463692918932" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1463692918932" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1227,13 +1075,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-18.961538">
           <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
-          <folding>
-            <element signature="e#814#831#0#HTML" expanded="true" />
-            <element signature="e#865#882#0#HTML" expanded="true" />
-            <element signature="e#933#949#0#HTML" expanded="true" />
-            <element signature="e#1004#1021#0#HTML" expanded="true" />
-            <element signature="e#1078#1095#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1241,9 +1082,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-20.653847">
           <caret line="53" column="21" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
-          <folding>
-            <marker date="1463152662159" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1251,10 +1089,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.423077">
           <caret line="42" column="54" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <marker date="1463341360628" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1262,7 +1096,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1278,17 +1111,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34319526">
           <caret line="364" column="9" selection-start-line="364" selection-start-column="9" selection-end-line="364" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/cart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="102" column="4" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="20" />
-          <folding>
-            <marker date="1463694389336" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1296,20 +1118,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.5384617">
           <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/Administration/AdministrationDevis.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.692307">
-          <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
-          <folding>
-            <marker date="1463750831439" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1463750831439" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1463750831439" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1463750831439" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1325,23 +1133,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Style/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8965516">
-          <caret line="594" column="24" selection-start-line="594" selection-start-column="24" selection-end-line="594" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/Head.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.730769">
-          <caret line="26" column="58" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1349,53 +1140,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.1923075">
           <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Library/Page/devis.lib.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.615385">
-          <caret line="143" column="4" selection-start-line="143" selection-start-column="4" selection-end-line="143" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/Commande/commandeContent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.076923">
-          <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="true" />
-            <marker date="1463750839598" expanded="true" signature="720:736" placeholder="..." />
-            <marker date="1463750839598" expanded="true" signature="1689:2051" placeholder="..." />
-            <marker date="1463750839598" expanded="true" signature="1838:2046" placeholder="..." />
-            <marker date="1463750839598" expanded="true" signature="1925:2041" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/DevisManager.manager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.961538">
-          <caret line="170" column="30" selection-start-line="170" selection-start-column="30" selection-end-line="170" selection-end-column="30" />
-          <folding>
-            <marker date="1463753206587" expanded="true" signature="417:453" placeholder="SELECT * FRO..devis..." />
-            <marker date="1463753206587" expanded="true" signature="790:824" placeholder="SELECT * FRO..devis..." />
-            <marker date="1463753206587" expanded="true" signature="1178:1220" placeholder="SELECT * FRO..devis..." />
-            <marker date="1463753206587" expanded="true" signature="1595:1683" placeholder="SELECT id_de..utilisateur_devis..." />
-            <marker date="1463753206587" expanded="true" signature="2115:2180" placeholder="SELECT id_ut..utilisateur_devis..." />
-            <marker date="1463753206587" expanded="true" signature="2542:2625" placeholder="INSERT INTO ..." />
-            <marker date="1463753206587" expanded="true" signature="2829:2907" placeholder="INSERT INTO ..." />
-            <marker date="1463753206587" expanded="true" signature="3136:3178" placeholder="update devis..." />
-            <marker date="1463753206587" expanded="true" signature="3374:3466" placeholder="update devis..." />
-            <marker date="1463753206587" expanded="true" signature="3784:3825" placeholder="update devis..." />
-            <marker date="1463753206587" expanded="true" signature="3985:4026" placeholder="update devis..." />
-            <marker date="1463753206587" expanded="true" signature="4189:4230" placeholder="update devis..." />
-            <marker date="1463753206587" expanded="true" signature="4389:4430" placeholder="update devis..." />
-            <marker date="1463753206587" expanded="true" signature="4598:4653" placeholder="update devis..." />
-            <marker date="1463753206587" expanded="true" signature="4869:4901" placeholder="DELETE FROM ..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1403,39 +1147,417 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/cart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="102" column="4" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/pagination.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/dynamicSearch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Style/images/bann1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Style/images/bann2.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Style/images/addtofav.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Style/images/addtocart.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML/Header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+          <folding>
+            <element signature="e#216#440#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Style/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="32" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Accueil/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/administration/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="2" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="2" />
+          <folding>
+            <marker date="1464699991355" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/85f67634-4a77-45f6-bf49-abf44dd38302/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f9fc2ce2-98d7-4b4c-813c-223c4f24932c/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/f9fc2ce2-98d7-4b4c-813c-223c4f24932c.schema:centraleulroot">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>f9fc2ce2-98d7-4b4c-813c-223c4f24932c.schema:centraleulroot</OriginalElement>
+          <nodes>
+            <node x="1162.838409286961" y="541.484267864659">f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.fournisseur</node>
+            <node x="945.8636614141956" y="637.5764207209318">f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produit_fournisseur</node>
+            <node x="979.2888509766749" y="287.74181958322083">f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.sections</node>
+            <node x="162.13617421779566" y="655.2051722768031">f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produit_devis</node>
+            <node x="0.0" y="809.625013161554">f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.devis</node>
+            <node x="819.0813490459329" y="1459.0277226725034">f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.activation</node>
+            <node x="177.29647542220275" y="1233.5405620630804">f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.utilisateur_favoris</node>
+            <node x="602.0789393764627" y="937.7760504017358">f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.utilisateur_achat</node>
+            <node x="607.2052737749389" y="305.0942454470812">f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produit_marque</node>
+            <node x="20.205770848296766" y="1082.2074933566596">f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.utilisateur_devis</node>
+            <node x="407.1037009275278" y="607.6494561610693">f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produits</node>
+            <node x="722.2114103404417" y="108.89311276183071">f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.marque</node>
+            <node x="411.92608659847764" y="0.0">f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.taux_tva</node>
+            <node x="585.7908061841258" y="1622.9375638719143">f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.utilisateur_droit</node>
+            <node x="375.2995710540173" y="240.63513537479878">f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produit_tva</node>
+            <node x="707.065165546084" y="1830.3067446261234">f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.droit</node>
+            <node x="804.7906050243761" y="442.55430765005474">f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produit_section</node>
+            <node x="397.103700927528" y="1092.4651434579378">f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.utilisateur</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.utilisateur_devis" target="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.devis">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produit_fournisseur" target="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produits">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.utilisateur_devis" target="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.utilisateur">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produit_tva" target="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produits">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produit_devis" target="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produits">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.activation" target="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.utilisateur">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.utilisateur_achat" target="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produits">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.utilisateur_achat" target="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.utilisateur">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.utilisateur_droit" target="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.utilisateur">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.utilisateur_droit" target="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.droit">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.utilisateur_favoris" target="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.utilisateur">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produit_marque" target="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produits">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produit_devis" target="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.devis">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produit_section" target="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produits">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produit_marque" target="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.marque">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.utilisateur_favoris" target="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produits">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produit_tva" target="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.taux_tva">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produit_section" target="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.sections">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produit_fournisseur" target="f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.fournisseur">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.7863055697496167" x="285.0" y="475.0" />
+          <SelectedNodes>
+            <node>f9fc2ce2-98d7-4b4c-813c-223c4f24932c.table:centraleulroot.produit_fournisseur</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Columns</Category>
+            <Category>Key columns</Category>
+          </Categories>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Library/Page/Facture.lib.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.653846">
-          <caret line="49" column="61" selection-start-line="49" selection-start-column="61" selection-end-line="49" selection-end-column="61" />
+        <state vertical-scroll-proportion="-15.692307">
+          <caret line="74" column="46" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Form/modifyProfil.form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617">
+          <caret line="15" column="99" selection-start-line="15" selection-start-column="99" selection-end-line="15" selection-end-column="99" />
           <folding>
-            <element signature="e#6#88#0#PHP" expanded="true" />
+            <marker date="1462531933547" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML/Administration/MemberAdministrationList.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.769231">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <marker date="1465827839701" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1465827839701" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1465827839701" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1465827839701" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML/Head.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9230769">
+          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/datepicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17566016">
+          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#47#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Form/modifyUser.form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3076923">
+          <caret line="7" column="54" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/ProduitManager.manager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..produits..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..produits..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..produits..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..produits..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..produits..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..produits..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..produit_marque..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..produit_tva..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..produit_fournisseur..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..produit_section..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="UPDATE produ..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="UPDATE produ..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="UPDATE produ..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="UPDATE produ..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..utilisateur_favoris..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..utilisateur_favoris..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1463152662182" expanded="true" signature="-1:-1" placeholder="UPDATE produ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/AchatManager.manager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-28.576923">
+          <caret line="187" column="1" selection-start-line="187" selection-start-column="1" selection-end-line="187" selection-end-column="1" />
+          <folding>
+            <marker date="1465830068305" expanded="true" signature="457:517" placeholder="SELECT * FRO..beneficiaire_achat..." />
+            <marker date="1465830068305" expanded="true" signature="1056:1139" placeholder="SELECT sum(q..produit_devis..." />
+            <marker date="1465830068305" expanded="true" signature="1643:1694" placeholder="SELECT * FRO..utilisateur_achat..." />
+            <marker date="1465830068305" expanded="true" signature="2247:2295" placeholder="SELECT * FRO..produit_devis..." />
+            <marker date="1465830068305" expanded="true" signature="2854:2936" placeholder="SELECT * FRO..utilisateur_achat..." />
+            <marker date="1465830068305" expanded="true" signature="3650:3728" placeholder="DELETE FROM ..." />
+            <marker date="1465830068305" expanded="true" signature="3949:4002" placeholder="DELETE FROM ..." />
+            <marker date="1465830068305" expanded="true" signature="4193:4287" placeholder="INSERT INTO ..." />
+            <marker date="1465830068305" expanded="true" signature="4547:4650" placeholder="INSERT INTO ..." />
+            <marker date="1465830068305" expanded="true" signature="4960:5051" placeholder="UPDATE produ..." />
+            <marker date="1465830068305" expanded="true" signature="5344:5419" placeholder="DELETE FROM ..." />
+            <marker date="1465830068305" expanded="true" signature="5633:5682" placeholder="DELETE FROM ..." />
+            <marker date="1465830068305" expanded="true" signature="5633:5684" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/dialogBox.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/devis.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="115" column="102" selection-start-line="115" selection-start-column="102" selection-end-line="115" selection-end-column="102" />
+          <caret line="247" column="12" selection-start-line="247" selection-start-column="12" selection-end-line="247" selection-end-column="12" />
           <folding>
-            <marker date="1463755515361" expanded="true" signature="3782:3801" placeholder="..." />
+            <marker date="1465830575846" expanded="true" signature="3782:3801" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/DevisManager.manager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.5">
+          <caret line="154" column="5" selection-start-line="154" selection-start-column="5" selection-end-line="154" selection-end-column="5" />
+          <folding>
+            <marker date="1465830208609" expanded="true" signature="417:453" placeholder="SELECT * FRO..devis..." />
+            <marker date="1465830208609" expanded="true" signature="790:824" placeholder="SELECT * FRO..devis..." />
+            <marker date="1465830208609" expanded="true" signature="1178:1220" placeholder="SELECT * FRO..devis..." />
+            <marker date="1465830208609" expanded="true" signature="1595:1683" placeholder="SELECT id_de..utilisateur_devis..." />
+            <marker date="1465830208609" expanded="true" signature="2115:2180" placeholder="SELECT id_ut..utilisateur_devis..." />
+            <marker date="1465830208609" expanded="true" signature="2542:2625" placeholder="INSERT INTO ..." />
+            <marker date="1465830208609" expanded="true" signature="2829:2907" placeholder="INSERT INTO ..." />
+            <marker date="1465830208609" expanded="true" signature="3136:3178" placeholder="update devis..." />
+            <marker date="1465830208609" expanded="true" signature="3374:3466" placeholder="update devis..." />
+            <marker date="1465830208609" expanded="true" signature="3784:3825" placeholder="update devis..." />
+            <marker date="1465830208609" expanded="true" signature="3985:4026" placeholder="update devis..." />
+            <marker date="1465830208609" expanded="true" signature="4189:4230" placeholder="update devis..." />
+            <marker date="1465830208609" expanded="true" signature="4389:4430" placeholder="update devis..." />
+            <marker date="1465830208609" expanded="true" signature="4598:4653" placeholder="update devis..." />
+            <marker date="1465830208609" expanded="true" signature="4869:4910" placeholder="update devis..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML/Administration/AdministrationDevis.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.115385">
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+          <folding>
+            <marker date="1465830861292" expanded="true" signature="250:266" placeholder="..." />
+            <marker date="1465830861292" expanded="true" signature="1080:1481" placeholder="..." />
+            <marker date="1465830861292" expanded="true" signature="1268:1476" placeholder="..." />
+            <marker date="1465830861292" expanded="true" signature="1355:1471" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Library/Page/devis.lib.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-27.26923">
+          <caret line="155" column="1" selection-start-line="155" selection-start-column="1" selection-end-line="155" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML/Commande/commandeContent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9230769">
+          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+          <folding>
+            <marker date="1465831393302" expanded="true" signature="720:736" placeholder="..." />
+            <marker date="1465831393302" expanded="true" signature="1785:2147" placeholder="..." />
+            <marker date="1465831393302" expanded="true" signature="1934:2142" placeholder="..." />
+            <marker date="1465831393302" expanded="true" signature="2021:2137" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HTML/Devis/devisContent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5005918">
-          <caret line="75" column="37" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.4224852">
+          <caret line="69" column="165" selection-start-line="69" selection-start-column="165" selection-end-line="69" selection-end-column="165" />
           <folding>
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#tfoot#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#td#2;n#tr#1;n#tfoot#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <marker date="1463754100723" expanded="true" signature="6166:6175" placeholder="..." />
-            <marker date="1463754100723" expanded="true" signature="11527:11574" placeholder="..." />
+            <element signature="n#style#0;n#a#0;n#li#3;n#ul#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <marker date="1465831739622" expanded="true" signature="6034:6043" placeholder="..." />
           </folding>
         </state>
       </provider>

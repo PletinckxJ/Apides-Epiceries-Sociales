@@ -34,34 +34,12 @@ switch ($devis->getCloture()) {
 if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateur']->getDroit()->getId() == 3) {
     header('Location :../Deconnexion');
 }
+if ($devis->getCloture() == 5) {
+    header('Location :../Accueil');
+}
 ?>
 <div class="crumb_navigation"> Navigation: <span class="current">Home</span></div>
-<script>
-    $(function () {
-        $("#tabs").tabs();
-    });
-    $.datepicker.setDefaults(
-        {
-            altField: "#datepicker",
-            closeText: 'Fermer',
-            prevText: 'Précédent',
-            firstDay : 1,
-            nextText: 'Suivant',
-            currentText: 'Aujourd\'hui',
-            monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-            monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
-            dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
-            dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
-            dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
-            weekHeader: 'Sem.',
-            dateFormat: 'yy-mm-dd'
-        }
-    );
-    $(function(){
-        $('#datepicker').datepicker({showAnim: "fadeIn"});
-    })
-
-</script>
+<script type="text/javascript" src="../js/datepicker.js"></script>
 <div class="facture">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="../Style/bootstrap-3.3.6-dist/css/bootstrap.css" rel="stylesheet">
@@ -86,6 +64,13 @@ if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateu
             <?php } ?>
         </ul>
         <div id="tabs-1" style="border: none; width:1000px; background-color : #f7f3f3;">
+            <?php if ($devis->getCloture() == 0 && $_SESSION['Utilisateur']->getDroit()->getId() == 3) { ?>
+                <div style="float:right"><a class="btn btn-danger btn-block" href="<?php echo $_GET['id']; ?>"
+                   id="deleteDevis"><i class="fa fa-times"></i>  Supprimer mon devis </a></div>
+            <?php } else if ($_SESSION['Utilisateur']->getDroit()->getId() < 3 && $devis->getCloture() != 1 && $devis->getCloture() != 4 && $devis->getCloture() != 3) { ?>
+                <div style="float:left"><a class="btn btn-danger btn-block" href="<?php echo $_GET['id']; ?>"
+                                            id="deleteDevis"><i class="fa fa-times"></i>  Supprimer le devis </a></div>
+            <?php } ?>
             <?php if ($devis->getCloture() != 0) { ?>
                 <div style="float:right;"><label for="dateLivr"> Date de livraison prévue : </label> <input type="date" id="datepicker"  <?php echo "devis='" . $devis->getId() . "'";
                     if ($_SESSION['Utilisateur']->getDroit()->getId() == 3 or $devis->getCloture() == 1 or $devis->getCloture() == 4) {
@@ -323,6 +308,18 @@ if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateu
         <?php } ?>
     </div>
 </div>
+
+<script>
+    $(function () {
+        $("#prod").autocomplete({
+            source: '../Library/Function/prodList.php',
+            max: 10
+        });
+    });
+
+
+</script>
+
 <div id="dialog" title="Confirmation requise">
     <?php if ($_SESSION['Utilisateur']->getDroit()->getId() == 3) {
         echo "Modifier la commande ?";
@@ -339,17 +336,10 @@ if ($user->getId() != $_SESSION['Utilisateur']->getId() && $_SESSION['Utilisateu
     }
     ?>
 </div>
-<script>
-    $(function () {
-        $("#prod").autocomplete({
-            source: '../Library/Function/prodList.php',
-            max: 10,
-        });
-    });
-
-
-</script>
-<div id="dialog2" title="Confirmation require">
+<div id="dialog2" title="Confirmation requise">
     La suppression de ce produit étant le dernier de votre devis, supprimera le devis, êtes-vous certain ?
+</div>
+<div id="dialog3" title="Confirmation requise">
+    Êtes-vous sûr de vouloir supprimer ce devis ? Cette action est définitive !
 </div>
 <script type="text/javascript" src="../js/dialogBox.js"></script>

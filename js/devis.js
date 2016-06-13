@@ -224,7 +224,26 @@ $(function() {
     });
 });
 
+function deleteDevis(devis) {
+    $.ajax({
+        url: '../Library/Page/devis.lib.php',
+        type: "POST",
+        data : {
+            action : 'deleteDevis',
+            devis : devis
+        },
+        success:function (data) {
+            console.log(data);
+            if (data == "user") {
+                window.location.href = "../Commande";
+            } else if (data = "admin") {
+                window.location.href = "../Administration/index.php?page=devis";
+            }
+        }
 
+    });
+
+}
 function startCloturation() {
     $.ajax({
         url: '../Library/Page/devis.lib.php',

@@ -178,4 +178,11 @@ class AchatManager {
             ":produit" => $produit
         ));
     }
+
+    public function deleteAllProduitFromDevis($devis) {
+        $query = $this->db->prepare("DELETE FROM produit_devis WHERE id_devis = :devis");
+        $query->execute(array(
+            ":devis" => $devis
+        ));
+    }
 }

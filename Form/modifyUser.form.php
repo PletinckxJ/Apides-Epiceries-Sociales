@@ -5,7 +5,9 @@
  * Date: 11-04-16
  * Time: 14:15
  */
-
+if ($_SESSION['Utilisateur']->getDroit()->getId() != 1 && $user->getDroit()->getId() == 1) {
+    header("Location :../Administration");
+}
 echo "<form action='index.php?page=modifyUser&id=$id' method='post' class='formCreation'>";
 ?>
     <label class="contact" for="name"><strong>Nom de société :</strong></label>
@@ -17,18 +19,20 @@ echo "<form action='index.php?page=modifyUser&id=$id' method='post' class='formC
     <label class="contact" for="mail"><strong>Mail :</strong></label>
     <input type="email" class="contact_input" id="mail" name="mail" value="<?php echo $user->getMail(); ?>" required>
     <label class="contact" for="grade"><strong>Grade :</strong></label>
-    <select name='grade' id='grade' class="contact_input">
+    <select name='grade' id='grade' class="contact_input" <?php if ($user->getDroit()->getId() == 1 || $_SESSION['Utilisateur']->getDroit()->getId() != 1) { echo "disabled"; } ?>>
         <?php
 
             foreach($tabDroit as $elem) {
+                if ($user->getDroit()->getId() != 1 && $elem->getId() != 1 || $user->getDroit()->getId() == 1) {
+                    if ($elem->getId() == $user->getDroit()->getId()) {
+                        echo "<option value='" . $elem->getId() . "' selected>" . $elem->getLibelle() . "</option>";
 
-            if ($elem->getId() == $user->getDroit()->getId()) {
-            echo "<option value='". $elem->getId() ."' selected>". $elem->getLibelle() ."</option>";
+                    } else {
+                        echo "<option value='" . $elem->getId() . "'>" . $elem->getLibelle() . "</option>";
 
-            } else {
-            echo "<option value='". $elem->getId() ."'>". $elem->getLibelle() ."</option>";
+                    }
+                }
 
-            }
 
 
 
