@@ -40,8 +40,10 @@ foreach ($produitList as $elem) {
     <div class="prod_box_big">
         <div class="top_prod_box_big"></div>
         <div class="center_prod_box_big">
-            <div class="product_img_big"> <img style="max-height:300px; max-width:180px;" src="../Style/images/produits/<?php echo $produit->getId() .".png" ?>" alt="" border="0" />
-
+            <div class="product_img_big"> <img style="max-height:300px; max-width:180px;" src="../Style/images/produits/<?php echo $produit->getId() .".png" ?>" alt="" border="0" /><br><br>
+                <?php if ($_SESSION['Utilisateur']->getDroit()->getId() < 3) { ?>
+            <a href="../Administration/index.php?page=modifyProduit&id=<?php echo $produit->getId(); ?>"><button class="administrationButton"> Administrer ce produit</button></a>
+                <?php } ?>
             </div>
             <div class="details_big_box" style="padding-left:2em; padding-top : 1em;">
                 <div class="product_title_big"><?php echo $produit->getProduit(); ?></div>

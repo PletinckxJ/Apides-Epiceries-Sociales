@@ -32,62 +32,13 @@ $sm = new SectionManager(connexionDb());
 $tabSection = $sm->getAllSection();
 ?>
 <div class="pageCrea">
-<script>
-    function test() {
-        console.log($("input#scanner").val())
-    }
-    $(document).click(function(event) {
-        var x = window.scrollX, y = window.scrollY;
-        if (event.target.nodeName != "INPUT" && event.target.nodeName != "LABEL" && event.target.nodeName != "STRONG" && event.target.nodeName != "SELECT" && event.target.nodeName != "BUTTON" && event.target.id != "radio") {
-            console.log(event.target.nodeName);
-            $("input#scanner").focus();
+    <script type="text/javascript" src="../js/createProduit.js"></script>
+    <script>
+        function test() {
+            //console.log($("input#scanner").val());
+            decode($("input#scanner").val())
         }
-        window.scrollTo(x, y);
-    });
-    function getprod() {
-        var val = $("input#code").val();
-        var cache;
-        if (val != "" && val != null) {
-            $.ajax({
-                url: "../Library/Function/getProduit.php",
-                type :  "POST",
-                data: {
-                    valeur: val
-                },
-                success: function (data) {
-                    if (data != "" && data != null) {
-                        $.ajax({
-                            url: "../Form/modifyProduit.form.php",
-                            type: "POST",
-                            data: {
-                                id: data
-                            },
-                            success: function (output) {
-                                test = output;
-                                $("div#formcontent").html(output);
-                                $("div.center_title_bar").html("Modification d'un produit existant");
-                            }
-                        });
-                    }
-                }
-            });
-
-        } else {
-            $.ajax({
-                url: "../Form/createProduit.form.php",
-                type: "POST",
-                data: {
-                    action: "cherche"
-                },
-                success: function (output) {
-                    $("div.pageCrea").html(output);
-                    $("div.center_title_bar").html("Création d'un produit");
-                }
-            });
-        }
-    }
-
-</script>
+    </script>
 
 <input type="text" id="scanner" name="scanner"style="width:500px;position:absolute;margin-top:-10000px" autofocus oninput="setTimeout(test,1000);">
 <div id="formcontent">
